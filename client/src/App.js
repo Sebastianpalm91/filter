@@ -5,10 +5,9 @@ import Footer from './Components/Footer/footer';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Footer></Footer>
-      </div>
-
+        <div className="App">
+            <Footer></Footer>
+        </div>
     );
   }
 }
