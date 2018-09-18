@@ -6,10 +6,6 @@ export const Container = styled.div`
     right: 40px;
 `;
 
-export const Wrapper = styled.div`
-    height: 100%;
-`;
-
 /*
     Paths
 */
@@ -41,7 +37,7 @@ export const Toggle = styled.svg`
             transform: translateX(-60px);
             pointer-events: none;
             opacity: 0;
-            transition: 0.2s ease-out;
+            transition: 0.5s ease-out;
         ` : ''}
     }
     ${Line}:nth-child(3) {
