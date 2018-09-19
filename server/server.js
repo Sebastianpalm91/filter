@@ -4,6 +4,10 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const path = require('path');
+
+require(path.join(__dirname + '/models/article'))
+
 
 mongoose.Promise = global.Promise;
 
@@ -18,10 +22,15 @@ mongoose.connect(process.env.MONGODB_URI,  { useNewUrlParser: true },  (err) => 
 const app = express();
 
 app.use(cors());
-app.use('*', cors());
+app.options('*', cors());
 
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
+
+
+
+const router = require('./routes');
+app.use('/', router);
 
 
 const port = process.env.PORT;
