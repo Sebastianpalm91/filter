@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import './styles.css';
 
-import React from 'react'
-import PropTypes from 'prop-types'
+import Article from '../Pages/article/article'
+import Home from '../Pages/Home/home.js';
 
-import ENTER_COMPONENT_NAME from 'ENTER_COMPONENT_NAME';
 
 class Routing extends Component {
     render () {
@@ -20,10 +18,8 @@ class Routing extends Component {
                     >
                         <section className="route-section">
                             <Switch location={this.props.location}>
-                                <Route exact path='/' /*component={ENTER_COMPONENT_NAME}*/ render={() => <ENTER_COMPONENT_NAME  />}/>
-                                <Route exact path='/' render={() => <ENTER_COMPONENT_NAME  />}/>
-                                <Route exact path='/' component={ENTER_COMPONENT_NAME}/>
-                                <Route exact path='/' component={ENTER_COMPONENT_NAME}/>
+                                <Route exact path='/' component={Home} />
+                                <Route exact path='/articles/:title' component={Article} />
                             </Switch>
                         </section>
                     </CSSTransition>

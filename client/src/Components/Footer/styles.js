@@ -4,6 +4,4 @@ export const FooterContainer = styled.div `
     background-color: red;
     height: 150px;
     width: 100vw;
-    position: absolute;
-    bottom: 0;
 `
