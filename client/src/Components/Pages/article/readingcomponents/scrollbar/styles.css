@@ -17,3 +17,17 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+.scrollBar {
+    height: 200px;
+    width: 5px;
+    border: 1px solid black;
+    position: fixed;
+    left: 100px;
+}
+
+.scrollIndication {
+    height: 5px;
+    width: 6px;
+    background: black;
+}

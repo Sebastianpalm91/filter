@@ -6,15 +6,15 @@ class ReadingView extends Component {
 
     render() {
         return (
-            <Container>
-                <ScrollBar>
-                <Wrapper isReadingView={true}>
-                    <Title isReadingView={true}>{this.props.title}</Title>
-                    <Tag isReadingView={true}>{this.props.tag}<Published isReadingView={true}>{this.props.published_at}</Published></Tag>
-                    <Paragraph isReadingView={true}>{this.props.article}</Paragraph>
-                </Wrapper>
-                </ScrollBar>
-            </Container>
+                <Container>
+                    <ScrollBar>
+                    </ScrollBar>
+                    <Wrapper isReadingView={true}>
+                        <Title isReadingView={true}>{this.props.title}</Title>
+                        <Tag isReadingView={true}>{this.props.tag}<Published isReadingView={true}>{this.props.published_at}</Published></Tag>
+                        <Paragraph isReadingView={true}>{this.props.article}</Paragraph>
+                    </Wrapper>
+                </Container>
         );
     }
 
