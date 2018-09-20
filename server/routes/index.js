@@ -16,7 +16,7 @@ router.get('/articles/:title', async (req, res) => {
 
         res.json(article).status('200');
     } catch (err) {
-        res.json({ asd: 2 }).status('500');
+        res.json({ err }).status('500');
     }
 });
 
