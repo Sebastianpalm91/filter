@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Title, Paragraph, Container, Wrapper } from './styles';
 
 class Article extends Component {
 
@@ -19,8 +20,12 @@ class Article extends Component {
 
     render() {
         return (
-            <div>
-            </div>
+            <Container>
+                <Wrapper>
+                <Title>{this.props.title}</Title>
+                <Paragraph>{this.props.article}</Paragraph>
+                </Wrapper>
+            </Container>
         );
     }
 
