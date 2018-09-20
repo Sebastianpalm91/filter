@@ -10,20 +10,34 @@ export const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 80%;
+    width: ${({isReadingView}) => isReadingView ? "60%": "80%"};
 `
 export const Title = styled.h1`
     color: black;
-    fontSize: 24px;
+    font-size: 36px;
     color: ${({isReadingView}) => isReadingView ? "red": "black"};
-        border: none;
-        border-radius: 3px;
+    line-height: 28px;
+`
+
+export const Tag = styled.span`
+    color: black;
+    font-size: 24px;
+    color: ${({isReadingView}) => isReadingView ? "red": "black"};
+    line-height: 28px;
+`
+
+export const Published = styled.span`
+    color: black;
+    font-size: 24px;
+    color: ${({isReadingView}) => isReadingView ? "red": "black"};
+    line-height: 28px;
 `
 
 export const Paragraph = styled.p`
     color: black;
-    fontSize: 42px;
+    font-size: 16px;
     color: ${({isReadingView}) => isReadingView ? "red": "black"};
-        border: none;
-        border-radius: 3px;
+    line-height: 28px;
+
+
 `

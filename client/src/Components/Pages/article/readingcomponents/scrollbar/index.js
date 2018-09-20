@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container, Wrapper, Title, Paragraph, Tag, Published } from '../../article/styles';
 
 
-class ReadingView extends Component {
+class ScrollBar extends Component {
 
     render() {
         return (
@@ -18,4 +18,4 @@ class ReadingView extends Component {
 
 }
 
-export default ReadingView;
+export default ScrollBar;

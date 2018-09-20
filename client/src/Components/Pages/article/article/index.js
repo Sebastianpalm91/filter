@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Title, Paragraph, Container, Wrapper } from './styles';
+import { Title, Paragraph, Container, Wrapper, Published, Tag } from './styles';
 
 class Article extends Component {
 
@@ -22,8 +22,9 @@ class Article extends Component {
         return (
             <Container>
                 <Wrapper>
-                <Title>{this.props.title}</Title>
-                <Paragraph>{this.props.article}</Paragraph>
+                    <Title>{this.props.title}</Title>
+                    <Tag>{this.props.tag}<Published>{this.props.published_at}</Published></Tag>
+                    <Paragraph>{this.props.article}</Paragraph>
                 </Wrapper>
             </Container>
         );
