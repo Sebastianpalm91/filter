@@ -1,6 +1,6 @@
 export default class Request {
 
-    async get(uri) {
+    static async get(uri) {
         try {
             const res = await fetch(uri, {
                 method: 'GET',
@@ -12,7 +12,7 @@ export default class Request {
             const data = res.json();
 
             return data;
-        } catch (e) {
+        } catch (error) {
             throw error;
         }
     }
@@ -29,7 +29,7 @@ export default class Request {
             const data = res.json();
 
             return data;
-        } catch (e) {
+        } catch (error) {
             throw error;
         }
     }
@@ -48,7 +48,7 @@ export default class Request {
             const data = await res.json();
 
             return data;
-        } catch (e) {
+        } catch (error) {
             throw error;
         }
     }
@@ -64,7 +64,7 @@ export default class Request {
             const data = await res.json();
 
             return data;
-        } catch (e) {
+        } catch (error) {
             throw error;
         }
     }

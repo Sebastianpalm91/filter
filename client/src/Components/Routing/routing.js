@@ -3,7 +3,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import './styles.css';
 
-import Article from '../Pages/article/article'
+import ArticleContainer from '../Pages/article/'
 import Home from '../Pages/Home/home.js';
 
 
@@ -19,7 +19,7 @@ class Routing extends Component {
                         <section className="route-section">
                             <Switch location={this.props.location}>
                                 <Route exact path='/' component={Home} />
-                                <Route exact path='/articles/:title' component={Article} />
+                                <Route exact path='/articles/:title' component={ArticleContainer} />
                             </Switch>
                         </section>
                     </CSSTransition>

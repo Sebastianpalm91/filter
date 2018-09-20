@@ -18,8 +18,6 @@ class Article extends Component {
     }
 
     render() {
-        const title = this.props.match.params.title;
-        console.log(title);
         return (
             <div>
             </div>
