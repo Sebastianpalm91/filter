@@ -8,7 +8,7 @@ router.get('/articles/:title', async (req, res) => {
     try {
         const title = req.params.title.replace('-', ' ');
 
-        const article = await ArticleModel.findOne({ Title: title });
+        const article = await ArticleModel.findOne({ title });
 
         if (!article) {
             res.json({ err: 'ingen artikel hittad' }).status('404');
@@ -16,9 +16,9 @@ router.get('/articles/:title', async (req, res) => {
 
         res.json(article).status('200');
     } catch (err) {
-        res.json({ err }).status('500');
+        res.json({ asd: 2 }).status('500');
     }
-})
+});
 
 
 router.get('/articles', async (req, res) => {
