@@ -1,5 +1,6 @@
 
 const scrollBar = document.querySelector('.scrollbar');
+// const scrollIndication = document.querySelector('.scrollIndication');
 
 function getScrollPercent() {
    var h = document.documentElement,
@@ -10,7 +11,6 @@ function getScrollPercent() {
 }
 
 window.addEventListener('scroll', e => {
-    const scrollIndication = document.querySelector('.scrollIndication');
-    getScrollPercent(scrollIndication);
+    getScrollPercent();
     console.log(getScrollPercent());
 })

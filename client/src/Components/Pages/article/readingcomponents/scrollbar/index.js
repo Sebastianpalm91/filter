@@ -9,9 +9,11 @@ class ScrollBar extends Component {
     render() {
         return (
             <Container>
+                <div className="scrollContainer">
                     <div className="scrollBar">
-                        <div className="scrollIndication"></div>
+                        <div className="inner"></div>
                     </div>
+                </div>
             </Container>
         );
     }
