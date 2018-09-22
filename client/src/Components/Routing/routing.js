@@ -5,6 +5,7 @@ import './styles.css';
 
 import ArticleContainer from '../Pages/article/'
 import Home from '../Pages/Home/home.js';
+import AdminArticle from '../Pages/Admin/article/';
 
 
 class Routing extends Component {
@@ -20,6 +21,7 @@ class Routing extends Component {
                             <Switch location={this.props.location}>
                                 <Route exact path='/' component={Home} />
                                 <Route exact path='/articles/:title' component={ArticleContainer} />
+                                <Route exact path='/admin/article' component={AdminArticle} />
                             </Switch>
                         </section>
                     </CSSTransition>
