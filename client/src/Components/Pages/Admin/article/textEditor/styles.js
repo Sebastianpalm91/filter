@@ -1,17 +1,18 @@
 import styled from 'styled-components';
 
-export const EditorWrapper = styled.div`
-    width: 100%;
+export const EditorWrapper = styled.form`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    flex-direction: column;
+    width: 100%;
 `
 
 export const EditorContainer = styled.div`
     border: 1px solid #2f2f2f;
-    width: 70%;
-    height: 400px;
+    width: 50%;
+    height: 300px;
+    overflow: hidden;
     padding: 0 30px;
 `
 export const UIContainer = styled.div`
@@ -31,4 +32,23 @@ export const StyleSpan = styled.span`
     &.active {
         color: #5890ff;
     }
+`
+
+
+export const SubmitButton = styled.input`
+
+`
+
+export const Thumbnail = styled.input`
+
+`
+
+export const Input = styled.input`
+    width: 50%;
+    outline: none;
+    border: 1px solid #999;
+    margin: 10px 0;
+    padding: 5px;
+    height: ${ (props => props.title === 'true' ? '40px' : '20px' ) }
+    font-size: ${ (props => props.title === 'true' ? '150%' : '100%' ) }
 `

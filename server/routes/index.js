@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+const path = require('path');
+const fs = require('fs-extra');
+const busboy = require('connect-busboy');
 
 const ArticleModel = mongoose.model('Article');
 // const UserModel = mongoose.model('User');
@@ -22,6 +25,22 @@ router.get('/articles/:title', async (req, res) => {
 })
 
 
+router.post('/article/upload', async (req, res) => {
+    try {
+
+        req.pipe(req.busboy);
+        req.busboy.on('file', (fieldname, file, filename) => {
+            const fstream = fs.createWriteStream(`${__dirname}/../uploads/imgs/${filename}`);
+            file.pipe(fstream);
+        })
+
+        res.json('postat').status('200');
+    } catch (e) {
+
+    }
+})
+
+
 router.get('/articles', async (req, res) => {
     try {
         const articles = await ArticleModel.find();
@@ -35,7 +54,7 @@ router.get('/articles', async (req, res) => {
     } catch (err) {
         res.json({ err }).status('500');
     }
-})
+});
 
 
 //Login router

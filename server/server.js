@@ -5,8 +5,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
-
-require(path.join(__dirname + '/models/article'))
+const busboy = require('connect-busboy');
 
 
 mongoose.Promise = global.Promise;
@@ -21,12 +20,16 @@ mongoose.connect(process.env.MONGODB_URI,  { useNewUrlParser: true },  (err) => 
 
 const app = express();
 
+
+require(path.join(__dirname + '/models/article'))
+
 app.use(cors());
 app.options('*', cors());
+app.use(busboy());
+
 
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
-
 
 
 const router = require('./routes');
