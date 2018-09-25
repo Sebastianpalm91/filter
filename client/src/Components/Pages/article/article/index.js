@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Title, Paragraph, Container, Wrapper, Published, Tag } from './styles';
-
 class Article extends Component {
 
     state = {

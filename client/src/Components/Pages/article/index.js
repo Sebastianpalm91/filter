@@ -31,7 +31,7 @@ class ArticleContainer extends Component {
 
     }
 
-    async bookVue() {
+    async bookView() {
         this.setState({
             readingview: !this.state.readingview
         })
@@ -47,7 +47,7 @@ class ArticleContainer extends Component {
                 <Wrapper>
                  {this.state.readingview ? <ReadingView {...article}/>: <Article {...article}/>}
                 </Wrapper>
-                <BookVueButton onClick={this.bookVue.bind(this)}>Reading Vue</BookVueButton>
+                <BookVueButton onClick={this.bookView.bind(this)}>Reading View</BookVueButton>
             </Container>
         );
     }
