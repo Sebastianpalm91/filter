@@ -3,28 +3,36 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
     height: 100%;
+    background-color: #1A1A1A;
+
 `;
 
 export const Li = styled.li`
-    padding: 20px;
+    &:last-child a {
+        color: #E1AB99
+    }
     list-style: none;
-    justify-content: center;
 `;
 export const Ul = styled.ul`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     padding: 0px;
-    margin: 0px;
-    margin-top: 10px
+    margin: auto;
+    width: 60%;
     list-style: none;
 `;
 
 export const StyledLink = styled(Link)`
     font-family: SceneMedium;
-    font-size: 18px;
+    font-size: 12px;
     font-weight: 500;
-    line-height: 24px;
-    color: black;
+    line-height: 32px;
+    letter-spacing: 2px;
+    color: #FFFFFF;
     text-decoration: none;
     &:hover {
         color: black;
     }
+
 `;
