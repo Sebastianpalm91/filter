@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: ${({isReadingView}) => isReadingView ? "60%": "80%"};
+    width: 50%;
 `
 export const Title = styled.h1`
     color: black;

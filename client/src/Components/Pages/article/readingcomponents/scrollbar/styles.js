@@ -2,27 +2,48 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     display: flex;
-    flex-direction: row;
 `
 
 export const ScrollContainer = styled.div`
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: space-around;
     position: fixed;
-    top: 20vh;
-    left: 10vw;
+    top: 10vh;
+    left: 5vw;
 `
 
 export const ScrollBarStyles = styled.div `
     height: 400px;
-    width: 5px;
-    border: 1px solid black;
-    background-color: rgba(255, 255, 255, 0.81);
+    width: 2px;
+    border-radius: 28.96%;
+    margin: 12px 0 12px 0;
+    background-color: #ECECEC;
     overflow: hidden;
 `
 
 export const Inner = styled.div`
-    height: 0;
     width: 100%;
-    background-color: red;
+    background-color: #E1AB99;
+`
+
+export const BookMarkShareIcons = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    margin: 12px 0 12px 0;
+    background-color: #E1AB99;
+    border-radius: 50%;
+`
+export const IconContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    background-color: #E1AB99;
+    border-radius: 50%;
 `
