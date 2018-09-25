@@ -27,16 +27,23 @@ router.get('/articles/:title', async (req, res) => {
 
 router.post('/article/upload', async (req, res) => {
     try {
-
         req.pipe(req.busboy);
         req.busboy.on('file', (fieldname, file, filename) => {
             const fstream = fs.createWriteStream(`${__dirname}/../uploads/imgs/${filename}`);
+
+            fstream.on('error', (err) => {
+                console.log(`fstream error: ${err}`);
+                fstream.unpipe();
+                file.read();
+                throw err;
+            })
+
             file.pipe(fstream);
-        })
+            res.status('200');
+        });
 
-        res.json('postat').status('200');
-    } catch (e) {
-
+    } catch (err) {
+        res.json({ err }).status('500')
     }
 })
 
