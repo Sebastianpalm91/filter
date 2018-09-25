@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "draft-js": "^0.10.5",
+    "draft-js-export-html": "^1.2.0",
     "npm": "^6.4.1",
     "react": "^16.5.0",
     "react-customized-scrollbar": "^1.2.3",
