@@ -12,7 +12,7 @@ class Navigation extends Component {
                 <Ul>
                     <Li><StyledLink to='/latestnumber'>SENASTE NUMRET</StyledLink></Li>
                     <Li><StyledLink to='/categories'>KATEGORIER</StyledLink></Li>
-                    <Li><StyledLink to='/arcive'>ARKIVET</StyledLink></Li>
+                    <Li><StyledLink to='/articles/Palme-Mordet'>ARKIVET</StyledLink></Li>
                     <Li><StyledLink to='/blog'>BLOGGEN</StyledLink></Li>
                     <Li><StyledLink to='/about'>OM FILTER</StyledLink></Li>
                     <Li><StyledLink to='/subscription'>BLI PRENUMERANT</StyledLink></Li>

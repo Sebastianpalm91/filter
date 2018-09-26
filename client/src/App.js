@@ -4,17 +4,18 @@ import Footer from './Components/Footer/footer';
 import MenuNavigation from './Components/Menu/navigation';
 import Header from './Components/Header/header';
 import './App.css'
-
 import Routing from './Components/Routing/routing';
+import { Container } from './Components/GeneralStyles/styles.js'
 
-// <Footer></Footer>
 class App extends Component {
   render() {
     return (
-        <div className="Container">
+        <div>
             <Header />
             <MenuNavigation />
-            <Routing />
+                <Container>
+                    <Routing />
+                </Container>
             <Footer />
         </div>
     );

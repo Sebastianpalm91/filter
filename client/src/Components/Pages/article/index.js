@@ -43,7 +43,6 @@ class ArticleContainer extends Component {
 
         return (
             <Container>
-
                 <Wrapper>
                  {this.state.readingview ? <ReadingView {...article}/>: <Article {...article}/>}
                 </Wrapper>

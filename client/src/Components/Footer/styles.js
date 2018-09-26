@@ -7,7 +7,6 @@ import InstaLogoSvg from '../../assets/img/Twitter_footer.svg'
 
 export const Container = styled.div `
     background-color: #1A1A1A;
-    position: fixed;
     bottom: 0px;
     height: 148px;
     width: 100vw;
