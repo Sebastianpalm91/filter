@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 // import {Container} from './Components/GeneralStyles/styles';
+import './assets/fonts/Fonts.css';
 import Footer from './Components/Footer/footer';
 import MenuNavigation from './Components/Menu/navigation';
 import Header from './Components/Header/header';

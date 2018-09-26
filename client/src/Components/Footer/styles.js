@@ -10,6 +10,7 @@ export const Container = styled.div `
     bottom: 0px;
     height: 148px;
     width: 100vw;
+    padding-top: 20px;
 `
 
 export const Wrapper = styled.div `
@@ -26,21 +27,20 @@ export const Li = styled.li`
         color: #E1AB99
     }
     list-style: none;
-    padding: 10px;
+    padding: 0px 18px 0px 18px;
 `;
 export const Ul = styled.ul`
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     padding: 0px;
-    margin: auto;
     margin-bottom: 10px;
     list-style: none;
 `;
 
 export const StyledLink = styled(Link)`
-    font-family: SceneMedium;
+    font-family: dp;
     font-size: 12px;
     font-weight: 500;
     line-height: 20px;

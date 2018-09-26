@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Wrapper, Logo } from './styles';
+import { Container, Wrapper, Logo, StyledLink } from './styles';
 
 
 
@@ -8,7 +8,7 @@ class Header extends Component {
         return (
             <Container>
                 <Wrapper>
-                    <Logo />
+                    <StyledLink to='/'><Logo  alt="Logo-Hem"></Logo></StyledLink>
                 </Wrapper>
             </Container>
         );

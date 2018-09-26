@@ -1,0 +1,42 @@
+  @font-face {
+      font-family: 'dp_black';
+      src: url('./fontfiles/din_pro_black.otf');
+  }
+
+  @font-face {
+      font-family: 'dp_bold';
+      src: url('./fontfiles/din_pro_bold.otf');
+  }
+
+  @font-face {
+      font-family: 'dp_light';
+      src: url('./fontfiles/din_pro_light.otf');
+  }
+
+  @font-face {
+      font-family: 'dp_medium';
+      src: url('./fontfiles/DinPro-Medium.otf');
+  }
+
+  @font-face {
+      font-family: 'dp';
+      src: url('./fontfiles/DinPro.otf');
+  }
+
+  @font-face {
+      font-family: 'hd_light';
+      src: url('./fontfiles/HarrietDisplay-Light.otf');
+  }
+
+  @font-face {
+      font-family: 'hd_medium';
+      src: url('./fontfiles/HarrietDisplayMedium.otf');
+  }
+
+  @font-face {
+      font-family: 'hd_regular';
+      src: url('./fontfiles/HarrietText-Regular.otf');
+  }
+
+
+/*# sourceMappingURL=App.css.map */

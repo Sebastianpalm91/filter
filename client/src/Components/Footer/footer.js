@@ -18,8 +18,8 @@ class Footer extends Component {
                     </Ul>
                     <SocialIconContainer>
                         <FacebookLogo />
-                        <TwitterLogo />
                         <InstaLogo />
+                        <TwitterLogo />
                     </SocialIconContainer>
                 </Wrapper>
             </Container>
