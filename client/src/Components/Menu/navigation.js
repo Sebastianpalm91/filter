@@ -1,31 +1,33 @@
 import React, { Component } from 'react';
 import Svg from './Hamburger/svg';
-import { Li, StyledLink, Ul, Wrapper, SubMenu, SubMenuLi, SubMenuUl, Vr } from './styles';
+import { Li, StyledLink, Ul, Wrapper, SubMenu, SubMenuLi, SubMenuUl, Vr, StyledLinkSubMenu, LinkInfo, Title, Summary, SummaryImg } from './styles';
+import posed from "react-pose";
 
 class Navigation extends Component {
     state = {
         hover: false,
-        submenu: true,
+        submenu: false,
     };
 
-    // onMouseEnterHandler = () => {
-    //     this.setState({
-    //         hover: true,
-    //         submenu: true,
-    //     });
-    //     console.log('enter');
-    // }
-    //
-    // onMouseLeaveHandler = () => {
-    //     this.setState({
-    //         hover: false,
-    //         submenu: false,
-    //     });
-    //     console.log('leave');
-    // }
+    onMouseEnterHandler = () => {
+        this.setState({
+            hover: true,
+            submenu: true,
+        });
+        console.log('enter');
+    }
+
+    onMouseLeaveHandler = () => {
+        this.setState({
+            hover: false,
+            submenu: false,
+        });
+        console.log('leave');
+    }
 
 
     render() {
+
         return (
             <Wrapper>
                 <Ul onMouseLeave={this.onMouseLeaveHandler}>
@@ -70,13 +72,24 @@ class Navigation extends Component {
                 <SubMenu onMouseEnter={this.onMouseEnterHandler} onMouseLeave={this.onMouseLeaveHandler}>
                     <SubMenuUl>
                         <Vr>
-                        <SubMenuLi><StyledLink to='/latestnumber'>SENASTE NUMRET</StyledLink></SubMenuLi>
-                        <SubMenuLi><StyledLink to='/categories'>KATEGORIER</StyledLink></SubMenuLi>
-                        <SubMenuLi><StyledLink to='/articles/Palme-Mordet'>ARKIVET</StyledLink></SubMenuLi>
-                        <SubMenuLi><StyledLink to='/blog'>BLOGGEN</StyledLink></SubMenuLi>
-                        <SubMenuLi><StyledLink to='/about'>OM FILTER</StyledLink></SubMenuLi>
-                        <SubMenuLi><StyledLink to='/subscription'>BLI PRENUMERANT</StyledLink></SubMenuLi>
+                        <SubMenuLi><StyledLinkSubMenu to='/latestnumber'>Senaste Numret</StyledLinkSubMenu></SubMenuLi>
+                        <SubMenuLi><StyledLinkSubMenu to='/categories'>Omgiven av idioti</StyledLinkSubMenu></SubMenuLi>
+                        <SubMenuLi><StyledLinkSubMenu to='/articles/Palme-Mordet'>Den förlorade sonen</StyledLinkSubMenu></SubMenuLi>
+                        <SubMenuLi><StyledLinkSubMenu to='/blog'>Upptäcksresan</StyledLinkSubMenu></SubMenuLi>
+                        <SubMenuLi><StyledLinkSubMenu to='/about'>Från Sverige med kärlek</StyledLinkSubMenu></SubMenuLi>
+                        <SubMenuLi><StyledLinkSubMenu to='/subscription'>Pernille Fisher</StyledLinkSubMenu></SubMenuLi>
+                        <SubMenuLi><StyledLinkSubMenu to='/subscription'>Christensen</StyledLinkSubMenu></SubMenuLi>
                         </Vr>
+                        <LinkInfo>
+                            <Title>
+                                Granskning
+                            </Title>
+                            <Summary>
+                                “Sanningen är att det inte är mer vetenskapligt än horoskop.”<br /><br />
+                                 Tomas Eriksson har gjort enorm succé med boken Omgiven av idioter, som han hävdar bygger på forskning. Det stämmer inte.
+                            </Summary>
+                        </LinkInfo>
+                        <SummaryImg />
                     </SubMenuUl>
                 </SubMenu>
                  : null }

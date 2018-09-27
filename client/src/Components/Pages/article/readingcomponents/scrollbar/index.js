@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { Container, ScrollBarStyles, ScrollContainer, Inner, BookMarkShareIcons, IconContainer } from './styles';
+import { Container, ScrollBarStyles, ScrollContainer, Inner, BookMarkShareIcons, IconContainer, FacebookIcon, TwitterIcon, SocialContainer, ShareButton, SocialButton, Dot } from './styles';
 // import BookMark from '../bookmark/'
-import { FaBookmark, FaHeart, FaShareSquare } from 'react-icons/fa';
+import { FaBookmark, FaHeart, FaShareSquare, FaFacebookSquare, FaTwitterSquare, FaInstagram } from 'react-icons/fa';
 
 
 class ScrollBar extends Component {
     state = {
         scrollPercentage: 0,
         bookMarkPosition: Math.floor(localStorage.getItem('key')),
+        toggleOpen: true,
     }
 
     componentDidMount() {
@@ -35,6 +36,12 @@ class ScrollBar extends Component {
         });
     }
 
+    shareButtonOpen = () => {
+        this.setState(function(prevState) {
+			return {toggleOpen: !prevState.toggleOpen};
+		});
+    }
+
     // componentDidMount() {
     //     window.addEventListener('scroll', this.onScroll);
     // }
@@ -44,8 +51,27 @@ class ScrollBar extends Component {
         return (
             <Container>
                 <ScrollContainer>
-                    <IconContainer>
-                        <FaShareSquare />
+                    <IconContainer onClick={this.shareButtonOpen}>
+                        <SocialContainer>
+                        <ShareButton>
+                            <FaShareSquare />
+                        </ShareButton>
+                            { this.state.toggleOpen ?
+                                <SocialContainer>
+                                    <SocialButton>
+                                        <FaFacebookSquare />
+                                    </SocialButton>
+
+                                    <SocialButton>
+                                        <FaTwitterSquare />
+                                    </SocialButton>
+
+                                    <SocialButton>
+                                        <FaInstagram />
+                                    </SocialButton>
+                                </SocialContainer>
+                            : null }
+                        </SocialContainer>
                     </IconContainer>
                     <BookMarkShareIcons>
                         <FaHeart />
@@ -56,6 +82,7 @@ class ScrollBar extends Component {
                                 height: `${this.state.scrollPercentage}%`
                             }}>
                         </Inner>
+                        <Dot />
                         {
                             !this.state.scrollPercentage
                             &&
