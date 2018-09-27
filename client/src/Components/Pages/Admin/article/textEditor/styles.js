@@ -11,7 +11,8 @@ export const EditorWrapper = styled.form`
 export const EditorContainer = styled.div`
     border: 1px solid #2f2f2f;
     width: 50%;
-    height: 300px;
+    height: auto;
+    min-height: 300px;
     overflow: hidden;
     padding: 0 30px;
 `
@@ -33,6 +34,11 @@ export const StyleSpan = styled.span`
     }
 `
 
+export const EditorTextWrapper = styled.div`
+    height: auto;
+    min-height: 300px;
+    cursor: text;
+`
 
 export const SubmitButton = styled.input`
 

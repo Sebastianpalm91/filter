@@ -5,7 +5,7 @@ import 'draft-js/dist/Draft.css';
 import axios from 'axios';
 
 import endpoint from '../../../../../settings';
-import { StyleSpan, EditorWrapper, EditorContainer, UIContainer, SubmitButton, Input, Thumbnail } from './styles';
+import { StyleSpan, EditorWrapper, EditorContainer, UIContainer, SubmitButton, Input, Thumbnail, EditorTextWrapper } from './styles';
 
 class TextEditor extends Component {
 
@@ -21,7 +21,6 @@ class TextEditor extends Component {
               thumbnail: {},
           },
       }
-
       this.toggleInlineStyle = this.toggleInlineStyle.bind(this);
       this.toggleBlockType = this.toggleBlockType.bind(this);
       this.toggleActive = this.toggleActive.bind(this);
@@ -30,6 +29,14 @@ class TextEditor extends Component {
       this.handleFileUpload = this.handleFileUpload.bind(this);
       this.isEmpty = this.isEmpty.bind(this);
 
+    }
+
+    setDomEditorRef(ref) {
+        this.editor = ref;
+    }
+
+    focus() {
+        this.editor.focus();
     }
 
     onChange(editorState) {
@@ -163,7 +170,9 @@ class TextEditor extends Component {
                       <StyleSpan data-style='underline' onMouseDown={this.toggleInlineStyle}>underline</StyleSpan>
                       <StyleSpan data-style='monospace' onMouseDown={this.toggleInlineStyle}>monospace</StyleSpan>
                   </UIContainer>
-                  <Editor editorState={this.state.editorState} onChange={this.onChange.bind(this)} />
+                  <EditorTextWrapper onClick={this.focus.bind(this)}>
+                      <Editor ref={this.setDomEditorRef.bind(this)} editorState={this.state.editorState} onChange={this.onChange.bind(this)} />
+                  </EditorTextWrapper>
               </EditorContainer>
               <SubmitButton type='submit' />
           </EditorWrapper>
