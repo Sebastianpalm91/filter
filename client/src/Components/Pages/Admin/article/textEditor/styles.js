@@ -28,7 +28,6 @@ export const StyleSpan = styled.span`
     padding: 2px 0;
     display: inline-block;
     text-transform: capitalize;
-
     &.active {
         color: #5890ff;
     }

@@ -1,23 +1,39 @@
 const mongoose = require('mongoose');
 
 const articleSchema = new mongoose.Schema({
-    Title: {
+    title: {
         type: String,
         trim: true,
         required: true,
     },
-    Article: {
+    article: {
         type: String,
         trim: true,
         required: true,
     },
-    Author: {
+    author: {
+        name: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+        img: {
+            type: String,
+            required: true,
+            trim: true,
+        }
+    },
+    published_at: {
+        required: true,
         type: String,
-        trim: true,
+    },
+    thumbnail: {
+        type: String,
         required: true,
     },
-    Author_img: {
+    tag: {
         type: String,
+        required: true,
     }
 });
 

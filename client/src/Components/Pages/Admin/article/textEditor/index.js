@@ -15,10 +15,10 @@ class TextEditor extends Component {
           editorState: EditorState.createEmpty(),
           title: '',
           author: '',
+          tag: '',
           files: {
               author_img: {},
               thumbnail: {},
-              articles: [],
           },
       }
 
@@ -28,10 +28,11 @@ class TextEditor extends Component {
       this.submit = this.submit.bind(this);
       this.handleInputChange = this.handleInputChange.bind(this);
       this.handleFileUpload = this.handleFileUpload.bind(this);
+      this.isEmpty = this.isEmpty.bind(this);
+
     }
 
     onChange(editorState) {
-
         this.setState({
             editorState
         })
@@ -45,25 +46,49 @@ class TextEditor extends Component {
 
     }
 
+    isEmpty(value) {
+        switch (typeof value) {
+            case 'string':
+                return value !== ''
+                break;
+            // case 'object':
+            //     let someIsEmpty = false;
+            //     Object.keys(value).forEach(key => {
+            //         const val = value[key];
+            //         console.log(Object.keys(val));
+            //         console.log(key);
+            //         someIsEmpty = Object.keys(val).length < 0;
+            //     })
+            //     break;
+
+        }
+    }
+
     async submit(e) {
         e.preventDefault();
 
-        const { author, title, files, editorState } = this.state;
+        const { author, title, tag, files, editorState } = this.state;
 
         const contentState = editorState.getCurrentContent();
         const html = stateToHTML(contentState);
+
+        // if ([author, title, tag, files].some(this.isEmpty)) {
+        //     console.log('some is empty');
+        //     return;
+        // }
+        // return;
         const data = new FormData();
 
-        data.append('author', author);
-        data.append('title', title);
         data.append('thumbnail', files.thumbnail);
         data.append('author_img', files.author_img);
-        data.append('content', html);
+        data.append('author', author);
+        data.append('title', title);
+        data.append('article', html);
+        data.append('tag', tag);
 
         const res = await axios.post(`${endpoint.uri}/article/upload`, data, {
             'content-type': 'multipart/form-data'
         });
-        console.log(res);
     }
 
     handleFileUpload({ target: { files, name } }) {
@@ -117,6 +142,7 @@ class TextEditor extends Component {
           <EditorWrapper method='enctype="multipart/form-data"' onSubmit={this.submit}>
               <Input onChange={this.handleInputChange} placeholder="Rubrik" type="text" name="title" title='true' />
               <Input onChange={this.handleInputChange} placeholder='författare' type="text" name="author" />
+              <Input onChange={this.handleInputChange} placeholder='märkning' type="text" name="tag" />
               omslagsbild
               <Thumbnail onChange={this.handleFileUpload} type='file' name='thumbnail' />
               författare

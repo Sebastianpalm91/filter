@@ -20,6 +20,7 @@ mongoose.connect(process.env.MONGODB_URI,  { useNewUrlParser: true },  (err) => 
 
 const app = express();
 
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 require(path.join(__dirname + '/models/article'))
 
