@@ -8,7 +8,7 @@ class Home extends PureComponent {
         return (
             <Container>
                 <Wrapper>
-                    <BreadCrumb>Reportage<MainColor>Filter #64</MainColor></BreadCrumb>
+                    <BreadCrumb>Reportage<MainColor> Filter #64</MainColor></BreadCrumb>
                     <Hr></Hr>
                     <Title>
                         Den här 23-åringen skippade gymnasiet. Nu är hans bolag värt en miljard. Det är det minst konstiga med den här historien.

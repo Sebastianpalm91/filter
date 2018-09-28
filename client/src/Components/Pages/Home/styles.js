@@ -10,6 +10,7 @@ export const MainColor = styled.p`
     color: #E1AB99;
     padding: 0px;
     margin: 0px;
+    padding-left: 6px;
 `
 
 export const Container = styled.div `
@@ -30,10 +31,10 @@ export const Wrapper = styled.div `
 export const BreadCrumb = styled.h4 `
     display: flex;
     flex-direction: row;
-    font-family: dp;
+    font-family: dp_light;
     line-height: 21px;
-    font-size: 18px
-    letter-spacing: 0.02em;
+    font-size: 16px
+    letter-spacing: 0.1em;
     word-wrap: break-word;
     color: #FCFCF9;
     text-align: left;
@@ -44,7 +45,7 @@ export const BreadCrumb = styled.h4 `
 export const Hr = styled.hr `
     display: block;
     width: 100%;
-    border-width: 2px;
+    border-width: 0.5px;
     border-color: #FCFCF9;
     border-style: solid;
     margin-bottom: 30px;
@@ -53,9 +54,13 @@ export const Title = styled.h1 `
     font-family: hd_light;
     line-height: normal;
     font-size: 48px;
+    font-weight: 100;
     letter-spacing: 0.06em;
     color: #FCFCF9;
+    text-rendering: auto;
     margin: 0px
+    font-variant-ligatures: discretionary-ligatures;
+    font-feature-settings: dlig;
 `
 
 
@@ -114,16 +119,15 @@ export const ReportageTitle = styled.h1`
     line-height: normal;
     font-size: 32px;
     letter-spacing: 0.06em;
-    margin: 10px 0px 0px 0px;
+    margin: 0px;
     color: #FCFCF9;
 `
 export const ReportageInfo = styled.h2`
-    font-family: dp;
+    font-family: dp_light;
     line-height: normal;
-    font-size: 18px;
-    letter-spacing: 0.02em;
+    font-size: 16px;
+    letter-spacing: 0.06em;
     text-align: left;
-    padding-right: 40px;
     margin: 0px;
     color: #FCFCF9;
 `

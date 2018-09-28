@@ -28,10 +28,10 @@ export const Ul = styled.ul`
 `
 
 export const StyledLink = styled(Link)`
-    font-family: dp;
-    font-size: calc(0.875rem + ((1vw - 4.8px) * 0.4167));
+    font-family: dp_medium;
+    font-size: 12px;
     line-height: 32px;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.1em;
     color: #FFFFFF;
     text-decoration: none;
     transition: all 1s ease;
