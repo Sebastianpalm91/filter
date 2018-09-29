@@ -106,7 +106,6 @@ export const ArciveContainer = styled.div`
 export const ArciveWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     padding-right: 10px
     &:last-child {
         padding-right: 0px!important;
@@ -117,10 +116,11 @@ export const ArciveWrapper = styled.div`
 export const ReportageTitle = styled.h1`
     font-family: hd_light;
     line-height: normal;
-    font-size: 32px;
+    font-size: 33px;
     letter-spacing: 0.06em;
     margin: 0px;
     color: #FCFCF9;
+    margin: 14px 0;
 `
 export const ReportageInfo = styled.h2`
     font-family: dp_light;
