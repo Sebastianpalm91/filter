@@ -5,6 +5,9 @@ import FirstReportageImage from '../../../assets/img/anna-odell-1.jpg'
 import SecondReportageImage from '../../../assets/img/peter-grocc88nlund-1.jpg'
 import ThirdReportageImage from '../../../assets/img/linda-acc8agren-1.jpg'
 
+import IntervjueImgSecond from '../../../assets/img/niklas-ekstedt-1.jpg'
+import IntervjueImgFirst from '../../../assets/img/vinforskare_kimberlynicholas1.jpg'
+
 
 export const MainColor = styled.p`
     color: #E1AB99;
@@ -78,13 +81,15 @@ export const ArticleImage = styled.div `
 `
 
 export const SubTitle = styled.h2`
-    font-family: hd_regular;
-    line-height: 42px;
+    font-family: hd_light;
+    line-height: 27px;
     font-size: 24px;
     letter-spacing: 0.06em;
     color: #FCFCF9;
     margin: 0px;
     width: 738px;
+    font-variant-ligatures: discretionary-ligatures;
+    font-feature-settings: dlig;
 `
 
 export const Imginfo = styled.h3`
@@ -106,8 +111,7 @@ export const ArciveContainer = styled.div`
 export const ArciveWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding-right: 10px
+    padding-right: 30px
     &:last-child {
         padding-right: 0px!important;
     }
@@ -121,6 +125,9 @@ export const ReportageTitle = styled.h1`
     letter-spacing: 0.06em;
     margin: 0px;
     color: #FCFCF9;
+    padding-top: 40px;
+    font-variant-ligatures: discretionary-ligatures;
+    font-feature-settings: dlig;
 `
 export const ReportageInfo = styled.h2`
     font-family: dp_light;
@@ -129,9 +136,15 @@ export const ReportageInfo = styled.h2`
     letter-spacing: 0.06em;
     text-align: left;
     margin: 0px;
+    padding: 20px 60px 0px 0px;
     color: #FCFCF9;
+    font-variant-ligatures: discretionary-ligatures;
+    font-feature-settings: dlig;
 `
-
+export const TextWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+`
 
 export const ReportageImgLeft = styled.div `
     background-image: url(${FirstReportageImage});
@@ -156,4 +169,40 @@ export const ReportageImgRight = styled.div `
     background-size: contain;
     width: 352px;
     height: 197.16px;
+`
+
+
+export const IntervjueContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 100px;
+`
+
+export const LeftWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding-right: 30px;
+`
+
+export const IntervjueImgLeft = styled.div `
+    background-image: url(${IntervjueImgFirst});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 352px;
+    height: 197.16px;
+`
+
+export const IntervjueImgRight = styled.div `
+    background-image: url(${IntervjueImgSecond});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 741px;
+    height: 414.88px;
+`
+
+export const RightWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
 `
