@@ -34,6 +34,22 @@ const articleSchema = new mongoose.Schema({
     tag: {
         type: String,
         required: true,
+    },
+    illustrations: {
+        type: String,
+        required: false,
+        trim: true,
+    },
+    preamble: {
+        type: String,
+        required: true,
+    },
+    magazine: {
+        number: {
+            type: Number,
+            required: true,
+            trim: true,
+        }
     }
 });
 

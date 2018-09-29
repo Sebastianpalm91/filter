@@ -40,7 +40,9 @@ router.post('/article/upload', async (req, res) => {
         published_at: moment().format('LL'),
         author_img: '',
         author: '',
-
+        illustrations: '',
+        preamble: '',
+        magazineNumber: 0,
     }
 
     try {
@@ -88,23 +90,24 @@ router.post('/article/upload', async (req, res) => {
 
         req.busboy.on('finish', async () => {
 
-            const { thumbnail, title, article: content, tag, published_at, author_img, author } = tmpDataHolder;
+            const {
+                magazineNumber: number,
+                author,
+                author_img
+            } = tmpDataHolder
 
             const articleData = {
-                title,
-                article: content,
-                tag,
-                thumbnail,
-                published_at,
+                ...tmpDataHolder,
+                magazine: {
+                    number,
+                },
                 author: {
                     name: author,
                     img: author_img,
-                }
+                },
             }
 
-
-            const article = new ArticleModel(articleData);
-            await article.save();
+            await (new ArticleModel(articleData)).save();
 
             res.status('200');
         });
