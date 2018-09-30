@@ -10,6 +10,3 @@ export const Wrapper = styled.div`
     justify-content: center;
 
 `
-export const BookVueButton = styled.button`
-
-`
