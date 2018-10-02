@@ -12,8 +12,9 @@ export const ScrollContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     position: fixed;
-    top: 10vh;
-    left: 5vw;
+    top: 15vh;
+    margin-top: 1%;
+    left: 8vw;
 `
 
 export const ScrollBarStyles = styled.div `

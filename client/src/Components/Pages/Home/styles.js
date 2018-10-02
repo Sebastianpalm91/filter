@@ -165,7 +165,11 @@ export const ArciveContainer = styled.div`
 export const ArciveWrapper = styled.div`
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     padding-right: 30px
+=======
+    padding-right: 10px
+>>>>>>> d2c5ef113f68a18a9ad4c30a5cb11582094fb18e
     &:last-child {
         padding-right: 0px;
     }
@@ -191,10 +195,11 @@ export const FlexWrapper = styled.div`
 export const ReportageTitle = styled.h1`
     font-family: hd_light;
     line-height: normal;
-    font-size: 32px;
+    font-size: 33px;
     letter-spacing: 0.06em;
     margin: 0px;
     color: #FCFCF9;
+<<<<<<< HEAD
     padding-top: 40px;
     font-variant-ligatures: discretionary-ligatures;
     font-feature-settings: dlig;
@@ -202,6 +207,9 @@ export const ReportageTitle = styled.h1`
         font-size: 16px;
         padding: 12px 0px 12px 0px;
     `}
+=======
+    margin: 14px 0;
+>>>>>>> d2c5ef113f68a18a9ad4c30a5cb11582094fb18e
 `
 export const ReportageInfo = styled.h2`
     font-family: dp_light;

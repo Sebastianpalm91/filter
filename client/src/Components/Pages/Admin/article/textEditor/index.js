@@ -5,7 +5,7 @@ import 'draft-js/dist/Draft.css';
 import axios from 'axios';
 
 import endpoint from '../../../../../settings';
-import { StyleSpan, EditorWrapper, EditorContainer, UIContainer, SubmitButton, Input, Thumbnail, EditorTextWrapper } from './styles';
+import { StyleSpan, EditorWrapper, EditorContainer, UIContainer, SubmitButton, Input, Preamble, Thumbnail, EditorTextWrapper } from './styles';
 
 class TextEditor extends Component {
 
@@ -16,6 +16,9 @@ class TextEditor extends Component {
           title: '',
           author: '',
           tag: '',
+          illustrations: '',
+          preamble: '',
+          magazineNumber: 0,
           files: {
               author_img: {},
               thumbnail: {},
@@ -74,7 +77,7 @@ class TextEditor extends Component {
     async submit(e) {
         e.preventDefault();
 
-        const { author, title, tag, files, editorState } = this.state;
+        const { author, title, tag, illustrations, preamble, magazineNumber, files, editorState } = this.state;
 
         const contentState = editorState.getCurrentContent();
         const html = stateToHTML(contentState);
@@ -88,6 +91,9 @@ class TextEditor extends Component {
 
         data.append('thumbnail', files.thumbnail);
         data.append('author_img', files.author_img);
+        data.append('illustrations', illustrations);
+        data.append('magazineNumber', magazineNumber);
+        data.append('preamble', preamble);
         data.append('author', author);
         data.append('title', title);
         data.append('article', html);
@@ -148,8 +154,11 @@ class TextEditor extends Component {
       return (
           <EditorWrapper method='enctype="multipart/form-data"' onSubmit={this.submit}>
               <Input onChange={this.handleInputChange} placeholder="Rubrik" type="text" name="title" title='true' />
-              <Input onChange={this.handleInputChange} placeholder='författare' type="text" name="author" />
+              <Input onChange={this.handleInputChange} placeholder='Författare' type="text" name="author" />
+              <Input onChange={this.handleInputChange} placeholder='Illustration' type="text" name="illustrations" />
               <Input onChange={this.handleInputChange} placeholder='märkning' type="text" name="tag" />
+              <Input onChange={this.handleInputChange} placeholder='magasins nummer' type="number" name="magazineNumber" />
+              <Preamble onChange={this.handleInputChange} name="preamble" placeholder="Ingress"></Preamble>
               omslagsbild
               <Thumbnail onChange={this.handleFileUpload} type='file' name='thumbnail' />
               författare

@@ -47,6 +47,14 @@ export const SubmitButton = styled.input`
 export const Thumbnail = styled.input`
 
 `
+export const Preamble = styled.textarea`
+    width: 50%;
+    outline: none;
+    border: 1px solid #999;
+    margin: 10px 0;
+    padding: 5px;
+    min-height: 100px;
+`
 
 export const Input = styled.input`
     width: 50%;

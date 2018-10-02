@@ -1,23 +1,45 @@
 import React, { Component } from 'react';
-import { Container, Wrapper, Title, Paragraph, Tag, Published } from '../../article/styles';
+import { Container, Wrapper, Title, Paragraph, Tag, Published, LoadingArticle, ArticleInfoWrapper, InfoName, InfoWork, MagazineNumber, Highlighted, Preamble } from './styles';
 import ScrollBar from '../scrollbar/';
 
 class ReadingView extends Component {
 
+    getEstimatedReadingTime(article) {
+        const words = article.split(' ').length;
+        const minutes = Math.round(words / 200);
+
+        return minutes;
+    }
+
+
     render() {
-        return (
+
+        if (this.props.dataHasloaded) {
+            const { article, author: { name }, illustrations, magazine: { number }, preamble, published_at, tag, title } = this.props;
+            return (
                 <Container>
                     <ScrollBar>
                     </ScrollBar>
                     <Wrapper isReadingView={true}>
                         <Title isReadingView={true}>{this.props.title}</Title>
-                        <Tag isReadingView={true}>{this.props.tag}<Published isReadingView={true}>{this.props.published_at}</Published></Tag>
-                        <Paragraph isReadingView={true}>{this.props.article}</Paragraph>
+                        <ArticleInfoWrapper>
+                            <InfoWork>text: </InfoWork><InfoName>{name}</InfoName>
+                            <InfoWork paddingLeft={true}>illustration: </InfoWork><InfoName>{illustrations}</InfoName>
+                            <MagazineNumber>
+                                <Highlighted>{tag}</Highlighted> publicerad i filter #{number} ( {published_at} )
+                            </MagazineNumber>
+                        </ArticleInfoWrapper>
+                        <Preamble>
+                            <Paragraph>{preamble}</Paragraph>
+                        </Preamble>
+                        <Paragraph dangerouslySetInnerHTML={{ __html: article }}></Paragraph>
                     </Wrapper>
                 </Container>
-        );
+            );
+        } else {
+            return <LoadingArticle />
+        }
     }
-
 }
 
 export default ReadingView;
