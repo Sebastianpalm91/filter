@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Container, Wrapper, Title, Hr, BreadCrumb, ArticleImage, LinkTo, SubTitle, Imginfo, MainColor, ReportageImgLeft, ReportageImgMiddle, ReportageImgRight, ArciveContainer, ArciveWrapper, ReportageTitle, ReportageInfo, TextWrapper } from './styles'
+import { Container, Wrapper, Hr, BreadCrumb, MainColor } from './styles'
 import LatestReportage from './latestreportage.js';
 import LatestReportages from './latestreportages.js'
 import LatestIntervjues from './latestintervjues.js'

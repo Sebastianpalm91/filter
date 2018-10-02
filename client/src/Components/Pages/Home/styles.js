@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { breakpoint } from '../../../assets/mixins/mixins';
 //Images import
-import FilterSvg from '../../../assets/img/logo.svg';
 import FrontPageImg from '../../../assets/img/teodor-forselius-4b.jpg'
 import FirstReportageImage from '../../../assets/img/anna-odell-1.jpg'
 import SecondReportageImage from '../../../assets/img/peter-grocc88nlund-1.jpg'

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Title, Hr, BreadCrumb, ArticleImage, MainColor, SubTitle, Imginfo, FirstReportageWrapper, CredentialColor, CredentialsWrapper } from './styles'
+import { Title, ArticleImage, SubTitle, FirstReportageWrapper, CredentialColor, CredentialsWrapper } from './styles'
 
 class Latest extends PureComponent {
     render () {
