@@ -1,12 +1,10 @@
 import React, { PureComponent } from 'react';
-import { Title, Hr, BreadCrumb, ArticleImage, MainColor, SubTitle, Imginfo } from './styles'
+import { Title, Hr, BreadCrumb, ArticleImage, MainColor, SubTitle, Imginfo, FirstReportageWrapper, CredentialColor, CredentialsWrapper } from './styles'
 
 class Latest extends PureComponent {
     render () {
         return (
-            <div>
-                <BreadCrumb>Reportage<MainColor> Filter #64</MainColor></BreadCrumb>
-                <Hr></Hr>
+            <FirstReportageWrapper>
                 <Title>
                     Den här 23-åringen skippade gymnasiet. Nu är hans bolag värt en miljard. Det är det minst konstiga med den här historien.
                 </Title>
@@ -14,12 +12,14 @@ class Latest extends PureComponent {
                 <SubTitle>
                     Så vill Theodor Forselius och ett gäng utflippade pionjärer förändra internet i grunden.
                 </SubTitle>
-                <Imginfo>
-                    Text: CHRISTOPHER FRIMAN
+                <CredentialsWrapper>
+                    TEXT: <CredentialColor>CHRISTOPHER FRIMAN</CredentialColor>
                     <br />
-                    Foto: MAGNUS BERGSTRÖM
-                </Imginfo>
-            </div>
+                </CredentialsWrapper>
+                <CredentialsWrapper>
+                    FOTO: <CredentialColor>MAGNUS BERGSTRÖM</CredentialColor>
+                </CredentialsWrapper>
+            </FirstReportageWrapper>
         );
     }
 }

@@ -3,6 +3,7 @@ import { Container, Wrapper, Title, Hr, BreadCrumb, ArticleImage, LinkTo, SubTit
 import LatestReportage from './latestreportage.js';
 import LatestReportages from './latestreportages.js'
 import LatestIntervjues from './latestintervjues.js'
+import LatestConversations from './latestconversations.js'
 
 class Home extends PureComponent {
 
@@ -10,6 +11,8 @@ class Home extends PureComponent {
         return (
             <Container>
                 <Wrapper>
+                    <BreadCrumb>Reportage<MainColor> Filter #64</MainColor></BreadCrumb>
+                    <Hr></Hr>
                     <LatestReportage />
                     <BreadCrumb>Från senaste numret <MainColor>Filter #64</MainColor></BreadCrumb>
                     <Hr></Hr>
@@ -19,6 +22,7 @@ class Home extends PureComponent {
                     <LatestIntervjues />
                     <BreadCrumb>artikeltyp <MainColor>intervjuer</MainColor></BreadCrumb>
                     <Hr></Hr>
+                    <LatestConversations />
                 </Wrapper>
             </Container>
         );
