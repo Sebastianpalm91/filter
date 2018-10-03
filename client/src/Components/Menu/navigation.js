@@ -5,8 +5,8 @@ import posed from "react-pose";
 
 class Navigation extends Component {
     state = {
-        hover: false,
-        submenu: false,
+        hover: true,
+        submenu: true,
     };
 
     onMouseEnterHandler = () => {

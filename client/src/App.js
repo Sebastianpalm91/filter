@@ -6,12 +6,13 @@ import MenuNavigation from './Components/Menu/navigation';
 import Header from './Components/Header/header';
 import './App.css'
 import Routing from './Components/Routing/routing';
+import HamburgerMenu from './Components/Menu/Hamburger/menuWrapper';
 import { Container } from './Components/GeneralStyles/styles.js'
-
 class App extends Component {
   render() {
     return (
         <div>
+            <HamburgerMenu />
             <Header />
             <MenuNavigation />
                 <Container>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Line, Toggle } from './styles';
+import { Container, Line, Toggle, Panel, SubMenuLi, StyledLinkSubMenu } from './styles';
 // import './AnimationStyle/animation.css';
 
 class Svg extends Component {
@@ -14,9 +14,18 @@ class Svg extends Component {
 
         return (
             <Container>
+                <Panel active={this.state.addClass}>
+                    <SubMenuLi><StyledLinkSubMenu to='/latestnumber'>Senaste Numret</StyledLinkSubMenu></SubMenuLi>
+                    <SubMenuLi><StyledLinkSubMenu to='/categories'>Omgiven av idioti</StyledLinkSubMenu></SubMenuLi>
+                    <SubMenuLi><StyledLinkSubMenu to='/articles/Palme-Mordet'>Den förlorade sonen</StyledLinkSubMenu></SubMenuLi>
+                    <SubMenuLi><StyledLinkSubMenu to='/blog'>Upptäcksresan</StyledLinkSubMenu></SubMenuLi>
+                    <SubMenuLi><StyledLinkSubMenu to='/about'>Från Sverige med kärlek</StyledLinkSubMenu></SubMenuLi>
+                    <SubMenuLi><StyledLinkSubMenu to='/subscription'>Pernille Fisher</StyledLinkSubMenu></SubMenuLi>
+                    <SubMenuLi><StyledLinkSubMenu to='/subscription'>Christensen</StyledLinkSubMenu></SubMenuLi>
+                </Panel>
                 <Toggle version="1.1" id="Layer_1" x="0px" y="0px"
                      viewBox="0 0 15 15"
-                     style={{width:"60px", height: "60px"}}
+                     style={{width:"40px", height: "40px"}}
                      onClick={this.toggle.bind(this)}
                      active={this.state.addClass}>
                 <g>
