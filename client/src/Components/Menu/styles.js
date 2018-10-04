@@ -53,7 +53,7 @@ export const SubMenu = styled.div `
     align-items: center;
     transition: all 0.5s ease-in-out;
     ${props => props.active ? `
-        height: 280px;
+        height: 256px;
         opacity: 1;
     ` : ''}
 
@@ -66,9 +66,17 @@ export const SubMenuUl = styled.ul `
     list-style: none;
     width: 80%;
     display: none;
-    transition: all 0.5s ease-in-out;
+    margin: auto;
     ${props => props.active ? `
         display: flex;
+    ` : '' }
+`
+
+export const Animation = styled.div`
+    transition: all 1s ease-in-out;
+    opacity: 0;
+    ${props => props.active ? `
+        opacity: 1;
     ` : '' }
 `
 

@@ -20,9 +20,9 @@ export const MainColor = styled.p`
 export const CredentialsWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    color: white;
+    color: #FCFCF9;
     font-family: dp_light;
-    font-size: 10px;
+    font-size: 16px;
     letter-spacing: 0.02em;
 `
 
@@ -107,6 +107,7 @@ export const Title = styled.h1 `
 // `
 
 export const FirstReportageWrapper = styled.div `
+    margin-bottom: 80px;
     ${breakpoint.down('s')`
         margin: 0px 16px 0px 16px;
     `}
@@ -133,6 +134,7 @@ export const SubTitle = styled.h2`
     color: #FCFCF9;
     margin: 0px;
     width: 738px;
+    padding-bottom: 12px;
     font-variant-ligatures: discretionary-ligatures;
     font-feature-settings: dlig;
     ${breakpoint.down('s')`
@@ -210,7 +212,7 @@ export const ReportageInfo = styled.h2`
     letter-spacing: 0.06em;
     text-align: left;
     margin: 0px;
-    padding: 20px 60px 0px 0px;
+    padding: 20px 60px 12px 0px;
     color: #FCFCF9;
     font-variant-ligatures: discretionary-ligatures;
     font-feature-settings: dlig;
