@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <meta name="Description" content="Vi ifrågasätter vedertagna sanningar och vänder på de extra stenarna för att hitta detaljer som ger nya perspektiv.">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+
+    <style type="text/css">
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      .App {
+        text-align: center;
+        background-color: #1A1A1A;
+        height: 100vh;
+      }
+      .App-header {
+        display: flex;
+        align-items: center;
+        height: 100px;
+        padding: 20px;
+      }
+      .logo {
+          display: flex;
+          margin: auto;
+          height: 60px;
+          width: 60px;
+      }
+      .loadingWrapper {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          margin: auto;
+      }
+      .App-intro {
+        font-family: dp;
+        font-size: 54px;
+        font-weight: 500;
+        line-height: 20px;
+        padding-top: 10px;
+        margin-top: 10px;
+        color: #FCFCF9;
+      }
+      .loading {
+          display: flex;
+          justify-content: center;
+          margin: auto;
+          height: 200px;
+          width: 200px;
+      }
+    </style>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48455722-2"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-48455722-2');
+        </script>
+    </head>
+    <body>
+        <noscript>
+            You need to enable JavaScript to run this app.
+        </noscript>
+        <div id="root"></div>
+            <div class="App">
+                <div class="App-header">
+                    <img class="logo" src="./icon.svg" alt="">
+                </div>
+                <div class="loadingWrapper">
+                    <img class="loading" src="https://loading.io/spinners/gears/lg.dual-gear-loading-icon.gif" alt="" height="300px" width="450px">
+                    <p class="App-intro">
+                        Ta en slurp av ditt kaffe medans vi laddar sidan...
+                    </p>
+                </div>
+            </div>
+
+  </body>
+</html>
