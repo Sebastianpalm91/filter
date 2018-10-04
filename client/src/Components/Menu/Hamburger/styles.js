@@ -29,6 +29,9 @@ export const Line = styled.path`
     fill: #FCFCF9;
     transition: 0.4s cubic-bezier(.54,.57,.49,.44);
 `;
+// ${props => props.active ? `
+//     fill: #1A1A1A;
+//     ` : ''}
 
 /*
     Toggle the svg
@@ -69,14 +72,14 @@ export const Toggle = styled.svg`
 // Panel
 
 export const Panel = styled.div `
-    height: 100vh;
+    height: 0px;
     width: 100%;
     background-color: #E1AB99;
-    margin-top: -800px;
+    margin-top: 75px;
     opacity: 0;
-    transition: all 1s ease-in-out;
+    transition: all 0.5s ease-in-out;
     ${props => props.active ? `
-        margin-top: 0px;
+        height: 90vh;
         opacity: 1;
     ` : ''}
 `

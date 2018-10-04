@@ -84,6 +84,7 @@ export const Logo2 = styled.div`
     width: 52px;
     height: 36px;
     margin: 24px 10px 10px 18px;
+    display: none;
     ${breakpoint.down('m')`
         display: block;
     `}
