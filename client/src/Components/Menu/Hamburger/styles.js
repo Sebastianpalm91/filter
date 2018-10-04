@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
+import { breakpoint } from '../../../assets/mixins/mixins';
 
 export const Container = styled.div`
     height: 100%;
@@ -8,10 +9,13 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-    height: 100%;
+    display: none;
     width: 100%;
     position: absolute;
     z-index: 99;
+    ${breakpoint.down('m')`
+        display: block;
+    `}
 `;
 
 /*
@@ -19,10 +23,11 @@ export const Wrapper = styled.div`
 */
 export const Line = styled.path`
     transform: translateX(0px);
-    cursor:pointer;
-    transition: 0.8s cubic-bezier(.32,1.97,.62,.55);
-    fill: #4a4a4a;
     transform-origin: center;
+    pointer-events:all;
+    cursor:pointer;
+    fill: #FCFCF9;
+    transition: 0.4s cubic-bezier(.54,.57,.49,.44);
 `;
 
 /*
@@ -40,21 +45,21 @@ export const Toggle = styled.svg`
     right: 5px;
     ${Line}:nth-child(1) {
         ${props => props.active ? `
-            transform: rotate(-135deg) translateY(32%);
+            transform: rotate(45deg) translateY(30%);
             transform-origin: center;
         ` : ''}
     }
     ${Line}:nth-child(2) {
         ${props => props.active ? `
-            transform: translateX(-60px);
+            transform: rotate(180deg) scale(0.1);
             pointer-events: none;
             opacity: 0;
-            transition: 0.2s ease-out;
+            transition: .6s ease-out;
         ` : ''}
     }
     ${Line}:nth-child(3) {
         ${props => props.active ? `
-            transform: rotate(135deg) translateY(-22%);
+            transform: rotate(-45deg) translateY(-24%);
             transform-origin: center;
         ` : ''}
     }

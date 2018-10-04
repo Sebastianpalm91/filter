@@ -5,14 +5,12 @@ import posed from "react-pose";
 
 class Navigation extends Component {
     state = {
-        hover: true,
-        submenu: true,
+        hover: false,
     };
 
     onMouseEnterHandler = () => {
         this.setState({
             hover: true,
-            submenu: true,
         });
         console.log('enter');
     }
@@ -20,7 +18,6 @@ class Navigation extends Component {
     onMouseLeaveHandler = () => {
         this.setState({
             hover: false,
-            submenu: false,
         });
         console.log('leave');
     }
@@ -68,9 +65,8 @@ class Navigation extends Component {
                         </StyledLink>
                     </Li>
                 </Ul>
-                { this.state.submenu ?
-                <SubMenu onMouseEnter={this.onMouseEnterHandler} onMouseLeave={this.onMouseLeaveHandler}>
-                    <SubMenuUl>
+                <SubMenu onMouseEnter={this.onMouseEnterHandler} active={this.state.hover} onMouseLeave={this.onMouseLeaveHandler}>
+                    <SubMenuUl active={this.state.hover}>
                         <Vr>
                         <SubMenuLi><StyledLinkSubMenu to='/latestnumber'>Senaste Numret</StyledLinkSubMenu></SubMenuLi>
                         <SubMenuLi><StyledLinkSubMenu to='/categories'>Omgiven av idioti</StyledLinkSubMenu></SubMenuLi>
@@ -92,7 +88,6 @@ class Navigation extends Component {
                         <SummaryImg />
                     </SubMenuUl>
                 </SubMenu>
-                 : null }
             </Wrapper>
         );
     }

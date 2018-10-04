@@ -38,6 +38,7 @@ export const Container = styled.div `
     justify-content: center;
     background-color: #1A1A1A;
     padding: 60px 0px 60px 0px;
+    margin-top: -1px;
 `
 
 export const Wrapper = styled.div `

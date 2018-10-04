@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types'
-import {Container, Wrapper, Ul, Li, StyledLink, Logo, FacebookLogo, TwitterLogo, InstaLogo, SocialIconContainer} from './styles';
+import {Container, Wrapper, Ul, Li, StyledLink, Logo, FacebookLogo, TwitterLogo, InstaLogo, SocialIconContainer, Logo2} from './styles';
 
 class Footer extends Component {
     render () {
@@ -15,6 +15,7 @@ class Footer extends Component {
                         <Li><StyledLink to='/blog'>Allmänna villkor</StyledLink></Li>
                         <Li><StyledLink to='/about'>Sekretesspolicy</StyledLink></Li>
                         <Li><StyledLink to='/subscription'>Cookiepolicy</StyledLink></Li>
+                        <Logo2 />
                     </Ul>
                     <SocialIconContainer>
                         <FacebookLogo />

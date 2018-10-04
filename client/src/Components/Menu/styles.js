@@ -7,6 +7,9 @@ export const Wrapper = styled.div`
     height: 100%;
     background-color: #1A1A1A;
     flex-direction: column;
+    ${breakpoint.down('m')`
+        display: none;
+    `}
 `;
 
 export const Li = styled.li`
@@ -24,7 +27,7 @@ export const Ul = styled.ul`
     margin: auto;
     width: 80%;
     list-style: none;
-
+    transition: 1s ease-in-out;
 `
 
 export const StyledLink = styled(Link)`
@@ -39,49 +42,43 @@ export const StyledLink = styled(Link)`
         text-decoration: underline;
     }
 `
-const MenuKeyFrames = keyframes`
-  0% {
-    height: 0px;
-    opacity: 0;
-  }
-  100% {
-    height: 240px;
-    opacity: 1;
-  }
-`
 
 export const SubMenu = styled.div `
     width: 100%;
+    height: 4px;
     background-color: #E1AB99;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
-    animation-name: ${MenuKeyFrames};
-    animation-duration: 0.5s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
+    transition: all 0.5s ease-in-out;
+    ${props => props.active ? `
+        height: 280px;
+        opacity: 1;
+    ` : ''}
+
 `
 
 export const SubMenuUl = styled.ul `
-    display: flex;
     flex-direction: row;
     justify-content: center;
     padding: 0px;
     list-style: none;
     width: 80%;
+    display: none;
+    transition: all 0.5s ease-in-out;
+    ${props => props.active ? `
+        display: flex;
+    ` : '' }
 `
 
 export const SubMenuLi = styled.li `
     list-style: none;
     padding-left: 35px;
-
 `
 
 export const Vr = styled.div `
     border-right: 1px solid #222222;
-    height 20%;
     padding-right: 30px;
     display: flex;
     flex-direction: column;
