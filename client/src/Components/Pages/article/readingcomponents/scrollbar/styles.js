@@ -15,6 +15,8 @@ export const ScrollContainer = styled.div`
     top: 15vh;
     margin-top: 1%;
     left: 8vw;
+    transition: all 0.2s ease-in-out;
+    opacity: ${ ({showBar}) => showBar ? '1' : '0'};
 `
 
 export const ScrollBarStyles = styled.div `
@@ -69,11 +71,33 @@ export const SocialButton = styled.div`
     margin: 12px 10px 12px 0;
     background-color: #E1AB99;
     border-radius: 50%;
+    transition: all 0.4s cubic-bezier(.51,-0.45,1,1.17);
+    &:nth-child(1) {
+        transform: ${ ({toggleOpen}) => toggleOpen ? 'none' : 'translateX(calc(-100% - 12px))'}
+    }
+    &:nth-child(2) {
+        transform: ${ ({toggleOpen}) => toggleOpen ? 'none' : 'translateX(calc(-200% - 24px))'}
+    }
+    &:nth-child(3) {
+        transform: ${ ({toggleOpen}) => toggleOpen ? 'none' : 'translateX(calc(-300% - 32px))'}
+    }
+
 `
 
 export const SocialContainer = styled.div`
     display: flex;
     align-items: center;
+    position: relative;
+    z-index: 2;
+`
+
+export const SocialWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    transition: all 0.4s cubic-bezier(.51,-0.45,1,1.17);
+    opacity: ${ ({toggleOpen}) => toggleOpen ? '1' : '0'};
+    z-index: 1;
+    position: relative;
 `
 
 export const IconContainer = styled.div`

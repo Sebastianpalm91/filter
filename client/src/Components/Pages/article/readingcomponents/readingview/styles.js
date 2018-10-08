@@ -19,6 +19,14 @@ export const LoadingArticle = styled.div`
     height: 100vh;
 `
 
+export const ScrollBarAnimation = styled.div`
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    ${props => props.hidebar ? `
+        opacity: 1;
+    ` : ''}
+`
+
 export const Wrapper = styled.div`
     display: flex;
     justify-content: center;

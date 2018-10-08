@@ -3,6 +3,13 @@ import { Container, Wrapper, Title, Paragraph, Tag, Published, LoadingArticle, A
 import ScrollBar from '../scrollbar/';
 
 class ReadingView extends Component {
+    state = {
+        isHide: false,
+    }
+
+    componentDidMount() {
+        window.addEventListener('scroll', this.hasScrolled)
+    }
 
     getEstimatedReadingTime(article) {
         const words = article.split(' ').length;
@@ -11,17 +18,15 @@ class ReadingView extends Component {
         return minutes;
     }
 
-
     render() {
 
         if (this.props.dataHasloaded) {
-            const { article, author: { name }, illustrations, magazine: { number }, preamble, published_at, tag, title } = this.props;
+            const { article, article: { name }, illustrations, magazine: { number }, preamble, published_at, tag, title } = this.props;
             return (
                 <Container>
-                    <ScrollBar>
-                    </ScrollBar>
-                    <Wrapper isReadingView={true}>
-                        <Title isReadingView={true}>{this.props.title}</Title>
+                    <ScrollBar />
+                    <Wrapper>
+                        <Title>{this.props.title}</Title>
                         <ArticleInfoWrapper>
                             <InfoWork>text: </InfoWork><InfoName>{name}</InfoName>
                             <InfoWork paddingLeft={true}>illustration: </InfoWork><InfoName>{illustrations}</InfoName>
@@ -32,7 +37,8 @@ class ReadingView extends Component {
                         <Preamble>
                             <Paragraph>{preamble}</Paragraph>
                         </Preamble>
-                        <Paragraph dangerouslySetInnerHTML={{ __html: article }}></Paragraph>
+                        <Paragraph dangerouslySetInnerHTML={{ __html: article }}>
+                        </Paragraph>
                     </Wrapper>
                 </Container>
             );

@@ -12,14 +12,12 @@ class Navigation extends Component {
         this.setState({
             hover: true,
         });
-        console.log('enter');
     }
 
     onMouseLeaveHandler = () => {
         this.setState({
             hover: false,
         });
-        console.log('leave');
     }
 
 

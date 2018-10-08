@@ -21,7 +21,6 @@ class ArticleContainer extends Component {
         const title = this.props.match.params.title.replace('-', ' ');
 
         const { data } = await axios.get(`${endpoint.uri}/articles/${title}`);
-
         this.setState({
             article: data,
             dataHasloaded: true,

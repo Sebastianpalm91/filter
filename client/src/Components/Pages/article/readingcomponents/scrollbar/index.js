@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, ScrollBarStyles, ScrollContainer, Inner, BookMarkShareIcons, IconContainer, FacebookIcon, TwitterIcon, SocialContainer, ShareButton, SocialButton, Dot } from './styles';
+import { Container, ScrollBarStyles, ScrollContainer, Inner, BookMarkShareIcons, IconContainer, FacebookIcon, TwitterIcon, SocialContainer, ShareButton, SocialButton, Dot, SocialWrapper } from './styles';
 // import BookMark from '../bookmark/'
 import { FaBookmark, FaHeart, FaShareSquare, FaFacebookSquare, FaTwitterSquare, FaInstagram } from 'react-icons/fa';
 
@@ -7,13 +7,39 @@ import { FaBookmark, FaHeart, FaShareSquare, FaFacebookSquare, FaTwitterSquare, 
 class ScrollBar extends Component {
     state = {
         scrollPercentage: 0,
-        bookMarkPosition: Math.floor(localStorage.getItem('key')),
-        toggleOpen: true,
+        bookMarkPosition: localStorage.getItem('key'),
+        toggleOpen: false,
+        hideBar: false,
     }
 
     componentDidMount() {
         window.addEventListener('scroll', this.onScroll);
-        console.log(this.state.bookMarkPosition);
+        window.addEventListener('scroll', this.showBar);
+        if (this.state.bookMarkPosition == localStorage.getItem('key')) {
+            this.scroll();
+        };
+        this.onScroll();
+        this.showBar();
+    }
+
+    showBar = () => {
+        if (this.state.scrollPercentage >= 4) {
+            this.setState({ hideBar: true })
+        } else (
+            this.setState({ hideBar: false })
+        )
+    }
+
+    shareButtonOpen = () => {
+        this.setState({ toggleOpen: !this.state.toggleOpen })
+    }
+
+    scroll = () => {
+        const p = Math.floor(document.documentElement.scrollTop * (this.state.bookMarkPosition/10))
+        window.scrollTo({
+            top: p,
+            behavior: "instant",
+        });
     }
 
     onScroll = () => {
@@ -25,74 +51,47 @@ class ScrollBar extends Component {
     localStorage = () => {
         localStorage.setItem('key', this.state.scrollPercentage)
         this.setState({bookMarkPosition: this.state.scrollPercentage});
-        console.log(this.state.scrollPercentage);
     }
 
-    scroll = () => {
-        const p = Math.floor(document.documentElement.scrollTop * (this.state.bookMarkPosition/100))
-        window.scrollTo({
-            top: p,
-            behavior: "instant",
-        });
-    }
-
-    shareButtonOpen = () => {
-        this.setState(function(prevState) {
-			return {toggleOpen: !prevState.toggleOpen};
-		});
-    }
-
-    // componentDidMount() {
-    //     window.addEventListener('scroll', this.onScroll);
-    // }
-
-    // <BookMark bookMarkPosition={this.state.scrollPercentage} />
     render() {
         return (
             <Container>
-                <ScrollContainer>
-                    <IconContainer onClick={this.shareButtonOpen}>
-                        <SocialContainer>
-                        <ShareButton>
-                            <FaShareSquare />
-                        </ShareButton>
-                            { this.state.toggleOpen ?
-                                <SocialContainer>
-                                    <SocialButton>
-                                        <FaFacebookSquare />
-                                    </SocialButton>
+                    <ScrollContainer showBar={this.state.hideBar}>
+                        <IconContainer  onClick={this.shareButtonOpen}>
+                            <SocialContainer>
+                            <ShareButton>
+                                <FaShareSquare />
+                            </ShareButton>
+                                    <SocialWrapper toggleOpen={this.state.toggleOpen}>
+                                        <SocialButton toggleOpen={this.state.toggleOpen}>
+                                            <FaFacebookSquare />
+                                        </SocialButton>
 
-                                    <SocialButton>
-                                        <FaTwitterSquare />
-                                    </SocialButton>
+                                        <SocialButton toggleOpen={this.state.toggleOpen}>
+                                            <FaTwitterSquare />
+                                        </SocialButton>
 
-                                    <SocialButton>
-                                        <FaInstagram />
-                                    </SocialButton>
-                                </SocialContainer>
-                            : null }
-                        </SocialContainer>
-                    </IconContainer>
-                    <BookMarkShareIcons>
-                        <FaHeart />
-                    </BookMarkShareIcons>
-                    <ScrollBarStyles>
-                        <Inner
-                            style={{
-                                height: `${this.state.scrollPercentage}%`
-                            }}>
-                        </Inner>
-                        <Dot />
-                        {
-                            !this.state.scrollPercentage
-                            &&
-                            this.scroll()
-                        }
-                    </ScrollBarStyles>
-                    <BookMarkShareIcons onClick={this.localStorage}>
-                        <FaBookmark />
-                    </BookMarkShareIcons>
-                </ScrollContainer>
+                                        <SocialButton toggleOpen={this.state.toggleOpen}>
+                                            <FaInstagram />
+                                        </SocialButton>
+                                    </SocialWrapper>
+                            </SocialContainer>
+                        </IconContainer>
+                        <BookMarkShareIcons>
+                            <FaHeart />
+                        </BookMarkShareIcons>
+                        <ScrollBarStyles>
+                            <Inner
+                                style={{
+                                    height: `${this.state.scrollPercentage}%`
+                                }}>
+                            </Inner>
+                            <Dot />
+                        </ScrollBarStyles>
+                        <BookMarkShareIcons onClick={this.localStorage}>
+                            <FaBookmark />
+                        </BookMarkShareIcons>
+                    </ScrollContainer>
             </Container>
         );
     }
