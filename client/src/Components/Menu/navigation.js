@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Li, StyledLink, Ul, Wrapper, SubMenu, SubMenuLi, SubMenuUl, Vr, StyledLinkSubMenu, LinkInfo, Title, Summary, SummaryImg, Animation } from './styles';
-import posed from "react-pose";
 
 class Navigation extends Component {
     state = {

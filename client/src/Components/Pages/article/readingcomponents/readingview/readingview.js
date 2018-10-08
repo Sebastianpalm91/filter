@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Wrapper, Title, Paragraph, LoadingArticle, ArticleInfoWrapper, InfoName, InfoWork, MagazineNumber, Highlighted, Preamble } from './styles';
 import ScrollBar from '../scrollbar/';
+
 import './removeScroll.css';
 
 class ReadingView extends Component {
@@ -40,6 +41,7 @@ class ReadingView extends Component {
                         </Preamble>
                         <Paragraph dangerouslySetInnerHTML={{ __html: article }}>
                         </Paragraph>
+
                     </Wrapper>
                 </Container>
             );

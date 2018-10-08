@@ -23,7 +23,7 @@ class ScrollBar extends Component {
     }
 
     showBar = () => {
-        if (this.state.scrollPercentage >= 4) {
+        if (this.state.scrollPercentage >= 6) {
             this.setState({ hideBar: true })
         } else (
             this.setState({ hideBar: false })
@@ -57,7 +57,7 @@ class ScrollBar extends Component {
         return (
             <Container>
                     <ScrollContainer showBar={this.state.hideBar}>
-                        <IconContainer  onClick={this.shareButtonOpen}>
+                        <IconContainer onClick={this.shareButtonOpen}>
                             <SocialContainer>
                             <ShareButton>
                                 <FaShareSquare />

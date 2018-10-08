@@ -9,14 +9,14 @@ import InstaLogoSvg from '../../assets/img/Twitter_footer.svg'
 export const Container = styled.div `
     background-color: #1A1A1A;
     bottom: 0px;
-    width: 100vw;
+    width: 100%;
     padding-top: 20px;
     margin-top: -1px;
 `
 
 export const Wrapper = styled.div `
     background-color: #1A1A1A;
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import FacebookIconSvg from '../../../../../assets/img/Fb_footer.svg'
 import TwitterIconSvg from '../../../../../assets/img/Insta_footer.svg'
+import { breakpoint } from '../../../../../assets/mixins/mixins.js';
 
 export const Container = styled.div`
     display: flex;
@@ -12,7 +13,7 @@ export const ScrollContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     position: fixed;
-    top: 15vh;
+    top: 5%;
     margin-top: 1%;
     left: 8vw;
     transition: all 0.2s ease-in-out;
@@ -25,10 +26,18 @@ export const ScrollBarStyles = styled.div `
     border-radius: 28.96%;
     margin: 12px 17px 12px 17px;
     background-color: #ECECEC;
+    ${breakpoint.down('m')`
+        position: fixed;
+        margin-right: 5px;
+        height: 500px;
+        left: unset;
+        top: 5%;
+        right: 1%;
+    `}
 `
 
 export const Inner = styled.div`
-    width: 100%;
+    width: 2px;
     background-color: #E1AB99;
 `
 
@@ -49,6 +58,9 @@ export const BookMarkShareIcons = styled.div`
     height: 36px;
     background-color: #E1AB99;
     border-radius: 50%;
+    ${breakpoint.down('m')`
+        display: none;
+    `}
 `
 
 export const ShareButton = styled.div`
@@ -60,6 +72,9 @@ export const ShareButton = styled.div`
     margin: 12px 10px 12px 0;
     background-color: #E1AB99;
     border-radius: 50%;
+    ${breakpoint.down('m')`
+        display: none;
+    `}
 `
 
 export const SocialButton = styled.div`
@@ -81,7 +96,6 @@ export const SocialButton = styled.div`
     &:nth-child(3) {
         transform: ${ ({toggleOpen}) => toggleOpen ? 'none' : 'translateX(calc(-300% - 32px))'}
     }
-
 `
 
 export const SocialContainer = styled.div`
@@ -103,6 +117,9 @@ export const SocialWrapper = styled.div`
 export const IconContainer = styled.div`
     display: flex;
     align-items: flex-start;
+    ${breakpoint.down('m')`
+        display: none;
+    `}
 `
 
 export const FacebookIcon = styled.div`

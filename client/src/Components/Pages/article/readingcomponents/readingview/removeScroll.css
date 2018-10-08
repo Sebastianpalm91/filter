@@ -4,4 +4,8 @@
         display: none;
         width: 0!important;
     }
+    ::-webkit-scrollbar-track-piece{
+        -webkit-border-radius: 0px;
+        background-color: none;
+    }
 }

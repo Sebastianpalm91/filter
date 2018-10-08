@@ -35,8 +35,7 @@ export const Wrapper = styled.div`
     width: 43%;
     ${breakpoint.down('m')`
         width: 100%;
-        margin: 15px 12px 15px 12px;
-
+        margin: 20px;
     `}
 `
 export const Title = styled.h1`

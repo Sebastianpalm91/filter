@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Container, Wrapper } from './styles';
 import endpoint from '../../../settings';
 import ReadingView from './readingcomponents/readingview/readingview';
+import MobileIcons from './readingcomponents/mobile';
 
 class ArticleContainer extends Component {
     state = {
@@ -29,6 +30,7 @@ class ArticleContainer extends Component {
             <Container>
                 <Wrapper>
                     <ReadingView dataHasloaded={dataHasloaded} {...article}/>
+                    <MobileIcons />
                 </Wrapper>
             </Container>
         );
