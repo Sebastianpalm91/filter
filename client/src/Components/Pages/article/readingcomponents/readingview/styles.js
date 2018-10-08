@@ -63,7 +63,7 @@ export const ArticleInfoWrapper = styled.div`
 
 export const InfoWork = styled.span`
     text-transform: capitalize;
-    font-family: hd_regular ;
+    font-family: hd;
     padding-left: ${({ paddingLeft }) => paddingLeft ? '10px' : '0px'}
 `
 
