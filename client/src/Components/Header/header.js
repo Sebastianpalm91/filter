@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Container, Wrapper, Logo, StyledLink } from './styles';
-import HamburgerMenu from '../Menu/Hamburger/menuWrapper';
 
 
 class Header extends Component {

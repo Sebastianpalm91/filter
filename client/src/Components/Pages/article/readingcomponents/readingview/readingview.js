@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Container, Wrapper, Title, Paragraph, Tag, Published, LoadingArticle, ArticleInfoWrapper, InfoName, InfoWork, MagazineNumber, Highlighted, Preamble } from './styles';
+import { Container, Wrapper, Title, Paragraph, LoadingArticle, ArticleInfoWrapper, InfoName, InfoWork, MagazineNumber, Highlighted, Preamble } from './styles';
 import ScrollBar from '../scrollbar/';
+import './removeScroll.css';
 
 class ReadingView extends Component {
     state = {
@@ -26,7 +27,7 @@ class ReadingView extends Component {
                 <Container>
                     <ScrollBar />
                     <Wrapper>
-                        <Title>{this.props.title}</Title>
+                        <Title>{title}</Title>
                         <ArticleInfoWrapper>
                             <InfoWork>text: </InfoWork><InfoName>{name}</InfoName>
                             <InfoWork paddingLeft={true}>illustration: </InfoWork><InfoName>{illustrations}</InfoName>

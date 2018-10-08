@@ -1,4 +1,4 @@
-
+import { breakpoint } from '../../../../../assets/mixins/mixins.js';
 import styled from 'styled-components';
 
 
@@ -33,6 +33,11 @@ export const Wrapper = styled.div`
     flex-direction: column;
     margin-top: 2%;
     width: 43%;
+    ${breakpoint.down('m')`
+        width: 100%;
+        margin: 15px 12px 15px 12px;
+
+    `}
 `
 export const Title = styled.h1`
     color: black;

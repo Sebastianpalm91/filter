@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, ScrollBarStyles, ScrollContainer, Inner, BookMarkShareIcons, IconContainer, FacebookIcon, TwitterIcon, SocialContainer, ShareButton, SocialButton, Dot, SocialWrapper } from './styles';
+import { Container, ScrollBarStyles, ScrollContainer, Inner, BookMarkShareIcons, IconContainer, SocialContainer, ShareButton, SocialButton, Dot, SocialWrapper } from './styles';
 // import BookMark from '../bookmark/'
 import { FaBookmark, FaHeart, FaShareSquare, FaFacebookSquare, FaTwitterSquare, FaInstagram } from 'react-icons/fa';
 
@@ -15,7 +15,7 @@ class ScrollBar extends Component {
     componentDidMount() {
         window.addEventListener('scroll', this.onScroll);
         window.addEventListener('scroll', this.showBar);
-        if (this.state.bookMarkPosition == localStorage.getItem('key')) {
+        if (this.state.bookMarkPosition === localStorage.getItem('key')) {
             this.scroll();
         };
         this.onScroll();

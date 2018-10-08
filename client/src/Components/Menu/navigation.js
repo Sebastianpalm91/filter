@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import Svg from './Hamburger/svg';
+import React from 'react';
 import { Li, StyledLink, Ul, Wrapper, SubMenu, SubMenuLi, SubMenuUl, Vr, StyledLinkSubMenu, LinkInfo, Title, Summary, SummaryImg, Animation } from './styles';
 import posed from "react-pose";
 
-class Navigation extends Component {
+class Navigation extends posed.Component {
     state = {
         hover: false,
     };
