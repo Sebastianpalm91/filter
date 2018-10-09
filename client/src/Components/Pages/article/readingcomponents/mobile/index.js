@@ -10,13 +10,13 @@ class MobileButton extends Component {
             <Container>
                 <Wrapper>
                     <Socials>
-                        <FaShareSquare />
+                        <FaShareSquare style={{height: '20px', width: '20px'}}/>
                     </Socials>
                     <Socials>
-                        <FaHeart />
+                        <FaHeart style={{height: '20px', width: '20px'}}/>
                     </Socials>
                     <Socials>
-                        <FaBookmark />
+                        <FaBookmark style={{height: '20px', width: '20px'}}/>
                     </Socials>
                 </Wrapper>
             </Container>

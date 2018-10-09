@@ -7,11 +7,11 @@ export const Container = styled.div `
         display: block;
         position: fixed;
         bottom: 0px;
-        width: 85%;
-        height: 8%;
+        width: 90%;
+        height: 7%;
         background-color: #E1AB99;
         border-radius: 5px 5px 0px 0px;
-        margin-bottom: -2px;
+        margin-bottom: -1px;
     `}
 `
 
@@ -26,8 +26,8 @@ export const Wrapper = styled.div `
 export const Socials = styled.div`
     ${breakpoint.down('m')`
         display: flex;
-        width: 32px;
-        height: 32px;
+        width: 34px;
+        height: 34px;
         margin: auto;
         justify-content: center;
         align-items: center;
