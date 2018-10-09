@@ -46,7 +46,7 @@ export const Ul = styled.ul`
     padding: 0px;
     margin-bottom: 10px;
     list-style: none;
-    padding-right: 140px;
+    padding-right: 60px;
     ${breakpoint.down('m')`
         flex-direction: column;
         align-items: flex-start;
@@ -102,7 +102,7 @@ export const SocialIconContainer = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: row;
-    padding-right: 50px;
+    padding-left: 30px;
     ${breakpoint.down('m')`
         justify-content: flex-start;
     `}
