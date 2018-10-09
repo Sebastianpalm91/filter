@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Line, Toggle, Panel, SubMenuLi, StyledLinkSubMenu, ListItem, Ul, Nav, LinkItems, MainNavitem } from './styles';
+import { Container, Line, Toggle, SubMenuLi, StyledLinkSubMenu, ListItem, Ul, Nav, LinkItems, MainNavitem } from './styles';
 // import './AnimationStyle/animation.css';
 import AnimateHeight from 'react-animate-height';
 import { FaAngleUp, FaAngleDown } from 'react-icons/fa';
@@ -48,10 +48,47 @@ class Svg extends Component {
                                         <ListItem><LinkItems to='/'>Från Sverige med krälek</LinkItems></ListItem>
                                         <ListItem><LinkItems style={{ padding: '0px 0px 10px 0px'}} to='/'>Pernille Fischer Christensen</LinkItems></ListItem>
                                     </AnimateHeight>
-                            <SubMenuLi><StyledLinkSubMenu to='/articles/Omgiven-av-idioti'>Kategorier</StyledLinkSubMenu></SubMenuLi>
-                            <SubMenuLi><StyledLinkSubMenu to='/'>Arkivet</StyledLinkSubMenu></SubMenuLi>
-                            <SubMenuLi><StyledLinkSubMenu to='/'>Bloggen</StyledLinkSubMenu></SubMenuLi>
-                            <SubMenuLi><StyledLinkSubMenu to='/'>Om filter</StyledLinkSubMenu></SubMenuLi>
+
+                            <MainNavitem onClick={this.toggleSubMenu}>Kategorier{ height === 0 ? <FaAngleUp style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/> : <FaAngleDown style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/> } </MainNavitem>
+                                    <AnimateHeight
+                                        duration={ 500 }
+                                        height={ height }
+                                    >
+                                        <ListItem><LinkItems style={{ padding: '10px 0px 0px 0px'}} to='/'>Filter #63</LinkItems></ListItem>
+                                        <ListItem><LinkItems to='/'>Omgiven av idioti</LinkItems></ListItem>
+                                        <ListItem><LinkItems to='/'>Den förlorade sonen</LinkItems></ListItem>
+                                        <ListItem><LinkItems to='/'>Upptäcksresan</LinkItems></ListItem>
+                                        <ListItem><LinkItems to='/'>Från Sverige med krälek</LinkItems></ListItem>
+                                        <ListItem><LinkItems style={{ padding: '0px 0px 10px 0px'}} to='/'>Pernille Fischer Christensen</LinkItems></ListItem>
+                                    </AnimateHeight>
+
+                            <MainNavitem onClick={this.toggleSubMenu}>Arkivet{ height === 0 ? <FaAngleUp style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/> : <FaAngleDown style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/> } </MainNavitem>
+                                    <AnimateHeight
+                                        duration={ 500 }
+                                        height={ height }
+                                    >
+                                        <ListItem><LinkItems style={{ padding: '10px 0px 0px 0px'}} to='/'>Filter #63</LinkItems></ListItem>
+                                        <ListItem><LinkItems to='/'>Omgiven av idioti</LinkItems></ListItem>
+                                        <ListItem><LinkItems to='/'>Den förlorade sonen</LinkItems></ListItem>
+                                        <ListItem><LinkItems to='/'>Upptäcksresan</LinkItems></ListItem>
+                                        <ListItem><LinkItems to='/'>Från Sverige med krälek</LinkItems></ListItem>
+                                        <ListItem><LinkItems style={{ padding: '0px 0px 10px 0px'}} to='/'>Pernille Fischer Christensen</LinkItems></ListItem>
+                                    </AnimateHeight>
+
+                            <MainNavitem onClick={this.toggleSubMenu}><ListItem><LinkItems to='/'>Omgiven av idioti</LinkItems></ListItem></MainNavitem>
+
+                            <MainNavitem onClick={this.toggleSubMenu}>Om filter{ height === 0 ? <FaAngleUp style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/> : <FaAngleDown style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/> } </MainNavitem>
+                                    <AnimateHeight
+                                        duration={ 500 }
+                                        height={ height }
+                                    >
+                                        <ListItem><LinkItems style={{ padding: '10px 0px 0px 0px'}} to='/'>Filter #63</LinkItems></ListItem>
+                                        <ListItem><LinkItems to='/'>Omgiven av idioti</LinkItems></ListItem>
+                                        <ListItem><LinkItems to='/'>Den förlorade sonen</LinkItems></ListItem>
+                                        <ListItem><LinkItems to='/'>Upptäcksresan</LinkItems></ListItem>
+                                        <ListItem><LinkItems to='/'>Från Sverige med krälek</LinkItems></ListItem>
+                                        <ListItem><LinkItems style={{ padding: '0px 0px 10px 0px'}} to='/'>Pernille Fischer Christensen</LinkItems></ListItem>
+                                    </AnimateHeight>
                             <SubMenuLi><StyledLinkSubMenu onClick={this.toggle.bind(this)} to='/'>Bli prenumerant</StyledLinkSubMenu></SubMenuLi>
                         </Ul>
                 </Nav>
