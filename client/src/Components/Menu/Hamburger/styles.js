@@ -111,7 +111,6 @@ export const Ul = styled.ul `
 
 export const ListItem = styled.li `
     display: flex;
-    padding-left: 5px;
 `
 
 export const MainNavitem = styled.li `

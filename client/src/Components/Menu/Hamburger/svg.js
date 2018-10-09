@@ -8,10 +8,16 @@ class Svg extends Component {
         addClass: false,
         subMenu: false,
         height: 0,
-        activeIndex: 0,
+        activeIndex: '',
     }
+    componentDidMount() {
+        this.setState({ activeIndex: [] })
+    }
+
     toggle() {
-        this.setState({addClass: !this.state.addClass});
+        this.setState({
+            addClass: !this.state.addClass,
+        });
     }
     toggleSubMenu = (index, e) => {
         const { height } = this.state;
@@ -20,11 +26,11 @@ class Svg extends Component {
             activeIndex: index,
         });
     }
+
     render() {
         const { height } = this.state;
         return (
             <Container>
-
                 <Toggle version="1.1" id="Layer_1" x="0px" y="0px"
                     viewBox="0 0 15 15"
                     style={{width:"40px", height: "40px"}}
@@ -38,38 +44,58 @@ class Svg extends Component {
                 </Toggle>
                 <Nav active={this.state.addClass}>
                     <Ul>
-                        <MainNavitem  onClick={this.toggleSubMenu.bind(this, 0)}>Senaste numret{ height === 0 ? <FaAngleUp style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/> : <FaAngleDown style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/> } </MainNavitem>
-                        {this.state.activeIndex === 0 ?
-                            <AnimateHeight
-                                duration={ 500 }
-                                height={ height }
-                                onClick={this.toggle.bind(this)}
-                                >
-                                <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} style={{ padding: '10px 0px 0px 0px'}} to='/'>Filter #63</LinkItems></ListItem>
-                                <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} to='/'>Omgiven av idioti</LinkItems></ListItem>
-                                <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} to='/'>Den förlorade sonen</LinkItems></ListItem>
-                                <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} to='/'>Upptäcksresan</LinkItems></ListItem>
-                                <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} to='/'>Från Sverige med krälek</LinkItems></ListItem>
-                                <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} style={{ padding: '0px 0px 10px 0px'}} to='/'>Pernille Fischer Christensen</LinkItems></ListItem>
-                            </AnimateHeight>
+                        <MainNavitem onClick={this.toggleSubMenu.bind(this, 0)}>Senaste numret{ this.state.activeIndex === 0 && height === 0 ? <FaAngleDown style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/> : <FaAngleUp style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/>}
+                        </MainNavitem>
+                            {this.state.activeIndex === 0 ?
+                                <AnimateHeight
+                                    duration={ 500 }
+                                    height={ height }
+                                    >
+                                    <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} style={{ padding: '10px 0px 0px 0px'}} to='/'>Filter #63</LinkItems></ListItem>
+                                    <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} to='/'>Omgiven av idioti</LinkItems></ListItem>
+                                    <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} to='/'>Den förlorade sonen</LinkItems></ListItem>
+                                    <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} to='/'>Upptäcksresan</LinkItems></ListItem>
+                                    <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} to='/'>Från Sverige med krälek</LinkItems></ListItem>
+                                    <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} style={{ padding: '0px 0px 10px 0px'}} to='/'>Pernille Fischer Christensen</LinkItems></ListItem>
+                                </AnimateHeight>
                             : null}
 
-                            <MainNavitem onClick={this.toggleSubMenu.bind(this, 1)}>Kategorier{ height === 0 ? <FaAngleUp style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/> : <FaAngleDown style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/> } </MainNavitem>
+                        <MainNavitem onClick={this.toggleSubMenu.bind(this, 1)}>Kategorier{ this.state.activeIndex === 1 && height === 0 ? <FaAngleDown style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/> : <FaAngleUp style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/>}
+                        </MainNavitem>
                             {this.state.activeIndex === 1 ?
                                 <AnimateHeight
                                     duration={ 500 }
                                     height={ height }
                                     >
-                                    <ListItem><LinkItems style={{ padding: '10px 0px 0px 0px'}} to='/'>Filter #63</LinkItems></ListItem>
-                                    <ListItem><LinkItems to='/'>Omgiven av idioti</LinkItems></ListItem>
-                                    <ListItem><LinkItems to='/'>Den förlorade sonen</LinkItems></ListItem>
-                                    <ListItem><LinkItems to='/'>Upptäcksresan</LinkItems></ListItem>
-                                    <ListItem><LinkItems to='/'>Från Sverige med krälek</LinkItems></ListItem>
-                                    <ListItem><LinkItems style={{ padding: '0px 0px 10px 0px'}} to='/'>Pernille Fischer Christensen</LinkItems></ListItem>
+                                    <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} style={{ padding: '10px 0px 0px 0px'}} to='/'>Filter #63</LinkItems></ListItem>
+                                    <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} to='/'>Omgiven av idioti</LinkItems></ListItem>
+                                    <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} to='/'>Den förlorade sonen</LinkItems></ListItem>
+                                    <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} to='/'>Upptäcksresan</LinkItems></ListItem>
+                                    <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} to='/'>Från Sverige med krälek</LinkItems></ListItem>
+                                    <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} style={{ padding: '0px 0px 10px 0px'}} to='/'>Pernille Fischer Christensen</LinkItems></ListItem>
                                 </AnimateHeight>
-                                : null}
+                            : null}
 
-                                <MainNavitem onClick={this.toggleSubMenu}>Arkivet{ height === 0 ? <FaAngleUp style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/> : <FaAngleDown style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/> } </MainNavitem>
+                        <MainNavitem onClick={this.toggleSubMenu.bind(this, 2)}>Arkivet{ this.state.activeIndex === 2 && height === 0 ? <FaAngleDown style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/> : <FaAngleUp style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/>}
+                        </MainNavitem>
+                            {this.state.activeIndex === 2 ?
+                                <AnimateHeight
+                                    duration={ 500 }
+                                    height={ height }
+                                    >
+                                    <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} style={{ padding: '10px 0px 0px 0px'}} to='/'>Filter #63</LinkItems></ListItem>
+                                    <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} to='/'>Omgiven av idioti</LinkItems></ListItem>
+                                    <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} to='/'>Den förlorade sonen</LinkItems></ListItem>
+                                    <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} to='/'>Upptäcksresan</LinkItems></ListItem>
+                                    <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} to='/'>Från Sverige med krälek</LinkItems></ListItem>
+                                    <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} style={{ padding: '0px 0px 10px 0px'}} to='/'>Pernille Fischer Christensen</LinkItems></ListItem>
+                                </AnimateHeight>
+                            : null}
+
+                        <MainNavitem onClick={this.toggleSubMenu}><LinkItems style={{ fontSize: '24px', fontFamily: 'dp_bold'}} to='/'>Bloggen</LinkItems></MainNavitem>
+
+                        <MainNavitem onClick={this.toggleSubMenu.bind(this, 3)}>Om filter{ this.state.activeIndex === 3 && height === 0 ? <FaAngleDown style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/> : <FaAngleUp style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/>} </MainNavitem>
+                            {this.state.activeIndex === 3 ?
                                 <AnimateHeight
                                     duration={ 500 }
                                     height={ height }
@@ -81,31 +107,13 @@ class Svg extends Component {
                                     <ListItem><LinkItems to='/'>Från Sverige med krälek</LinkItems></ListItem>
                                     <ListItem><LinkItems style={{ padding: '0px 0px 10px 0px'}} to='/'>Pernille Fischer Christensen</LinkItems></ListItem>
                                 </AnimateHeight>
+                            : null}
+                        <MainNavitem onClick={this.toggleSubMenu}><LinkItems style={{ fontSize: '24px', fontFamily: 'dp_bold'}} to='/'>Bli Prenumerant</LinkItems></MainNavitem>
+                    </Ul>
+                </Nav>
+            </Container>
+        );
+    }
+}
 
-                                <MainNavitem onClick={this.toggleSubMenu}><LinkItems style={{ fontSize: '24px', fontFamily: 'dp_bold'}} to='/'>Bloggen</LinkItems></MainNavitem>
-
-                                <MainNavitem onClick={this.toggleSubMenu}>Om filter{ height === 0 ? <FaAngleUp style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/> : <FaAngleDown style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/> } </MainNavitem>
-                                <AnimateHeight
-                                    duration={ 500 }
-                                    height={ height }
-                                    >
-                                    <ListItem><LinkItems style={{ padding: '10px 0px 0px 0px'}} to='/'>Filter #63</LinkItems></ListItem>
-                                    <ListItem><LinkItems to='/'>Omgiven av idioti</LinkItems></ListItem>
-                                    <ListItem><LinkItems to='/'>Den förlorade sonen</LinkItems></ListItem>
-                                    <ListItem><LinkItems to='/'>Upptäcksresan</LinkItems></ListItem>
-                                    <ListItem><LinkItems to='/'>Från Sverige med krälek</LinkItems></ListItem>
-                                    <ListItem><LinkItems style={{ padding: '0px 0px 10px 0px'}} to='/'>Pernille Fischer Christensen</LinkItems></ListItem>
-                                </AnimateHeight>
-                                <MainNavitem onClick={this.toggleSubMenu}><LinkItems style={{ fontSize: '24px', fontFamily: 'dp_bold'}} to='/'>Bli Prenumerant</LinkItems></MainNavitem>
-                            </Ul>
-                        </Nav>
-                    </Container>
-                );
-            }
-        }
-        
-
-
-
-
-        export default Svg;
+export default Svg;
