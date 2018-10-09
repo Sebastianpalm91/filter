@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/react-fontawesome": "^0.1.3",
     "@humblebee/styled-components-breakpoint": "^2.1.3",
     "axios": "^0.18.0",
     "draft-js": "^0.10.5",

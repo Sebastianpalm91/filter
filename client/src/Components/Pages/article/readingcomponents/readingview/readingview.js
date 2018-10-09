@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Wrapper, Title, Paragraph, LoadingArticle, ArticleInfoWrapper, InfoName, InfoWork, MagazineNumber, Highlighted, Preamble } from './styles';
 import ScrollBar from '../scrollbar/';
-
+import { FaHeadphones, } from 'react-icons/fa';
 import './removeScroll.css';
 
 class ReadingView extends Component {
@@ -34,6 +34,8 @@ class ReadingView extends Component {
                             <InfoWork paddingLeft={true}>illustration: </InfoWork><InfoName>{illustrations}</InfoName>
                             <MagazineNumber>
                                 <Highlighted>{tag}</Highlighted> publicerad i filter #{number} ( {published_at} )
+                                <br></br>
+                                <Highlighted style={{ display: 'flex', alignItems: 'center', marginTop: '5px', cursor: 'pointer' }}><FaHeadphones style={{ fill: '#E1AB99', height: '20px', width: '20px', marginRight: '5px'}} />LYSSNA</Highlighted>
                             </MagazineNumber>
                         </ArticleInfoWrapper>
                         <Preamble>
@@ -41,7 +43,6 @@ class ReadingView extends Component {
                         </Preamble>
                         <Paragraph dangerouslySetInnerHTML={{ __html: article }}>
                         </Paragraph>
-
                     </Wrapper>
                 </Container>
             );

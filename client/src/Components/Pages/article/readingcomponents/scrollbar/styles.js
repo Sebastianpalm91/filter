@@ -58,6 +58,7 @@ export const BookMarkShareIcons = styled.div`
     height: 36px;
     background-color: #E1AB99;
     border-radius: 50%;
+    cursor: pointer;
     ${breakpoint.down('m')`
         display: none;
     `}
@@ -72,6 +73,8 @@ export const ShareButton = styled.div`
     margin: 12px 10px 12px 0;
     background-color: #E1AB99;
     border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
     ${breakpoint.down('m')`
         display: none;
     `}
@@ -87,6 +90,7 @@ export const SocialButton = styled.div`
     background-color: #E1AB99;
     border-radius: 50%;
     transition: all 0.4s cubic-bezier(.51,-0.45,1,1.17);
+    cursor: pointer;
     &:nth-child(1) {
         transform: ${ ({toggleOpen}) => toggleOpen ? 'none' : 'translateX(calc(-100% - 12px))'}
     }
@@ -102,7 +106,7 @@ export const SocialContainer = styled.div`
     display: flex;
     align-items: center;
     position: relative;
-    z-index: 2;
+
 `
 
 export const SocialWrapper = styled.div`
