@@ -8,6 +8,8 @@ const busboy = require('connect-busboy');
 const superagent = require('superagent');
 
 const ArticleModel = mongoose.model('Article');
+const ArticleSubjectsModel = mongoose.model('articlesubject');
+const ArticleTypesModel = mongoose.model('articletypes');
 
 const IMG_OPTIM_USERNAME = 'jrvdhpbpnd';
 // const UserModel = mongoose.model('User');
@@ -28,9 +30,31 @@ router.get('/articles/:title', async (req, res) => {
     } catch (err) {
         res.json({ err }).status('500');
     }
-})
+});
 
-router.post('/article/upload', async (req, res) => {
+router.get('/admin/articles/subjects', async (req, res) => {
+    try {
+        const subjects = await ArticleSubjectsModel.find();
+
+        res.json(subjects).status('200');
+
+    } catch (err) {
+        res.json({ err }).status(500)
+    }
+});
+
+router.get('/admin/articles/types/', async (req, res) => {
+    try {
+        const types = await ArticleTypesModel.find();
+
+        res.json(types).status('200');
+
+    } catch (err) {
+        res.json({ err }).status(500)
+    }
+});
+
+router.post('/articles/upload', async (req, res) => {
 
     const tmpDataHolder = {
         thumbnail: '',

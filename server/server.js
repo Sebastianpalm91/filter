@@ -22,7 +22,9 @@ const app = express();
 
 app.use('/public', express.static(path.join('', 'public')));
 
-require(path.join(__dirname + '/models/article'))
+require(path.join(__dirname + '/models/article'));
+require(path.join(__dirname + '/models/articlesubjects'));
+require(path.join(__dirname + '/models/articletypes'));
 
 app.use(cors());
 app.options('*', cors());
