@@ -69,5 +69,5 @@ export const StyleSpan = styled.div`
 `
 
 export const FileUploadButton = styled.input`
-    
+    display: none;
 `

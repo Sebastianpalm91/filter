@@ -18,40 +18,43 @@ class AdminArticle extends Component {
             // location 1 = Filterbubblan
             // location 2 = artikel
             location: 1,
-            thumbnail: null,
-            author: '',
-            photographer: '',
-            illustrations: '',
-            articleType: '',
-            subject: '',
-            magazineNumber: 0,
-            date: '',
-            preamble: '',
-            article: '',
         }
     }
 
-    handleClick = () => {
+    handleClick = ({ target }) => {
 
     }
 
     handleInputChange = ({ target: { name, value } }) => {
-        console.log(2);
-    }
-
-    handleFileUpload = ({ target: { files, name } }) => {
-        const file = files[0];
         this.setState({
-            files: {
-                ...this.state.files,
-                [name]: file
+            data: {
+                ...this.state.data,
+                [name]: value
             }
         });
     }
 
-    setEditorState = (editorState) => {
+    handleFileUpload = ({ target: { files, name } }) => {
+        const file = files[0];
+        console.log(file, name);
         this.setState({
-            editorState
+            data: {
+                ...this.state.data,
+                files: {
+                    ...this.state.files,
+                    [name]: file
+                }
+            }
+        });
+    }
+
+    setEditorContent = (editorState, fileNames) => {
+        this.setState({
+            data: {
+                ...this.state.data,
+                fileNames,
+                editorState
+            }
         });
     }
 
@@ -59,7 +62,7 @@ class AdminArticle extends Component {
         this.setState({
             data: {
                 ...this.state.data,
-                date,
+                date
             }
         });
     }
@@ -67,6 +70,10 @@ class AdminArticle extends Component {
     toggleIsArticle = () => {
         this.setState({
             isArticle: !this.state.isArticle,
+            data: {
+                ...this.state.data,
+                location: this.state.isArticle ? 2 : 1,
+            }
         });
     }
 
@@ -96,23 +103,23 @@ class AdminArticle extends Component {
     }
 
     render() {
-
-        const { setEditorState, handleFileUpload, handleInputChange, handleClick, setDate } = this;
-
+        const { setEditorContent, handleFileUpload, handleInputChange, handleClick, setDate } = this;
+        const { isArticle } = this.state;
+        console.log(this.state);
         return (
-            <AdminArticleContext.Provider value={{ setEditorState, handleFileUpload, handleInputChange, handleClick, setDate }}>
+            <AdminArticleContext.Provider value={{ setEditorContent, handleFileUpload, handleInputChange, handleClick, setDate }}>
                 <AdminPageWrapper>
                     <ToggleArticleTypeWrapper>
                         <ToggleType onClick={this.toggleIsArticle}>
                             <Label>artikel</Label>
-                            <ToggleButton isArticle={this.state.isArticle} />
+                            <ToggleButton isArticle={isArticle} />
                         </ToggleType>
                         <ToggleType onClick={this.toggleIsArticle} >
                             <Label>Filterbubblan</Label>
-                            <ToggleButton isArticle={!this.state.isArticle} />
+                            <ToggleButton isArticle={!isArticle} />
                         </ToggleType>
                     </ToggleArticleTypeWrapper>
-                    <ArticleInfoInputs isArticle={this.state.isArticle} />
+                    <ArticleInfoInputs isArticle={isArticle} />
                     <TextEditor />
                 </AdminPageWrapper>
             </AdminArticleContext.Provider>

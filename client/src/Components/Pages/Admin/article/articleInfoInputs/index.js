@@ -1,23 +1,42 @@
 import React, { Component } from 'react';
 
-import ArticleInfoInput from './articleInfoInput';
 import { Container } from './styles';
+
+import { AdminArticleContext } from '../';
+import { TextAreaInput, ThumbnailInput, TextInput, CalendarInput } from './articleInfoInput';
 
 class ArticleInfoInputs extends Component {
 
     render() {
+
         return (
-            <Container>
-                <ArticleInfoInput isTitle={true} type="text" label="Här anger du artikelrubriken." title="rubrik" name="title" />
-                <ArticleInfoInput type="file" label="Lägg till omslagsbilden som kommer vara huvudbilden för artikeln." title="omslagsbild" name="thumbnail" />
-                <ArticleInfoInput
-                     isTitle={false}
-                     type="text"
-                     label="Här anger du skribent och fotograf/illustratör för artikeln."
-                     titles={ ['skribent', 'fotograf', 'illustratör'] }
-                     names={ ['author', 'photographer', 'illustrations'] } />
-                 <ArticleInfoInput type="calendar" label="Här anges vilket publiceringsdatum som gäller." title="Publiceringsdatum – dd/mm/yy" name="date" />
-            </Container>
+            <AdminArticleContext.Consumer>
+                {
+                    (context) => {
+
+                        const { handleFileUpload, handleInputChange, setDate } = context;
+
+                        return (
+                            <Container>
+                                <TextInput isTitle={true} label='Här anger du artikelrubriken.' title='rubrik' name='title' handleInputChange={handleInputChange} />
+                                <ThumbnailInput
+                                    label='Lägg till omslagsbilden som kommer vara huvudbilden för artikeln.'
+                                    title='Omslagsbild'
+                                    name="thumbnail"
+                                    handleFileUpload={handleFileUpload} />
+                                <TextInput
+                                    handleInputChange={handleInputChange}
+                                    amount={3}
+                                    label='Här anger du skribent och fotograf/illustratör för artikeln.'
+                                    title={ ['skribent', 'fotograft', 'Illustratör'] }
+                                    name={ ['author', 'photographer', 'illustrations'] } />
+                                <CalendarInput  label='Här anges vilket magasinsnummer publiceringsdatum och som gäller.' title="Publiceringsdatum – dd/mm/yy" setDate={setDate}/>
+                                <TextAreaInput label='Här skriver du in ingressen för artikeln som skall publiceras.' title='ingress' name='preamble' handleInputChange={handleInputChange} />
+                            </Container>
+                        )
+                    }
+                }
+            </AdminArticleContext.Consumer>
         );
     }
 
@@ -25,3 +44,14 @@ class ArticleInfoInputs extends Component {
 
 
 export default ArticleInfoInputs;
+
+// {
+//     isArticle &&
+//     <React.Fragment>
+//         <ArticleInfoInput
+//              type="buttons"
+//              label="Här väljer du vilken artikeltyp som artikeln skall kunna hittas under."
+//              titles{ ['Granskning', 'Reportage', ''] }
+//              name="articleType" />
+//    </React.Fragment>
+// }

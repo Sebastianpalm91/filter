@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { EditorState, RichUtils, AtomicBlockUtils } from 'draft-js';
 import Editor from 'draft-js-plugins-editor'
 import 'draft-js/dist/Draft.css';
-import createBlockBreakoutPlugin from 'draft-js-block-breakout-plugin'
+import createBlockBreakoutPlugin from 'draft-js-block-breakout-plugin';
+import createImagePlugin from "draft-js-image-plugin";
+import 'draft-js-image-plugin/lib/plugin.css';
 
 import './styles.css';
 import { AdminArticleContext } from '../';
@@ -10,16 +12,17 @@ import EditorUI from './EditorUI/';
 import { EditorContainer, EditorTextWrapper } from './styles';
 import { Label } from './EditorUI/styles';
 
-const blockBreakoutPlugin = createBlockBreakoutPlugin({
-    doubleBreakoutBlocks: ['blockquote', 'unordered-list-item', 'ordered-list-item', 'code-block', 'atomic']
-});
+const blockBreakoutPlugin = createBlockBreakoutPlugin();
 
-const plugins = [blockBreakoutPlugin];
+const imagePlugin = createImagePlugin();
+
+const plugins = [blockBreakoutPlugin, imagePlugin];
 
 class TextEditor extends Component {
 
     state = {
         editorState: EditorState.createEmpty(),
+        imgEntities: [],
     }
 
     setDomEditorRef = ref => this.editor = ref;
@@ -37,38 +40,50 @@ class TextEditor extends Component {
         switch (type) {
             case 'blockquote':
                 return 'blockquote';
-            case 'atomic':
+            case 'code-block':
                 return 'info-square';
+            case 'atomic':
+                return 'article-image';
             default:
                 return 'unstyled';
         }
     }
 
-    insertImage = (editorState, base64) => {
+    insertImage = (editorState, base64, fileName) => {
         const contentState = editorState.getCurrentContent();
 
         const contentStateWithEntity = contentState.createEntity(
           'image',
           'IMMUTABLE',
-          { src: base64 },
+          { src: base64, }
         );
 
         const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
+
         const newEditorState = EditorState.set(
           editorState,
           { currentContent: contentStateWithEntity },
         );
+
+        const prefix = Date.now();
+        this.state.imgEntities.push({ key: entityKey, fileName: `${prefix}-${fileName}` });
+
+
         return AtomicBlockUtils.insertAtomicBlock(newEditorState, entityKey, ' ');
     }
 
 
-    handleKeyCommand = (editorState, command) => {
-        if (command === 'split-block') {
-            const key = editorState.getSelection().getAnchorKey();
-            const currentBlockType = editorState.getCurrentContent().getBlockForKey(key);
-            document.querySelector(`[data-style=${currentBlockType}]`).classList.remove('active');
+    setImgSrcToFilename = () => {
+
+        const { editorState, imgEntities } = this.state;
+
+        const contentState = editorState.getCurrentContent();
+
+        for (const { key, fileName } of imgEntities) {
+            contentState.replaceEntityData(key, { src: fileName });
 
         }
+
     }
 
     uploadImage = ({ target }) => {
@@ -76,7 +91,10 @@ class TextEditor extends Component {
         if (file) {
              const reader = new FileReader();
              reader.onload = e => {
-                 this.insertImage(this.state.editorState, e.target.result)
+                 const newEditorState = this.insertImage(this.state.editorState, e.target.result, file.name);
+
+                 this.setState({editorState: newEditorState})
+                 this.setImgSrcToFilename();
              };
              reader.readAsDataURL(file);
          }
@@ -108,7 +126,7 @@ class TextEditor extends Component {
 
     render() {
 
-      const { toggleBlockType, toggleInlineStyle } = this;
+      const { toggleBlockType, toggleInlineStyle, uploadImage } = this;
 
       return (
           <AdminArticleContext.Consumer>
@@ -123,15 +141,14 @@ class TextEditor extends Component {
                                       editorState={this.state.editorState}
                                       onChange={ state => {
                                           this.onChange(state);
-                                          context.setEditorState(state);
+                                          context.setEditorContent(state, this.state.imgEntities);
                                         }
                                     }
                                     plugins={plugins}
                                     blockStyleFn={this.blockStyles}
-                                    handleKeyCommand={this.handleKeyCommand}
                                      />
                               </EditorTextWrapper>
-                              <EditorUI editor={this.editor} utils={{ toggleBlockType, toggleInlineStyle }} />
+                              <EditorUI editor={this.editor} utils={{ toggleBlockType, toggleInlineStyle, uploadImage }} />
                           </EditorContainer>
                       )
                   }

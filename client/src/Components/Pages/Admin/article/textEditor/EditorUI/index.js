@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { UIContainer, StyleSpan, Label, EditorAction, ListContainer } from './styles';
+import { UIContainer, StyleSpan, Label, EditorAction, ListContainer, FileUploadButton } from './styles';
 
 import capitalize from '../../../../../../utility/capitalize';
 
@@ -26,7 +26,7 @@ class EditorUI extends Component {
 
     render() {
 
-        const  { toggleBlockType, toggleInlineStyle } = this.props.utils;
+        const  { toggleBlockType, toggleInlineStyle, uploadImage } = this.props.utils;
 
         return (
             <UIContainer>
@@ -52,7 +52,7 @@ class EditorUI extends Component {
                         <Label>{capitalize('citat')}</Label>
                 </EditorAction>
                 <EditorAction listIsOpen={this.state.showListTypes}>
-                    <StyleSpan onClick={() => { this.toggleActive(); this.toggleList() }} type="list" data-block-type='ordered-list-item' />
+                    <StyleSpan onClick={(e) => { this.toggleActive(e); this.toggleList(e) }} type="list" data-block-type='ordered-list-item' />
                         <Label>{capitalize('lista')}</Label>
                             {
                                 this.state.showListTypes &&
@@ -68,12 +68,17 @@ class EditorUI extends Component {
                 </EditorAction>
                 <Label>Här infogar du objekt.</Label>
                 <EditorAction>
-                        <StyleSpan onClick={this.toggleActive} type="info" data-block-type='atomic' onMouseDown={toggleBlockType} />
+                        <StyleSpan onClick={this.toggleActive} type="info" data-block-type='code-block' onMouseDown={toggleBlockType} />
                         <Label>{capitalize('faktaruta')}</Label>
                 </EditorAction>
                 <EditorAction>
-                        <StyleSpan onClick={this.toggleActive} type="img" data-block-type='blockquote' onMouseDown={toggleInlineStyle} />
+                    <Label htmlFot='article-image' style={{ display: 'flex', alignItems: 'center' }}>
+                        <StyleSpan onClick={this.toggleActive} type="img" data-block-type='blockquote' />
+                        <FileUploadButton type="file" id="article-image" onChange={(e) => {
+                                uploadImage(e);
+                            }}/>
                         <Label>{capitalize('bild')}</Label>
+                    </Label>
                 </EditorAction>
             </UIContainer>
         );

@@ -29,7 +29,7 @@ export const InputTitle = styled.span`
 
 `
 
-export const TextInput = styled.input`
+export const Input = styled.input`
     width: ${ ({ isTitle }) => isTitle ? '100%' : '50%' };
     height: 36px;
     color: #1A1A1A;
@@ -40,6 +40,19 @@ export const TextInput = styled.input`
     background: #FCFCF9;
     border-radius: 6px;
     border: none;
+`
+
+export const TextArea = styled.textarea`
+    width: 100%;
+    color: #1A1A1A;
+    font-size: 1.15rem;
+    font-family: dp;
+    outline: none;
+    padding: 6px;
+    background: #FCFCF9;
+    border-radius: 6px;
+    border: none;
+    height: 300px;
 `
 
 export const FileInput = styled.input`
