@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import FilterSvg from '../../assets/img/logo.svg'
 import { Link } from 'react-router-dom'
+import arrowBack from '../../assets/img/Vector.svg'
+import { breakpoint } from '../../assets/mixins/mixins.js';
 
 export const Container = styled.div`
     display: flex;
@@ -31,4 +33,19 @@ export const StyledLink = styled(Link)`
     &:hover {
         opacity: 0.5;
     }
+`;
+
+export const Back = styled.div`
+    position: absolute;
+    top: 3%;
+    left: 4%;
+    height: 30px;
+    width: 15px;
+    background-image: url(${arrowBack});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    ${breakpoint.up('m')`
+        display: none;
+    `}
 `;

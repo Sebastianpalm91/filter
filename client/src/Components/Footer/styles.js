@@ -12,16 +12,19 @@ export const Container = styled.div `
     width: 100%;
     padding-top: 20px;
     margin-top: -1px;
+    ${breakpoint.down('m')`
+        width: unset;
+    `}
 `
 
 export const Wrapper = styled.div `
     background-color: #1A1A1A;
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     ${breakpoint.down('m')`
         flex-direction: column-reverse;
+        margin-left: 15px;
     `}
 `
 
@@ -31,6 +34,9 @@ export const Li = styled.li`
     }
     list-style: none;
     padding: 0px 18px 0px 18px;
+    ${breakpoint.down('m')`
+        padding: 0px;
+    `}
 `;
 export const Ul = styled.ul`
     display: flex;
@@ -87,6 +93,7 @@ export const Logo2 = styled.div`
     display: none;
     ${breakpoint.down('m')`
         display: block;
+        margin: 24px 10px 10px 0px;
     `}
 `
 
@@ -96,7 +103,6 @@ export const SocialIconContainer = styled.div`
     flex-direction: row;
     ${breakpoint.down('m')`
         justify-content: flex-start;
-        padding-left: 15px;
     `}
 `
 
@@ -109,7 +115,7 @@ export const FacebookLogo = styled.div`
     height: 24px;
     margin: 20px;
     ${breakpoint.down('m')`
-        margin: 10px;
+        margin: 10px 20px 10px 0px;
     `}
 `
 
@@ -122,7 +128,7 @@ export const TwitterLogo = styled.div`
     height: 24px;
     margin: 20px;
     ${breakpoint.down('m')`
-        margin: 10px;
+        margin: 10px 20px 10px 0px;
     `}
 `
 
@@ -135,6 +141,6 @@ export const InstaLogo = styled.div`
     height: 24px;
     margin: 20px;
     ${breakpoint.down('m')`
-        margin: 10px;
+        margin: 10px 20px 10px 0px;
     `}
 `
