@@ -66,7 +66,7 @@ class Navigation extends Component {
                         <SubMenuUl active={this.state.hover}>
                             <Vr>
                             <SubMenuLi><StyledLinkSubMenu to='/latestnumber'>Senaste Numret</StyledLinkSubMenu></SubMenuLi>
-                            <SubMenuLi><StyledLinkSubMenu to='/categories'>Omgiven av idioti</StyledLinkSubMenu></SubMenuLi>
+                            <SubMenuLi><StyledLinkSubMenu to='/articles/Omgiven-av-idiot'>Omgiven av idioti</StyledLinkSubMenu></SubMenuLi>
                             <SubMenuLi><StyledLinkSubMenu to='/articles/Palme-Mordet'>Den förlorade sonen</StyledLinkSubMenu></SubMenuLi>
                             <SubMenuLi><StyledLinkSubMenu to='/blog'>Upptäcksresan</StyledLinkSubMenu></SubMenuLi>
                             <SubMenuLi><StyledLinkSubMenu to='/about'>Från Sverige med kärlek</StyledLinkSubMenu></SubMenuLi>
