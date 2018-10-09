@@ -44,14 +44,3 @@ class ArticleInfoInputs extends Component {
 
 
 export default ArticleInfoInputs;
-
-// {
-//     isArticle &&
-//     <React.Fragment>
-//         <ArticleInfoInput
-//              type="buttons"
-//              label="Här väljer du vilken artikeltyp som artikeln skall kunna hittas under."
-//              titles{ ['Granskning', 'Reportage', ''] }
-//              name="articleType" />
-//    </React.Fragment>
-// }
