@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Wrapper, Socials, } from './styles';
-import { FaBookmark, FaHeart, FaShareSquare, FaFacebookSquare, FaTwitterSquare, FaInstagram } from 'react-icons/fa';
+import { FaBookmark, FaHeart, FaShareSquare } from 'react-icons/fa';
 
 
 class MobileButton extends Component {
