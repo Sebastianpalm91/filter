@@ -1,16 +1,28 @@
 import React, { Component } from 'react';
 
-import { UIContainer, StyleSpan, Label, EditorAction } from './styles';
+import { UIContainer, StyleSpan, Label, EditorAction, ListContainer } from './styles';
 
 import capitalize from '../../../../../../utility/capitalize';
 
 class EditorUI extends Component {
+
+    state = {
+        showListTypes: false,
+    }
+
     toggleActive = ({ target : element }) => {
         if (element.classList.toggle('active')) {
             [...element.parentNode.children].forEach(x => x.classList.remove('active'))
             element.classList.add('active');
         }
     }
+
+    toggleList = e => {
+        e.preventDefault();
+        this.props.editor.focus();
+        this.setState({ showListTypes: !this.state.showListTypes });
+    }
+
 
     render() {
 
@@ -36,20 +48,27 @@ class EditorUI extends Component {
                         <Label>{capitalize('understruken text')}</Label>
                 </EditorAction>
                 <EditorAction>
-                    <StyleSpan onClick={this.toggleActive} type="quote" data-style='quote' onMouseDown={toggleInlineStyle} />
+                    <StyleSpan onClick={this.toggleActive} type="quote" data-block-type='blockquote' onMouseDown={toggleBlockType} />
                         <Label>{capitalize('citat')}</Label>
                 </EditorAction>
-                <EditorAction>
-                    <StyleSpan onClick={this.toggleActive} type="list" data-block-type='blockquote' onMouseDown={toggleBlockType} />
+                <EditorAction listIsOpen={this.state.showListTypes}>
+                    <StyleSpan onClick={() => { this.toggleActive(); this.toggleList() }} type="list" data-block-type='ordered-list-item' />
                         <Label>{capitalize('lista')}</Label>
+                            {
+                                this.state.showListTypes &&
+                                    <ListContainer>
+                                        <Label onMouseDown={toggleBlockType} data-block-type='ordered-list-item' >{capitalize('numrerad lista')}</Label>
+                                        <Label onMouseDown={toggleBlockType} data-block-type='unordered-list-item' >{capitalize('punklista')}</Label>
+                                    </ListContainer>
+                            }
                 </EditorAction>
                 <EditorAction>
-                        <StyleSpan onClick={this.toggleActive} type="link" data-block-type='blockquote' onMouseDown={this.toggleList} />
+                        <StyleSpan onClick={this.toggleActive} type="link" data-block-type='blockquote' />
                         <Label>{capitalize('länk')}</Label>
                 </EditorAction>
                 <Label>Här infogar du objekt.</Label>
                 <EditorAction>
-                        <StyleSpan onClick={this.toggleActive} type="info" data-block-type='blockquote' onMouseDown={toggleInlineStyle} />
+                        <StyleSpan onClick={this.toggleActive} type="info" data-block-type='atomic' onMouseDown={toggleBlockType} />
                         <Label>{capitalize('faktaruta')}</Label>
                 </EditorAction>
                 <EditorAction>

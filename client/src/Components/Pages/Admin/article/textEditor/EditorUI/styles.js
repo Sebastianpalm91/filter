@@ -18,10 +18,25 @@ export const Label = styled.label`
 
 export const EditorAction = styled.div`
     width: 100%;
-    height: 36px;
+    height: ${ ({ listIsOpen }) => listIsOpen ? 'auto' : '36px' };
     display: flex;
     align-items: center;
     margin: 6px 0px;
+    flex-wrap: wrap;
+`
+
+export const ListContainer = styled.div`
+    width: 100%;
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    label {
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+     }
 `
 
 export const StyleSpan = styled.div`
@@ -51,4 +66,8 @@ export const StyleSpan = styled.div`
         )
     }
 
+`
+
+export const FileUploadButton = styled.input`
+    
 `

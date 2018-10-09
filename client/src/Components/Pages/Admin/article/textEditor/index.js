@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
-import { Editor, EditorState, RichUtils } from 'draft-js';
+import { EditorState, RichUtils, AtomicBlockUtils } from 'draft-js';
+import Editor from 'draft-js-plugins-editor'
 import 'draft-js/dist/Draft.css';
+import createBlockBreakoutPlugin from 'draft-js-block-breakout-plugin'
 
+import './styles.css';
 import { AdminArticleContext } from '../';
 import EditorUI from './EditorUI/';
 import { EditorContainer, EditorTextWrapper } from './styles';
 import { Label } from './EditorUI/styles';
+
+const blockBreakoutPlugin = createBlockBreakoutPlugin({
+    doubleBreakoutBlocks: ['blockquote', 'unordered-list-item', 'ordered-list-item', 'code-block', 'atomic']
+});
+
+const plugins = [blockBreakoutPlugin];
 
 class TextEditor extends Component {
 
@@ -21,6 +30,56 @@ class TextEditor extends Component {
         this.setState({
             editorState
         });
+    }
+
+    blockStyles = contentBlock => {
+        const type = contentBlock.getType();
+        switch (type) {
+            case 'blockquote':
+                return 'blockquote';
+            case 'atomic':
+                return 'info-square';
+            default:
+                return 'unstyled';
+        }
+    }
+
+    insertImage = (editorState, base64) => {
+        const contentState = editorState.getCurrentContent();
+
+        const contentStateWithEntity = contentState.createEntity(
+          'image',
+          'IMMUTABLE',
+          { src: base64 },
+        );
+
+        const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
+        const newEditorState = EditorState.set(
+          editorState,
+          { currentContent: contentStateWithEntity },
+        );
+        return AtomicBlockUtils.insertAtomicBlock(newEditorState, entityKey, ' ');
+    }
+
+
+    handleKeyCommand = (editorState, command) => {
+        if (command === 'split-block') {
+            const key = editorState.getSelection().getAnchorKey();
+            const currentBlockType = editorState.getCurrentContent().getBlockForKey(key);
+            document.querySelector(`[data-style=${currentBlockType}]`).classList.remove('active');
+
+        }
+    }
+
+    uploadImage = ({ target }) => {
+        const file = target.files[0];
+        if (file) {
+             const reader = new FileReader();
+             reader.onload = e => {
+                 this.insertImage(this.state.editorState, e.target.result)
+             };
+             reader.readAsDataURL(file);
+         }
     }
 
     toggleBlockType = e => {
@@ -66,9 +125,13 @@ class TextEditor extends Component {
                                           this.onChange(state);
                                           context.setEditorState(state);
                                         }
-                                    } />
+                                    }
+                                    plugins={plugins}
+                                    blockStyleFn={this.blockStyles}
+                                    handleKeyCommand={this.handleKeyCommand}
+                                     />
                               </EditorTextWrapper>
-                              <EditorUI utils={{ toggleBlockType, toggleInlineStyle }} />
+                              <EditorUI editor={this.editor} utils={{ toggleBlockType, toggleInlineStyle }} />
                           </EditorContainer>
                       )
                   }

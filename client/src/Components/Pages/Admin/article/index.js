@@ -12,8 +12,6 @@ export const AdminArticleContext = React.createContext();
 
 class AdminArticle extends Component {
 
-
-
     state = {
         isArticle: false,
         data: {
@@ -80,7 +78,6 @@ class AdminArticle extends Component {
         const contentState = editorState.getCurrentContent();
         const html = stateToHTML(contentState);
 
-        return;
         const data = new FormData();
 
         data.append('thumbnail', files.thumbnail);
@@ -93,7 +90,7 @@ class AdminArticle extends Component {
         data.append('article', html);
         data.append('tag', tag);
 
-        const res = await axios.post(`${endpoint.uri}/article/upload`, data, {
+        await axios.post(`${endpoint.uri}/article/upload`, data, {
             'content-type': 'multipart/form-data'
         });
     }

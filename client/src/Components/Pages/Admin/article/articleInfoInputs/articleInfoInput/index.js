@@ -26,12 +26,13 @@ class ArticleInfoInput extends Component {
             return <AuthorsWrapper> {inputs} </AuthorsWrapper>;
         }
 
+        let ret;
         switch (type) {
             case 'text':
-                return <TextInput isTitle={isTitle} placeholder={capitalize(`${title}...`)} type={type} name={name} onChange={context.handleInputChange} />
+                ret =  <TextInput isTitle={isTitle} placeholder={capitalize(`${title}...`)} type={type} name={name} onChange={context.handleInputChange} />
                 break;
             case 'file':
-                return (
+                ret =  (
                     <React.Fragment>
                         <FileInput name={name} id={`${title}-file`} type={type} onChange={this.previewImage} />
                         <FileInputLabel htmlFor={`${title}-file`}>lägg till</FileInputLabel>
@@ -40,13 +41,13 @@ class ArticleInfoInput extends Component {
                         }
                     </React.Fragment>
                     )
-                break;
+                    break;
             case 'calendar':
-                return <CalendarContainer />
+                ret =  <CalendarContainer />
                 break;
             default:
-
         }
+        return ret;
     }
 
     previewImage = ({ target }) => {
@@ -64,7 +65,7 @@ class ArticleInfoInput extends Component {
 
     render() {
 
-        const { type, title, label, isTitle } = this.props;
+        const { title, label } = this.props;
         return (
             <AdminArticleContext.Consumer>
                 {
