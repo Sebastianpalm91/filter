@@ -24,6 +24,9 @@ export const CredentialsWrapper = styled.div`
     font-family: dp_light;
     font-size: 16px;
     letter-spacing: 0.02em;
+    ${breakpoint.down('s')`
+        font-size: 10px;
+    `}
 `
 
 export const CredentialColor = styled.p`
