@@ -158,8 +158,6 @@ export const Imginfo = styled.h3`
 `
 
 export const ArciveContainer = styled.div`
-    display: flex;
-    flex-direction: row;
     margin-bottom: 80px;
     ${breakpoint.down('s')`
         width: unset;
@@ -185,8 +183,7 @@ export const ArciveWrapper = styled.div`
 
 export const FlexWrapper = styled.div`
     display: flex;
-    justify-content: space-around;
-    width: 100%;
+    justify-content: space-between;
     ${breakpoint.down('s')`
         justify-content: space-between;
     `}
@@ -215,7 +212,7 @@ export const ReportageInfo = styled.h2`
     letter-spacing: 0.06em;
     text-align: left;
     margin: 0px;
-    padding: 20px 60px 12px 0px;
+    padding: 20px 0px 12px 0px;
     color: #FCFCF9;
     font-variant-ligatures: discretionary-ligatures;
     font-feature-settings: dlig;
@@ -229,6 +226,7 @@ export const ReportageInfo = styled.h2`
 export const TextWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    max-width: 353px;
     ${breakpoint.down('s')`
 
     `}
@@ -274,8 +272,6 @@ export const ReportageImgRight = styled.div `
 
 //Intervjues
 export const IntervjueContainer = styled.div`
-    display: flex;
-    flex-direction: row;
     margin-bottom: 100px;
     ${breakpoint.down('s')`
         margin: 0px 16px 0px 16px;

@@ -12,6 +12,7 @@
     "draft-js-plugins-editor": "^2.1.1",
     "npm": "^6.4.1",
     "react": "^16.5.0",
+    "react-animate-height": "^2.0.6",
     "react-calendar": "^2.17.4",
     "react-customized-scrollbar": "^1.2.3",
     "react-dom": "^16.5.0",

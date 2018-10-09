@@ -71,7 +71,9 @@ export const Toggle = styled.svg`
 
 // Panel
 
-export const Panel = styled.div `
+export const Nav = styled.nav `
+    display: flex;
+    justify-content: center;
     height: 0px;
     width: 100%;
     background-color: #E1AB99;
@@ -86,9 +88,10 @@ export const Panel = styled.div `
 
 export const StyledLinkSubMenu = styled(Link)`
     font-family: dp;
-    font-size: 16px
-    line-height: 28px;
+    line-height: 48px;
+    font-size: 24px;
     letter-spacing: 0.02em;
+    text-transform: uppercase;
     color: #222222;
     text-decoration: none;
     &:hover {
@@ -98,6 +101,36 @@ export const StyledLinkSubMenu = styled(Link)`
 
 export const SubMenuLi = styled.li `
     list-style: none;
-    padding-left: 35px;
+`
 
+export const Ul = styled.ul `
+    list-style: none;
+    padding: 0px;
+    margin: auto;
+`
+
+export const ListItem = styled.li `
+    display: flex;
+    padding-left: 5px;
+`
+
+export const MainNavitem = styled.li `
+    font-family: dp_bold;
+    line-height: 48px;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #222222;
+    text-decoration: none;
+`
+
+export const LinkItems = styled(Link)`
+    font-family: dp;
+    line-height: 32px;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: #1A1A1A;
+    text-decoration: none;
 `

@@ -105,6 +105,7 @@ export const SocialIconContainer = styled.div`
     padding-left: 30px;
     ${breakpoint.down('m')`
         justify-content: flex-start;
+        padding-left: 20px;
     `}
 `
 
@@ -117,7 +118,9 @@ export const FacebookLogo = styled.div`
     height: 24px;
     margin: 20px;
     ${breakpoint.down('m')`
-        margin: 10px 20px 10px 0px;
+        margin: 10px 24px 10px 0px;
+        width: 36px;
+        height: 36px;
     `}
 `
 
@@ -130,7 +133,9 @@ export const TwitterLogo = styled.div`
     height: 24px;
     margin: 20px;
     ${breakpoint.down('m')`
-        margin: 10px 20px 10px 0px;
+        margin: 10px 24px 10px 0px;
+        width: 36px;
+        height: 36px;
     `}
 `
 
@@ -143,6 +148,8 @@ export const InstaLogo = styled.div`
     height: 24px;
     margin: 20px;
     ${breakpoint.down('m')`
-        margin: 10px 20px 10px 0px;
+        margin: 10px 24px 10px 0px;
+        width: 36px;
+        height: 36px;
     `}
 `

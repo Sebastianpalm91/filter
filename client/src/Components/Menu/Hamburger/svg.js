@@ -1,16 +1,25 @@
 import React, { Component } from 'react';
-import { Container, Line, Toggle, Panel, SubMenuLi, StyledLinkSubMenu } from './styles';
+import { Container, Line, Toggle, Panel, SubMenuLi, StyledLinkSubMenu, ListItem, Ul, Nav, LinkItems, MainNavitem } from './styles';
 // import './AnimationStyle/animation.css';
-
+import AnimateHeight from 'react-animate-height';
+import { FaAngleUp, FaAngleDown } from 'react-icons/fa';
 class Svg extends Component {
     state = {
         addClass: false,
+        subMenu: false,
+        height: 0,
     }
     toggle() {
         this.setState({addClass: !this.state.addClass});
     }
+    toggleSubMenu = () => {
+        const { height } = this.state;
+        this.setState({
+          height: height === 0 ? 'auto' : 0,
+        });
+    }
     render() {
-
+        const { height } = this.state;
         return (
             <Container>
 
@@ -25,15 +34,27 @@ class Svg extends Component {
                     <Line active={this.state.addClass} d="M13.1,10.2H1.9c-0.44,0-0.8,0.36-0.8,0.8s0.36,0.8,0.8,0.8h11.2c0.44,0,0.801-0.36,0.801-0.8S13.54,10.2,13.1,10.2z"/>
                 </g>
                 </Toggle>
-                <Panel active={this.state.addClass} onClick={this.toggle.bind(this)}>
-                    <SubMenuLi><StyledLinkSubMenu to='/latestnumber'>Senaste Numret</StyledLinkSubMenu></SubMenuLi>
-                    <SubMenuLi><StyledLinkSubMenu to='/articles/Omgiven-av-idioti'>Omgiven av idioti</StyledLinkSubMenu></SubMenuLi>
-                    <SubMenuLi><StyledLinkSubMenu to='/articles/Palme-Mordet'>Den förlorade sonen</StyledLinkSubMenu></SubMenuLi>
-                    <SubMenuLi><StyledLinkSubMenu to='/blog'>Upptäcksresan</StyledLinkSubMenu></SubMenuLi>
-                    <SubMenuLi><StyledLinkSubMenu to='/about'>Från Sverige med kärlek</StyledLinkSubMenu></SubMenuLi>
-                    <SubMenuLi><StyledLinkSubMenu to='/subscription'>Pernille Fisher</StyledLinkSubMenu></SubMenuLi>
-                    <SubMenuLi><StyledLinkSubMenu to='/subscription'>Christensen</StyledLinkSubMenu></SubMenuLi>
-                </Panel>
+                    <Nav active={this.state.addClass}>
+                        <Ul>
+                            <MainNavitem onClick={this.toggleSubMenu}>Senaste numret{ height === 0 ? <FaAngleUp style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/> : <FaAngleDown style={{ paddingLeft: '15px', height: '20px', width: '10px'}}/> } </MainNavitem>
+                                    <AnimateHeight
+                                        duration={ 500 }
+                                        height={ height }
+                                    >
+                                        <ListItem><LinkItems style={{ padding: '10px 0px 0px 0px'}} to='/'>Filter #63</LinkItems></ListItem>
+                                        <ListItem><LinkItems to='/'>Omgiven av idioti</LinkItems></ListItem>
+                                        <ListItem><LinkItems to='/'>Den förlorade sonen</LinkItems></ListItem>
+                                        <ListItem><LinkItems to='/'>Upptäcksresan</LinkItems></ListItem>
+                                        <ListItem><LinkItems to='/'>Från Sverige med krälek</LinkItems></ListItem>
+                                        <ListItem><LinkItems style={{ padding: '0px 0px 10px 0px'}} to='/'>Pernille Fischer Christensen</LinkItems></ListItem>
+                                    </AnimateHeight>
+                            <SubMenuLi><StyledLinkSubMenu to='/articles/Omgiven-av-idioti'>Kategorier</StyledLinkSubMenu></SubMenuLi>
+                            <SubMenuLi><StyledLinkSubMenu to='/'>Arkivet</StyledLinkSubMenu></SubMenuLi>
+                            <SubMenuLi><StyledLinkSubMenu to='/'>Bloggen</StyledLinkSubMenu></SubMenuLi>
+                            <SubMenuLi><StyledLinkSubMenu to='/'>Om filter</StyledLinkSubMenu></SubMenuLi>
+                            <SubMenuLi><StyledLinkSubMenu onClick={this.toggle.bind(this)} to='/'>Bli prenumerant</StyledLinkSubMenu></SubMenuLi>
+                        </Ul>
+                </Nav>
             </Container>
         );
     }
