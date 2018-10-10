@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Container, Wrapper, Logo, StyledLink, Back, LoginSearchWrapper, H3, SearchIcon, LoggedInWrapper, H4, Border, Liked } from './styles';
-import Modes from '../Pages/article/readingcomponents/modes/';
 class Header extends Component {
     state = {
         loggedIn: false,
@@ -17,7 +16,6 @@ class Header extends Component {
                 <Wrapper>
                     <StyledLink to='/'><Logo  alt="Logo-Hem"></Logo></StyledLink>
                 </Wrapper>
-                <Modes />
                 {
                     !this.state.loggedIn ?
                     <LoginSearchWrapper>
