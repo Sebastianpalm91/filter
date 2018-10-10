@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Calendar from 'react-calendar';
 
-import { DateButton, CalendarButtonsContainer } from './styles';
+import { DateButton, CalendarButtonsContainer, MagazineNumber } from './styles';
 
 class CalendarContainer extends Component {
 
@@ -10,9 +10,24 @@ class CalendarContainer extends Component {
         dd: null,
         mm: null,
         yy: null,
+        magazineNumber: '',
     }
 
     toggleCalendar = () => this.setState({ showCalendar: !this.state.showCalendar });
+
+    handleInputChange = (e) => {
+        const { name, value } = e.target;
+        console.log(value);
+        if (isNaN(value) && isNaN(parseInt(value, 10)))
+            return;
+
+        this.setState({
+            [name]: `#${value}`
+        });
+
+        this.props.handleInputChange(e);
+
+    }
 
     onChange = (date, context) => {
         const dd = date.getDate().toString().padStart(2, '0');
@@ -25,23 +40,26 @@ class CalendarContainer extends Component {
             mm,
             yy,
         });
-        context.setDate(date);
     }
 
 
 
     render() {
 
-        const { dd, mm, yy } = this.state;
+        const { dd, mm, yy, magazineNumber } = this.state;
+
+        const { isArticle, setDate } = this.props;
 
         return (
             <CalendarButtonsContainer>
+                 { isArticle && <MagazineNumber placeholder='nr#' name="magazineNumber" type="text" value={magazineNumber} onChange={this.handleInputChange} /> }
                  <DateButton onClick={this.toggleCalendar}>{ dd || 'dag' }</DateButton>
                  <DateButton onClick={this.toggleCalendar}>{ mm || 'månad' }</DateButton>
                  <DateButton onClick={this.toggleCalendar}>{ yy || 'år' }</DateButton>
                  {
                      this.state.showCalendar && <Calendar locale="swe" onChange={(date) => {
-                         this.onChange(date, this.props);
+                         this.onChange(date);
+                         setDate(date)
                      }} />
                  }
              </CalendarButtonsContainer>

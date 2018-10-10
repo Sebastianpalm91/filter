@@ -12,7 +12,11 @@ import EditorUI from './EditorUI/';
 import { EditorContainer, EditorTextWrapper } from './styles';
 import { Label } from './EditorUI/styles';
 
-const blockBreakoutPlugin = createBlockBreakoutPlugin();
+const blockBreakoutPlugin = createBlockBreakoutPlugin({
+    onBlockBreakout: (type) => {
+        document.querySelector(`[data-block-type=${type}]`).classList.remove('active');
+    }
+});
 
 const imagePlugin = createImagePlugin();
 

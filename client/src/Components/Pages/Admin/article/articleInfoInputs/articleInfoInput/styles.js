@@ -42,6 +42,29 @@ export const Input = styled.input`
     border: none;
 `
 
+export const ArticleButton = styled.span`
+    border-radius: 6px;
+    background: #FCFCF9;
+    line-height: 32px;
+    padding: 0px 26px;
+    font-family: dp;
+    height: 32px;
+    margin: 10px 15px 10px 0px;
+    cursor: pointer;
+    transition: all .25s ease-out;
+    &:hover, &.active {
+        color: #000000;
+        background: #E1AB99;
+    }
+`
+
+export const ButtonsContainer = styled.div`
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+`
+
 export const TextArea = styled.textarea`
     width: 100%;
     color: #1A1A1A;

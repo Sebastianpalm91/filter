@@ -5,12 +5,12 @@ import { InputLabel, InputWrapper, Container, InputTitle } from './styles';
 import capitalize from '../../../../../../utility/capitalize';
 import CalendarContainer from './calendarContainer';
 
-const CalendarInput = ({label, title, setDate}) => (
+const CalendarInput = (props) => (
     <Container>
-        <InputLabel>{label}</InputLabel>
+        <InputLabel>{props.label}</InputLabel>
         <InputWrapper>
-            <InputTitle>{capitalize(title)}</InputTitle>
-            <CalendarContainer setDate={setDate} />
+            <InputTitle>{capitalize(props.title)}</InputTitle>
+            <CalendarContainer {...props} />
         </InputWrapper>
     </Container>
 );

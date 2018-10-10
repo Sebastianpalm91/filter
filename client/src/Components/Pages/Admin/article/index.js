@@ -36,7 +36,6 @@ class AdminArticle extends Component {
 
     handleFileUpload = ({ target: { files, name } }) => {
         const file = files[0];
-        console.log(file, name);
         this.setState({
             data: {
                 ...this.state.data,
@@ -105,7 +104,6 @@ class AdminArticle extends Component {
     render() {
         const { setEditorContent, handleFileUpload, handleInputChange, handleClick, setDate } = this;
         const { isArticle } = this.state;
-        console.log(this.state);
         return (
             <AdminArticleContext.Provider value={{ setEditorContent, handleFileUpload, handleInputChange, handleClick, setDate }}>
                 <AdminPageWrapper>
