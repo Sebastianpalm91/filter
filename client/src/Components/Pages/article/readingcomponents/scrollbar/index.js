@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Container, ScrollBarStyles, ScrollContainer, Inner, BookMarkShareIcons, IconContainer, SocialContainer, ShareButton, SocialButton, Dot, SocialWrapper, BookMark, Share, Like, Fb, Insta, Twitter, } from './styles';
+import { Container, ScrollBarStyles, ScrollContainer, Inner, IconContainer, Dot, SocialWrapper, BookMark, Share, Like, Fb, Insta, Twitter, } from './styles';
 // import BookMark from '../bookmark/'
-import { FaBookmark, FaHeart, FaShareSquare, FaFacebookSquare, FaTwitterSquare, FaInstagram } from 'react-icons/fa';
-
 
 class ScrollBar extends Component {
     state = {
@@ -23,7 +21,7 @@ class ScrollBar extends Component {
     }
 
     showBar = () => {
-        if (this.state.scrollPercentage >= 6) {
+        if (this.state.scrollPercentage >= 35) {
             this.setState({ hideBar: true })
         } else (
             this.setState({ hideBar: false })
@@ -65,15 +63,13 @@ class ScrollBar extends Component {
         return (
             <Container>
                     <ScrollContainer showBar={this.state.hideBar}>
-                        <IconContainer>
-                            <SocialContainer onClick={(e) => {this.showSocials()}}>
-                            <Share onClick={(e) => {this.onClick(e)}}/>
+                        <IconContainer onClick={(e) => {this.showSocials(); this.onClick(e)}}>
+                            <Share />
                                     <SocialWrapper toggleOpen={this.state.toggleOpen}>
                                             <Fb toggleOpen={this.state.toggleOpen}/>
                                             <Twitter toggleOpen={this.state.toggleOpen}/>
                                             <Insta toggleOpen={this.state.toggleOpen}/>
                                     </SocialWrapper>
-                            </SocialContainer>
                         </IconContainer>
                         <Like onClick={(e) => {this.onClick(e)}}/>
                         <ScrollBarStyles>

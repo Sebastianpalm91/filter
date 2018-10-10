@@ -81,24 +81,6 @@ export const ShareButton = styled.div`
     `}
 `
 
-export const SocialButton = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 32px;
-    height: 32px;
-    background-color: #E1AB99;
-    border-radius: 50%;
-
-`
-
-export const SocialContainer = styled.div`
-    display: flex;
-    align-items: center;
-    position: relative;
-
-`
-
 export const SocialWrapper = styled.div`
     display: flex;
     align-items: center;
@@ -107,20 +89,21 @@ export const SocialWrapper = styled.div`
     position: relative;
     transition: all 0.4s cubic-bezier(.51,-0.45,1,1.17);
     cursor: pointer;
+    margin: 10px;
     &:nth-child(1) {
-        transform: ${ ({toggleOpen}) => toggleOpen ? 'none' : 'translateX(calc(-100%))'}
+        transform: ${ ({toggleOpen}) => toggleOpen ? 'none' : 'translateX(calc(-10% - 20px ))'}
     }
     &:nth-child(2) {
-        transform: ${ ({toggleOpen}) => toggleOpen ? 'none' : 'translateX(calc(-200%))'}
+        transform: ${ ({toggleOpen}) => toggleOpen ? 'none' : 'translateX(calc(-20% - 30px))'}
     }
     &:nth-child(3) {
-        transform: ${ ({toggleOpen}) => toggleOpen ? 'none' : 'translateX(calc(-300%))'}
+        transform: ${ ({toggleOpen}) => toggleOpen ? 'none' : 'translateX(calc(-30% - 40px))'}
     }
 `
 
 export const IconContainer = styled.div`
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     ${breakpoint.down('m')`
         display: none;
     `}
@@ -133,6 +116,7 @@ export const Fb = styled.div`
     background-size: cover;
     width: 24px;
     height: 24px;
+    margin: 5px;
 `
 
 export const Twitter = styled.div`
@@ -142,6 +126,7 @@ export const Twitter = styled.div`
     background-size: cover;
     width: 24px;
     height: 24px;
+    margin: 5px;
 `
 export const Insta = styled.div`
     background-image: url(${InstagramIconSvg});
@@ -150,6 +135,7 @@ export const Insta = styled.div`
     background-size: cover;
     width: 24px;
     height: 24px;
+    margin: 5px;
 `
 
 export const BookMark = styled.div`

@@ -53,10 +53,9 @@ export const SubMenu = styled.div `
     align-items: center;
     transition: all 0.5s ease-in-out;
     ${props => props.active ? `
-        height: 256px;
+        height: 300px;
         opacity: 1;
-    ` : ''}
-
+    ` : ''};
 `
 
 export const SubMenuUl = styled.ul `
@@ -69,6 +68,22 @@ export const SubMenuUl = styled.ul `
     margin: auto;
     ${props => props.active ? `
         display: flex;
+        margin-right: 156px;
+    ` : '' }
+`
+
+export const SubMenuUlCat = styled.ul `
+    flex-direction: row;
+    justify-content: center;
+    padding: 0px;
+    list-style: none;
+    width: 100%;
+    display: none;
+    margin: auto;
+    ${props => props.active ? `
+        display: flex;
+        justify-content: flex-start;
+        margin-right: 226px;
     ` : '' }
 `
 
@@ -93,6 +108,19 @@ export const Vr = styled.div `
     width: 200px;
 `
 
+export const SubMenuLiCat = styled.li `
+    list-style: none;
+    padding-left: 30px;
+`
+
+export const VrCat = styled.div `
+    border-right: 1px solid #222222;
+    padding-right: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+`
+
 export const StyledLinkSubMenu = styled(Link)`
     font-family: dp;
     font-size: 16px
@@ -110,6 +138,12 @@ export const LinkInfo = styled.div `
     flex-direction: column;
     width: 20%;
     padding: 0px 30px 0px 30px;
+`
+
+export const LinkInfoCat = styled.div `
+    display: flex;
+    flex-direction: column;
+    width: 20%;
 `
 
 export const Title = styled.h1 `

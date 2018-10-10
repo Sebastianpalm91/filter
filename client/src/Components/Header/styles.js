@@ -49,3 +49,19 @@ export const Back = styled.div`
         display: none;
     `}
 `;
+
+export const LoginSearchWrapper = styled.div`
+    position: absolute;
+    right: 5%;
+    top: 3%;
+`
+
+export const H3 = styled.h3`
+    font-family: dp;
+    line-height: 32px;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+    padding: 0px;
+    margin: 0px;
+`
