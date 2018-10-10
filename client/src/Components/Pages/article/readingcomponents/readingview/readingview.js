@@ -60,6 +60,7 @@ class ReadingView extends Component {
                         <Title nightmode={this.state.NightMode} isLarge={this.state.largeFont}>{title}</Title>
                         <ArticleInfoWrapper nightmode={this.state.NightMode} isLarge={this.state.largeFont}>
                             <InfoWork nightmode={this.state.NightMode} isLarge={this.state.largeFont}>text: </InfoWork><InfoName nightmode={this.state.NightMode}>{name}</InfoName>
+                            <br/>
                             <InfoWork nightmode={this.state.NightMode} paddingLeft={true}>illustration: </InfoWork><InfoName nightmode={this.state.NightMode}>{illustrations}</InfoName>
                             <MagazineNumber nightmode={this.state.NightMode}>
                                 <Highlighted>{tag}</Highlighted> publicerad i filter #{number} ( {published_at} )

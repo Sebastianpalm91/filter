@@ -20,7 +20,7 @@ export const Container = styled.div `
         bottom: 0px;
         width: 90%;
         height: 7%;
-        background-color: #F8F8F8;
+        ${props => props.nightmode ? 'background: #F8F8F8' : 'background: #E1AB99'};
         border-radius: 5px 5px 0px 0px;
         box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
         margin-bottom: -1px;
