@@ -50,7 +50,9 @@ export const ToggleButton = styled.div`
 `
 export const ActionButtonsContainer = styled.div`
     width: 50%;
-    margin: 20px 0;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-around;
 `
 
 export const ActionButton = styled.button`
@@ -59,5 +61,10 @@ export const ActionButton = styled.button`
     width: 45%;
     border-radius: 6px;
     text-transform: uppercase;
+    border: none;
     height: 64px;
+    font-family: dp_bold;
+    font-size: 1.5rem;
+    letter-spacing: 0.08rem;
+    cursor: pointer;
 `

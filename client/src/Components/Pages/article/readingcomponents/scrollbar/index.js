@@ -10,7 +10,6 @@ class ScrollBar extends Component {
         scrollPercentage: 0,
         toggleOpen: false,
         hideBar: true,
-        offset: 0,
         }
 
     componentDidMount() {
@@ -24,11 +23,6 @@ class ScrollBar extends Component {
                    top: position,
                    behavior: 'smooth'
                });
-               const offset = document.querySelector('section h1').offsetTop;
-               console.log(offset);
-               this.setState({
-                   offset,
-               })
            },500);
 
         }
@@ -49,9 +43,12 @@ class ScrollBar extends Component {
     }
 
     setScrollPos = e => {
-        const { scrollTop, scrollHeight } = document.documentElement;
+        const { scrollTop } = document.documentElement;
 
-        const position = scrollTop / scrollHeight;
+        const tmp = document.querySelector('section').offsetHeight;
+        const offset = document.querySelector('section h1').offsetTop;
+
+        const position = (scrollTop - offset) / tmp;
 
         this.setState({
             scrollPercentage: position,
@@ -79,9 +76,7 @@ class ScrollBar extends Component {
 
 
     render() {
-
-        const offset = this.state.offset / document.documentElement.scrollHeight;
-        const pos = (this.state.scrollPercentage - offset) * 200;
+        const pos = (this.state.scrollPercentage)  * 200;
         return (
             <Container>
                     <ScrollContainer hideBar={this.state.hideBar}>

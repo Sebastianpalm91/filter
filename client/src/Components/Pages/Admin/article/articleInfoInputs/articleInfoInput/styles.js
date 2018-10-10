@@ -98,7 +98,7 @@ export const FileInputLabel = styled.label`
 
 export const Container = styled.div`
     width: 85%;
-    margin: 36px 0;
+    margin: 36px auto;
     padding: 0 30px;
     display: flex;
     -webkit-flex-direction: row;

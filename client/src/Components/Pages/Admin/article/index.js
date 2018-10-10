@@ -22,7 +22,14 @@ class AdminArticle extends Component {
     }
 
     handleClick = ({ target }) => {
-
+        const value = target.dataset.value;
+        const name = target.name;
+        this.setState({
+            data: {
+                ...this.state.data,
+                [name]: value
+            }
+        });
     }
 
     handleInputChange = ({ target: { name, value } }) => {
@@ -101,6 +108,10 @@ class AdminArticle extends Component {
         });
     }
 
+    preview = e => {
+
+    }
+
     render() {
         const { setEditorContent, handleFileUpload, handleInputChange, handleClick, setDate } = this;
         const { isArticle } = this.state;
@@ -120,7 +131,7 @@ class AdminArticle extends Component {
                     <ArticleInfoInputs isArticle={isArticle} />
                     <TextEditor />
                     <ActionButtonsContainer>
-                        <ActionButton bg="#E1AB99">Förhandsgranska</ActionButton>
+                        <ActionButton onClick={this.preview} bg="#E1AB99">Förhandsgranska</ActionButton>
                         <ActionButton bg="#B0E199">Publicera</ActionButton>
                     </ActionButtonsContainer>
                 </AdminPageWrapper>

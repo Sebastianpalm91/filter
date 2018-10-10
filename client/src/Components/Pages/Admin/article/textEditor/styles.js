@@ -8,6 +8,7 @@ export const EditorContainer = styled.div`
     padding: 0 30px;
     display: flex;
     flex-direction: row;
+    margin: 36px auto;
 `
 
 
