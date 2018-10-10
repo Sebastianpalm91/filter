@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import capitalize from '../../../../../../utility/capitalize';
+import endpoint from '../../../../../../settings.js';
 
 import { ArticleButton, InputWrapper, Container, InputTitle, InputLabel, ButtonsContainer } from './styles';
 
@@ -12,7 +13,7 @@ class Buttons extends Component {
     }
 
     async componentDidMount() {
-        const { data } = await axios.get(`http://localhost:1337/admin/articles/${this.props.type}`);
+        const { data } = await axios.get(`${endpoint.uri}/admin/articles/${this.props.type}`);
         this.setState({
             data
         });

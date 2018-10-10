@@ -12,7 +12,6 @@ export const DateButton = styled.button`
     font-size: 1.1rem;
     letter-spacing: .08rem;
     margin: 0px 15px 15px 0px;
-    padding: 0px 10px;
     outline: none;
     border: none;
 `
