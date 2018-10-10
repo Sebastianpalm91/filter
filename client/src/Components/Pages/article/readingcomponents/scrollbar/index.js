@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, ScrollBarStyles, ScrollContainer, Inner, BookMarkShareIcons, IconContainer, SocialContainer, ShareButton, SocialButton, Dot, SocialWrapper } from './styles';
+import { Container, ScrollBarStyles, ScrollContainer, Inner, BookMarkShareIcons, IconContainer, SocialContainer, ShareButton, SocialButton, Dot, SocialWrapper, BookMark, Share, Like, Fb, Insta, Twitter, } from './styles';
 // import BookMark from '../bookmark/'
 import { FaBookmark, FaHeart, FaShareSquare, FaFacebookSquare, FaTwitterSquare, FaInstagram } from 'react-icons/fa';
 
@@ -30,7 +30,15 @@ class ScrollBar extends Component {
         )
     }
 
-    shareButtonOpen = () => {
+    onClick = ({ target }) => {
+        if (target.classList.toggle('active')) {
+            [...target.parentNode.children].forEach(x => x.classList.remove('active'));
+            target.classList.add('active');
+            console.log('2');
+        }
+    }
+
+    showSocials = (e) => {
         this.setState({ toggleOpen: !this.state.toggleOpen })
     }
 
@@ -57,29 +65,17 @@ class ScrollBar extends Component {
         return (
             <Container>
                     <ScrollContainer showBar={this.state.hideBar}>
-                        <IconContainer onClick={this.shareButtonOpen}>
-                            <SocialContainer>
-                            <ShareButton>
-                                <FaShareSquare />
-                            </ShareButton>
+                        <IconContainer>
+                            <SocialContainer onClick={(e) => {this.showSocials()}}>
+                            <Share onClick={(e) => {this.onClick(e)}}/>
                                     <SocialWrapper toggleOpen={this.state.toggleOpen}>
-                                        <SocialButton toggleOpen={this.state.toggleOpen}>
-                                            <FaFacebookSquare />
-                                        </SocialButton>
-
-                                        <SocialButton toggleOpen={this.state.toggleOpen}>
-                                            <FaTwitterSquare />
-                                        </SocialButton>
-
-                                        <SocialButton toggleOpen={this.state.toggleOpen}>
-                                            <FaInstagram />
-                                        </SocialButton>
+                                            <Fb toggleOpen={this.state.toggleOpen}/>
+                                            <Twitter toggleOpen={this.state.toggleOpen}/>
+                                            <Insta toggleOpen={this.state.toggleOpen}/>
                                     </SocialWrapper>
                             </SocialContainer>
                         </IconContainer>
-                        <BookMarkShareIcons>
-                            <FaHeart />
-                        </BookMarkShareIcons>
+                        <Like onClick={(e) => {this.onClick(e)}}/>
                         <ScrollBarStyles>
                             <Inner
                                 style={{
@@ -88,9 +84,7 @@ class ScrollBar extends Component {
                             </Inner>
                             <Dot />
                         </ScrollBarStyles>
-                        <BookMarkShareIcons onClick={this.localStorage}>
-                            <FaBookmark />
-                        </BookMarkShareIcons>
+                            <BookMark onClick={(e) => {this.onClick(e); this.localStorage()}}/>
                     </ScrollContainer>
             </Container>
         );
