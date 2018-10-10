@@ -6,6 +6,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
+    ${props => props.nightmode ? 'background: rgba(255, 255, 255, 0.5);' : 'background: #000000'};
     p, span {
         margin: 0;
     }
@@ -42,7 +43,7 @@ export const Wrapper = styled.div`
     `}
 `
 export const Title = styled.h1`
-    color: #222222;
+    ${props => props.nightmode ? 'color: #222222' : 'color: #FCFCF9'};
     font-size: ${props => props.isLarge ? '64px' : '74px'};
     text-alight: left;
     font-family: hd_light;
@@ -55,30 +56,33 @@ export const Title = styled.h1`
 `
 
 export const Tag = styled.span`
-    color: #222222;
+    ${props => props.nightmode ? 'color: #222222' : 'color: #FCFCF9'};
     font-size:  ${props => props.isLarge ? '24px' : '34px'};
     line-height: ${props => props.isLarge ? '1.7rem' : '2rem'};
 `
 
 export const Published = styled.span`
-    color: #222222;
+    ${props => props.nightmode ? 'color: #222222' : 'color: #FCFCF9'};
     font-size: ${props => props.isLarge ? '24px' : '34px'};
     line-height: ${props => props.isLarge ? '1.7rem' : '2rem'};
 `
 
 export const ArticleInfoWrapper = styled.div`
+    ${props => props.nightmode ? 'color: #222222' : 'color: #FCFCF9'};
     font-style: italic;
     font-size: ${props => props.isLarge ? '18px' : '24px'};
     margin-bottom: 5%;
 `
 
 export const InfoWork = styled.span`
+    ${props => props.nightmode ? 'color: #222222' : 'color: #FCFCF9'};
     text-transform: capitalize;
     font-family: hd;
     padding-left: ${({ paddingLeft }) => paddingLeft ? '10px' : '0px'}
 `
 
 export const InfoName = styled.span`
+    ${props => props.nightmode ? 'color: #222222' : 'color: #FCFCF9'};
     border-bottom: 1px solid #E1AB99;
     font-style: normal;
     font-family: hd_medium;
@@ -86,7 +90,7 @@ export const InfoName = styled.span`
 `
 
 export const Paragraph = styled.p`
-    color: #222222;
+    ${props => props.nightmode ? 'color: #222222' : 'color: #FCFCF9'};
     font-size: ${props => props.isLarge ? '18px' : '24px'};
     line-height:  ${props => props.isLarge ? '1.7rem' : '2rem'};
     font-family: hd_regular;

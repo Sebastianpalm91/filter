@@ -41,6 +41,11 @@ export const Wrapper = styled.div `
     `}
 `
 
+export const Margins = styled.div `
+    display: flex;
+    justify-content: center;
+`
+
 export const IconContainer = styled.div`
     display: flex;
     align-items: center;

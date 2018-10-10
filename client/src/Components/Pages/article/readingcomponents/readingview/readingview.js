@@ -4,11 +4,13 @@ import ScrollBar from '../scrollbar/';
 import { FaHeadphones, } from 'react-icons/fa';
 import './removeScroll.css';
 import Modes from '../modes/';
+import MobileIcons from '../mobile';
 
 class ReadingView extends Component {
     state = {
         isHide: false,
         largeFont: true,
+        NightMode: true,
     }
 
     getEstimatedReadingTime(article) {
@@ -22,21 +24,25 @@ class ReadingView extends Component {
         this.setState({ largeFont: !this.state.largeFont})
     }
 
+    toggleNightMode = () => {
+        this.setState({ NightMode: !this.state.NightMode })
+    }
+
     render() {
 
         if (this.props.dataHasloaded) {
             const { article, author: { name }, illustrations, thumbnail, magazine: { number }, preamble, published_at, tag, title } = this.props;
             return (
-                <Container data-name='article'>
-                    <Modes font={this.toggleFont.bind(this)}/>
+                <Container nightmode={this.state.NightMode} data-name='article'>
+                    <Modes nightmode={this.toggleNightMode.bind(this)} font={this.toggleFont.bind(this)}/>
                     <Thumbnail src={`http://localhost:1337/public/imgs/${thumbnail}`}></Thumbnail>
                     <ScrollBar />
                     <Wrapper>
-                        <Title isLarge={this.state.largeFont}>{title}</Title>
-                        <ArticleInfoWrapper isLarge={this.state.largeFont}>
-                            <InfoWork isLarge={this.state.largeFont}>text: </InfoWork><InfoName>{name}</InfoName>
-                            <InfoWork paddingLeft={true}>illustration: </InfoWork><InfoName>{illustrations}</InfoName>
-                            <MagazineNumber>
+                        <Title nightmode={this.state.NightMode} isLarge={this.state.largeFont}>{title}</Title>
+                        <ArticleInfoWrapper nightmode={this.state.NightMode} isLarge={this.state.largeFont}>
+                            <InfoWork nightmode={this.state.NightMode} isLarge={this.state.largeFont}>text: </InfoWork><InfoName nightmode={this.state.NightMode}>{name}</InfoName>
+                            <InfoWork nightmode={this.state.NightMode} paddingLeft={true}>illustration: </InfoWork><InfoName nightmode={this.state.NightMode}>{illustrations}</InfoName>
+                            <MagazineNumber nightmode={this.state.NightMode}>
                                 <Highlighted>{tag}</Highlighted> publicerad i filter #{number} ( {published_at} )
                                     <br />
                                     <ReadingTime isLarge={this.state.largeFont}>ESTIMERAT LÄSTID: {this.getEstimatedReadingTime(article)}</ReadingTime>
@@ -44,10 +50,11 @@ class ReadingView extends Component {
                             </MagazineNumber>
                         </ArticleInfoWrapper>
                         <Preamble>
-                            <Paragraph isLarge={this.state.largeFont}>{preamble}</Paragraph>
+                            <Paragraph nightmode={this.state.NightMode} isLarge={this.state.largeFont}>{preamble}</Paragraph>
                         </Preamble>
-                        <Paragraph isLarge={this.state.largeFont} dangerouslySetInnerHTML={{ __html: article }}></Paragraph>
+                        <Paragraph nightmode={this.state.NightMode} isLarge={this.state.largeFont} dangerouslySetInnerHTML={{ __html: article }}></Paragraph>
                     </Wrapper>
+                    <MobileIcons nightmode={this.toggleNightMode.bind(this)}/>
                 </Container>
             );
         } else {

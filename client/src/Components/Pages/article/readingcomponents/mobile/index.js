@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Wrapper, IconContainer, SocialsWrapper, Share, Like, BookMark, Fb, Twitter, Insta } from './styles';
+import { Container, Wrapper, IconContainer, SocialsWrapper, Margins, Share, Like, BookMark, Fb, Twitter, Insta } from './styles';
 class MobileButton extends Component {
 
     state = {
@@ -20,6 +20,7 @@ class MobileButton extends Component {
 
     render() {
         return (
+            <Margins>
             <Container>
                 <Wrapper>
                     <IconContainer onClick={(e) => {this.showSocials(); this.onClick(e)}}>
@@ -34,6 +35,7 @@ class MobileButton extends Component {
                     <Like onClick={(e) => {this.onClick(e)}}/>
                 </Wrapper>
             </Container>
+            </Margins>
         );
     }
 

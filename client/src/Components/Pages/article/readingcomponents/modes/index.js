@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Wrapper, Mode, ModeBox, BigFont, SmallFont } from './styles';
+import { Container, Wrapper, Mode, ModeBox, BigFont, SmallFont, Row, Paragraph, NightMode } from './styles';
 
 
 class MobileButton extends Component {
@@ -26,8 +26,12 @@ class MobileButton extends Component {
                 <Wrapper>
                     <Mode onClick={(e) => {this.onClick(e); this.showSocials(e)}}/>
                     <ModeBox toggleOpen={this.state.toggleOpen}>
-                        <BigFont onClick={this.props.font}/>
-                        <SmallFont onClick={this.props.font}/>
+                        <Row>
+                            <SmallFont onClick={this.props.font}/>
+                            <BigFont onClick={this.props.font}/>
+                        </Row>
+                        <Paragraph>night mode</Paragraph>
+                        <NightMode onClick={this.props.nightmode}/>
                     </ModeBox>
                 </Wrapper>
             </Container>
