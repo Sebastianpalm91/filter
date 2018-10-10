@@ -9,15 +9,11 @@ export const Container = styled.div`
     p, span {
         margin: 0;
     }
-
-    h1 {
-        margin-bottom: 0;
-    }
 `
 
 export const ReadingTime = styled.span`
     font-family: dp;
-    font-size: .6rem;
+    font-size: ${props => props.isLarge ? '.6rem' : '1rem'};
     text-transform: initial;
 `
 
@@ -46,29 +42,33 @@ export const Wrapper = styled.div`
     `}
 `
 export const Title = styled.h1`
-    color: black;
-    font-size: 64px;
+    color: #222222;
+    font-size: ${props => props.isLarge ? '64px' : '74px'};
     text-alight: left;
     font-family: hd_light;
     font-weight: 100;
-    margin-bottom: 5%;
+    margin-bottom: 20px;
+    ${breakpoint.down('m')`
+    margin-bottom: 10%;
+    text-align: center;
+    `}
 `
 
 export const Tag = styled.span`
-    color: black;
-    font-size: 24px;
-    line-height: 28px;
+    color: #222222;
+    font-size:  ${props => props.isLarge ? '24px' : '34px'};
+    line-height: ${props => props.isLarge ? '1.7rem' : '2rem'};
 `
 
 export const Published = styled.span`
-    color: black;
-    font-size: 24px;
-    line-height: 28px;
+    color: #222222;
+    font-size: ${props => props.isLarge ? '24px' : '34px'};
+    line-height: ${props => props.isLarge ? '1.7rem' : '2rem'};
 `
 
 export const ArticleInfoWrapper = styled.div`
     font-style: italic;
-    font-size: 18px;
+    font-size: ${props => props.isLarge ? '18px' : '24px'};
     margin-bottom: 5%;
 `
 
@@ -86,15 +86,15 @@ export const InfoName = styled.span`
 `
 
 export const Paragraph = styled.p`
-    color: black;
-    font-size: 18px;
-    line-height: 1.7rem;
+    color: #222222;
+    font-size: ${props => props.isLarge ? '18px' : '24px'};
+    line-height:  ${props => props.isLarge ? '1.7rem' : '2rem'};
     font-family: hd_regular;
 `
 
 export const MagazineNumber = styled.p`
     margin: 10px 0px 0 0!important;
-    font-size: 10px;
+    font-size: ${props => props.isLarge ? '10px' : '20px'};
     font-family dp;
     text-transform: uppercase;
     font-style: normal;
