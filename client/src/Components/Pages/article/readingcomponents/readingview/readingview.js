@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Wrapper, Title, Paragraph, LoadingArticle, ArticleInfoWrapper, InfoName, InfoWork, MagazineNumber, Highlighted, Preamble, Thumbnail, ReadingTime, MobileContainer, MobileWrapper, IconContainer, SocialsWrapper, Margins, Share, Like, BookMark, Fb, Twitter, Insta } from './styles';
+import { Container, Wrapper, Title, Paragraph, LoadingArticle, ArticleInfoWrapper, InfoName, InfoWork, MagazineNumber, Highlighted, Preamble, Thumbnail, ReadingTime, MobileContainer, MobileWrapper, IconContainer, SocialsWrapper, Margins, Share, Like, BookMark, Fb, Twitter, Insta, InfoText } from './styles';
 import ScrollBar from '../scrollbar/';
 import { FaHeadphones, } from 'react-icons/fa';
 import './removeScroll.css';
@@ -69,9 +69,12 @@ class ReadingView extends Component {
                     <Wrapper>
                         <Title nightmode={this.state.NightMode} isLarge={this.state.largeFont}>{title}</Title>
                         <ArticleInfoWrapper nightmode={this.state.NightMode} isLarge={this.state.largeFont}>
-                            <InfoWork nightmode={this.state.NightMode} isLarge={this.state.largeFont}>text: </InfoWork><InfoName nightmode={this.state.NightMode}>{name}</InfoName>
-                            <br/>
-                            <InfoWork nightmode={this.state.NightMode} paddingLeft={true}>illustration: </InfoWork><InfoName nightmode={this.state.NightMode}>{illustrations}</InfoName>
+                            <InfoText>
+                                <InfoWork nightmode={this.state.NightMode} isLarge={this.state.largeFont}>text: </InfoWork><InfoName nightmode={this.state.NightMode}>{name}</InfoName>
+                            </InfoText>
+                            <InfoText>
+                                <InfoWork nightmode={this.state.NightMode} paddingLeft={true}>illustration: </InfoWork><InfoName nightmode={this.state.NightMode}>{illustrations}</InfoName>
+                            </InfoText>
                             <MagazineNumber nightmode={this.state.NightMode}>
                                 <Highlighted>{tag}</Highlighted> publicerad i filter #{number} ( {published_at} )
                                     <br />

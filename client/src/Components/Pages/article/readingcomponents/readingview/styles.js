@@ -93,6 +93,10 @@ export const ArticleInfoWrapper = styled.div`
     margin-bottom: 5%;
 `
 
+export const InfoText = styled.span`
+    
+`
+
 export const InfoWork = styled.span`
     transition: all 0.2s cubic-bezier(.51,-0.45,1,1.17);
     ${props => props.nightmode ? 'color: #222222' : 'color: #FCFCF9'};
