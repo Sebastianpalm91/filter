@@ -3,28 +3,66 @@ import { Container, ScrollBarStyles, ScrollContainer, Inner, IconContainer, Dot,
 // import BookMark from '../bookmark/'
 
 class ScrollBar extends Component {
+
+    storage = window.localStorage;
+
     state = {
         scrollPercentage: 0,
-        bookMarkPosition: localStorage.getItem('key'),
         toggleOpen: false,
-        hideBar: false,
-    }
+        hideBar: true,
+        offset: 0,
+        }
 
     componentDidMount() {
-        window.addEventListener('scroll', this.onScroll);
+        let bookMarkPosition = parseFloat(localStorage.getItem('position'));
+
+        if (bookMarkPosition) {
+            bookMarkPosition = bookMarkPosition * 1.38;
+            const position = document.documentElement.scrollHeight * bookMarkPosition;
+            setTimeout(() => {
+               window.scrollTo({
+                   top: position,
+                   behavior: 'smooth'
+               });
+               const offset = document.querySelector('section h1').offsetTop;
+               console.log(offset);
+               this.setState({
+                   offset,
+               })
+           },500);
+
+        }
+
+        window.addEventListener('scroll', this.setScrollPos);
         window.addEventListener('scroll', this.showBar);
-        if (this.state.bookMarkPosition === localStorage.getItem('key')) {
-            this.scroll();
-        };
-        this.onScroll();
-        this.showBar();
+    }
+
+
+    savePosition = e => {
+
+        const { scrollTop, scrollHeight } = document.documentElement;
+
+        const position = scrollTop / scrollHeight;
+
+        this.storage.setItem('position', position);
+
+    }
+
+    setScrollPos = e => {
+        const { scrollTop, scrollHeight } = document.documentElement;
+
+        const position = scrollTop / scrollHeight;
+
+        this.setState({
+            scrollPercentage: position,
+        });
     }
 
     showBar = () => {
-        if (this.state.scrollPercentage >= 35) {
-            this.setState({ hideBar: true })
-        } else (
+        if (document.documentElement.scrollTop >= document.querySelector('section h1').offsetTop) {
             this.setState({ hideBar: false })
+        } else (
+            this.setState({ hideBar: true })
         )
     }
 
@@ -32,7 +70,6 @@ class ScrollBar extends Component {
         if (target.classList.toggle('active')) {
             [...target.parentNode.children].forEach(x => x.classList.remove('active'));
             target.classList.add('active');
-            console.log('2');
         }
     }
 
@@ -40,29 +77,14 @@ class ScrollBar extends Component {
         this.setState({ toggleOpen: !this.state.toggleOpen })
     }
 
-    scroll = () => {
-        const p = Math.floor(document.documentElement.scrollTop * (this.state.bookMarkPosition/10))
-        window.scrollTo({
-            top: p,
-            behavior: "instant",
-        });
-    }
-
-    onScroll = () => {
-        const { clientHeight, scrollTop, scrollHeight } = document.documentElement;
-        const n = scrollTop / (scrollHeight - clientHeight);
-        this.setState({ scrollPercentage: Math.floor(n * 100)});
-    }
-
-    localStorage = () => {
-        localStorage.setItem('key', this.state.scrollPercentage)
-        this.setState({bookMarkPosition: this.state.scrollPercentage});
-    }
 
     render() {
+
+        const offset = this.state.offset / document.documentElement.scrollHeight;
+        const pos = (this.state.scrollPercentage - offset) * 200;
         return (
             <Container>
-                    <ScrollContainer showBar={this.state.hideBar}>
+                    <ScrollContainer hideBar={this.state.hideBar}>
                         <IconContainer onClick={(e) => {this.showSocials(); this.onClick(e)}}>
                             <Share />
                                     <SocialWrapper toggleOpen={this.state.toggleOpen}>
@@ -75,12 +97,12 @@ class ScrollBar extends Component {
                         <ScrollBarStyles>
                             <Inner
                                 style={{
-                                    height: `${this.state.scrollPercentage}%`
+                                    height: `${pos}%`
                                 }}>
                             </Inner>
                             <Dot />
                         </ScrollBarStyles>
-                            <BookMark onClick={(e) => {this.onClick(e); this.localStorage()}}/>
+                            <BookMark onClick={(e) => {this.onClick(e); this.savePosition()}}/>
                     </ScrollContainer>
             </Container>
         );

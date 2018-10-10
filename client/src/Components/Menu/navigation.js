@@ -3,7 +3,7 @@ import { Li, StyledLink, Ul, Wrapper, SubMenu, SubMenuLi, SubMenuUl, Vr, StyledL
 
 class Navigation extends Component {
     state = {
-        hover: true,
+        hover: false,
         activeIndex: 0,
     };
 

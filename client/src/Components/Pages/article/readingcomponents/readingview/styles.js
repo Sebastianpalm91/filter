@@ -15,6 +15,12 @@ export const Container = styled.div`
     }
 `
 
+export const ReadingTime = styled.span`
+    font-family: dp;
+    font-size: .6rem;
+    text-transform: initial;
+`
+
 export const LoadingArticle = styled.div`
     width: 100%;
     height: 100vh;

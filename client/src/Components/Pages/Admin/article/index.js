@@ -5,7 +5,7 @@ import axios from 'axios';
 import endpoint from '../../../../settings';
 import TextEditor from './textEditor';
 import ArticleInfoInputs from './articleInfoInputs';
-import { AdminPageWrapper, ToggleArticleTypeWrapper, ToggleType, Label, ToggleButton } from './styles';
+import { AdminPageWrapper, ToggleArticleTypeWrapper, ToggleType, Label, ToggleButton, ActionButton, ActionButtonsContainer } from './styles';
 
 
 export const AdminArticleContext = React.createContext();
@@ -119,6 +119,10 @@ class AdminArticle extends Component {
                     </ToggleArticleTypeWrapper>
                     <ArticleInfoInputs isArticle={isArticle} />
                     <TextEditor />
+                    <ActionButtonsContainer>
+                        <ActionButton bg="#E1AB99">Förhandsgranska</ActionButton>
+                        <ActionButton bg="#B0E199">Publicera</ActionButton>
+                    </ActionButtonsContainer>
                 </AdminPageWrapper>
             </AdminArticleContext.Provider>
         );

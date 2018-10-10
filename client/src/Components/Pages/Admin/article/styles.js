@@ -48,3 +48,16 @@ export const ToggleButton = styled.div`
         position: absolute;
     }
 `
+export const ActionButtonsContainer = styled.div`
+    width: 50%;
+    margin: 20px 0;
+`
+
+export const ActionButton = styled.button`
+    color: #1A1A1A;
+    background: ${props => props.bg};
+    width: 45%;
+    border-radius: 6px;
+    text-transform: uppercase;
+    height: 64px;
+`

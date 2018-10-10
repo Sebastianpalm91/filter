@@ -26,7 +26,7 @@ export const ScrollContainer = styled.div`
     margin-top: 1%;
     left: 8vw;
     transition: all 0.2s ease-in-out;
-    opacity: ${ ({showBar}) => showBar ? '1' : '0'};
+    opacity: ${ (props) => !props.hideBar ? '1' : '0'};
 `
 
 export const ScrollBarStyles = styled.div `
@@ -48,6 +48,7 @@ export const ScrollBarStyles = styled.div `
 export const Inner = styled.div`
     width: 2px;
     background-color: #E1AB99;
+    max-height: 100%;
 `
 
 export const Dot = styled.div`
@@ -146,6 +147,9 @@ export const BookMark = styled.div`
     width: 36px;
     height: 36px;
     transition: all 0.2s cubic-bezier(.51,-0.45,1,1.17);
+    ${breakpoint.down('m')`
+       display: none;
+   `}
     &.active {
         background-image: url(${BookMarkFilledSvg});
     }
@@ -174,6 +178,9 @@ export const Like = styled.div`
     width: 36px;
     height: 36px;
     transition: all 0.2s cubic-bezier(.51,-0.45,1,1.17);
+    ${breakpoint.down('m')`
+       display: none;
+   `}
     &.active {
         background-image: url(${LikeFilledSvg});
     }

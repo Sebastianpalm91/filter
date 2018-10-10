@@ -1,4 +1,4 @@
 export default {
-    uri: 'https://filter-irzylnuxay.now.sh',
-    imgPath: 'https://filter-irzylnuxay.now.sh/public/imgs',
+    uri: 'http://localhost:1337',
+    imgPath: 'http://localhost:1337/public/imgs',
 }
