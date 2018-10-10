@@ -5,6 +5,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
     display: flex;
     justify-content: center;
+    flex-direction: column;
     p, span {
         margin: 0;
     }
@@ -31,10 +32,10 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin-top: 2%;
+    margin: auto;
     width: 43%;
     ${breakpoint.down('m')`
-        width: 100%;
+        width: unset;
         margin: 20px;
     `}
 `
@@ -99,4 +100,11 @@ export const Preamble = styled.div`
 
 export const Highlighted = styled.span`
     color: #E1AB99;
+`
+
+export const Thumbnail = styled.img`
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    width: 100%;
 `

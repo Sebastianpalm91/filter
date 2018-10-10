@@ -51,9 +51,9 @@ class Svg extends Component {
                                     duration={ 500 }
                                     height={ height }
                                     >
-                                    <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} style={{ padding: '10px 0px 0px 0px'}} to='/'>Filter #63</LinkItems></ListItem>
-                                    <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} to='/'>Omgiven av idioti</LinkItems></ListItem>
-                                    <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} to='/'>Den förlorade sonen</LinkItems></ListItem>
+                                    <ListItem><LinkItems onClick={this.toggle.bind(this)} style={{ padding: '10px 0px 0px 0px'}} to='/'>Filter #63</LinkItems></ListItem>
+                                    <ListItem><LinkItems onClick={this.toggle.bind(this)} to='/articles/Omgiven-av-idioti'> Omgiven av idioti</LinkItems></ListItem>
+                                    <ListItem><LinkItems onClick={this.toggle.bind(this)} to='/'>Den förlorade sonen</LinkItems></ListItem>
                                     <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} to='/'>Upptäcksresan</LinkItems></ListItem>
                                     <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} to='/'>Från Sverige med krälek</LinkItems></ListItem>
                                     <ListItem><LinkItems onClick={this.toggleSubMenu.bind(this)} style={{ padding: '0px 0px 10px 0px'}} to='/'>Pernille Fischer Christensen</LinkItems></ListItem>

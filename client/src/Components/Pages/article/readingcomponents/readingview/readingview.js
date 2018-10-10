@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Wrapper, Title, Paragraph, LoadingArticle, ArticleInfoWrapper, InfoName, InfoWork, MagazineNumber, Highlighted, Preamble } from './styles';
+import { Container, Wrapper, Title, Paragraph, LoadingArticle, ArticleInfoWrapper, InfoName, InfoWork, MagazineNumber, Highlighted, Preamble, Thumbnail, } from './styles';
 import ScrollBar from '../scrollbar/';
 import { FaHeadphones, } from 'react-icons/fa';
 import './removeScroll.css';
@@ -23,9 +23,10 @@ class ReadingView extends Component {
     render() {
 
         if (this.props.dataHasloaded) {
-            const { article, article: { name }, illustrations, magazine: { number }, preamble, published_at, tag, title } = this.props;
+            const { article, article: { name }, illustrations, thumbnail, magazine: { number }, preamble, published_at, tag, title } = this.props;
             return (
                 <Container>
+                    <Thumbnail src={`http://localhost:1337/public/imgs/${thumbnail}`}></Thumbnail>
                     <ScrollBar />
                     <Wrapper>
                         <Title>{title}</Title>

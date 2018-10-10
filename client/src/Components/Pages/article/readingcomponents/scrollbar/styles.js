@@ -1,6 +1,15 @@
 import styled from 'styled-components';
-import FacebookIconSvg from '../../../../../assets/img/Fb_footer.svg'
-import TwitterIconSvg from '../../../../../assets/img/Insta_footer.svg'
+import FacebookIconSvg from '../../../../../assets/img/fb_ilfylld.svg'
+import TwitterIconSvg from '../../../../../assets/img/twitter_ifylld.svg'
+import InstagramIconSvg from '../../../../../assets/img/insta_ifylld.svg'
+
+import BookMarkSvg from '../../../../../assets/img/Bookmark.svg'
+import BookMarkFilledSvg from '../../../../../assets/img/Bookmark_ifylld.svg'
+import ShareSvg from '../../../../../assets/img/Share.svg'
+import ShareFilledSvg from '../../../../../assets/img/Share_ifylld.svg'
+import LikeSvg from '../../../../../assets/img/Like.svg'
+import LikeFilledSvg from '../../../../../assets/img/Like_ilfylld.svg'
+
 import { breakpoint } from '../../../../../assets/mixins/mixins.js';
 
 export const Container = styled.div`
@@ -51,13 +60,6 @@ export const Dot = styled.div`
 `
 
 export const BookMarkShareIcons = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 36px;
-    height: 36px;
-    background-color: #E1AB99;
-    border-radius: 50%;
     cursor: pointer;
     ${breakpoint.down('m')`
         display: none;
@@ -68,8 +70,7 @@ export const ShareButton = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 36px;
-    height: 36px;
+
     margin: 12px 10px 12px 0;
     background-color: #E1AB99;
     border-radius: 50%;
@@ -86,20 +87,9 @@ export const SocialButton = styled.div`
     align-items: center;
     width: 32px;
     height: 32px;
-    margin: 12px 10px 12px 0;
     background-color: #E1AB99;
     border-radius: 50%;
-    transition: all 0.4s cubic-bezier(.51,-0.45,1,1.17);
-    cursor: pointer;
-    &:nth-child(1) {
-        transform: ${ ({toggleOpen}) => toggleOpen ? 'none' : 'translateX(calc(-100% - 12px))'}
-    }
-    &:nth-child(2) {
-        transform: ${ ({toggleOpen}) => toggleOpen ? 'none' : 'translateX(calc(-200% - 24px))'}
-    }
-    &:nth-child(3) {
-        transform: ${ ({toggleOpen}) => toggleOpen ? 'none' : 'translateX(calc(-300% - 32px))'}
-    }
+
 `
 
 export const SocialContainer = styled.div`
@@ -112,10 +102,20 @@ export const SocialContainer = styled.div`
 export const SocialWrapper = styled.div`
     display: flex;
     align-items: center;
-    transition: all 0.4s cubic-bezier(.51,-0.45,1,1.17);
     opacity: ${ ({toggleOpen}) => toggleOpen ? '1' : '0'};
     z-index: 1;
     position: relative;
+    transition: all 0.4s cubic-bezier(.51,-0.45,1,1.17);
+    cursor: pointer;
+    &:nth-child(1) {
+        transform: ${ ({toggleOpen}) => toggleOpen ? 'none' : 'translateX(calc(-100%))'}
+    }
+    &:nth-child(2) {
+        transform: ${ ({toggleOpen}) => toggleOpen ? 'none' : 'translateX(calc(-200%))'}
+    }
+    &:nth-child(3) {
+        transform: ${ ({toggleOpen}) => toggleOpen ? 'none' : 'translateX(calc(-300%))'}
+    }
 `
 
 export const IconContainer = styled.div`
@@ -125,23 +125,70 @@ export const IconContainer = styled.div`
         display: none;
     `}
 `
-
-export const FacebookIcon = styled.div`
+//ICONS
+export const Fb = styled.div`
     background-image: url(${FacebookIconSvg});
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     width: 24px;
     height: 24px;
-    margin: 20px;
 `
 
-export const TwitterIcon = styled.div`
+export const Twitter = styled.div`
     background-image: url(${TwitterIconSvg});
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     width: 24px;
     height: 24px;
-    margin: 20px;
+`
+export const Insta = styled.div`
+    background-image: url(${InstagramIconSvg});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 24px;
+    height: 24px;
+`
+
+export const BookMark = styled.div`
+    background-image: url(${BookMarkSvg});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 36px;
+    height: 36px;
+    transition: all 0.2s cubic-bezier(.51,-0.45,1,1.17);
+    &.active {
+        background-image: url(${BookMarkFilledSvg});
+    }
+`
+
+export const Share = styled.div`
+    background-image: url(${ShareSvg});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 36px;
+    height: 36px;
+    position: relative;
+    z-index: 2;
+    transition: all 0.2s cubic-bezier(.51,-0.45,1,1.17);
+    &.active {
+        background-image: url(${ShareFilledSvg});
+    }
+`
+
+export const Like = styled.div`
+    background-image: url(${LikeSvg});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 36px;
+    height: 36px;
+    transition: all 0.2s cubic-bezier(.51,-0.45,1,1.17);
+    &.active {
+        background-image: url(${LikeFilledSvg});
+    }
 `
