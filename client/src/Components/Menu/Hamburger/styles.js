@@ -77,7 +77,7 @@ export const Nav = styled.nav `
     height: 0px;
     width: 100%;
     background-color: #E1AB99;
-    margin-top: 75px;
+    margin-top: 72px;
     opacity: 0;
     transition: all 0.5s ease-in-out;
     ${props => props.active ? `

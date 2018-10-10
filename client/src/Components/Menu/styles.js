@@ -51,23 +51,28 @@ export const SubMenu = styled.div `
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
     ${props => props.active ? `
+        overflow: visible;
         height: 300px;
-        opacity: 1;
     ` : ''};
 `
 
 export const SubMenuUl = styled.ul `
+    display: flex;
     flex-direction: row;
     justify-content: center;
     padding: 0px;
     list-style: none;
     width: 80%;
-    display: none;
+    height: 0px;
     margin: auto;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
     ${props => props.active ? `
-        display: flex;
+        overflow: visible;
+        height: auto;
         margin-right: 156px;
     ` : '' }
 `
@@ -88,7 +93,7 @@ export const SubMenuUlCat = styled.ul `
 `
 
 export const Animation = styled.div`
-    transition: all 1s ease-in-out;
+    transition: all 1s ease-out;
     opacity: 0;
     ${props => props.active ? `
         opacity: 1;

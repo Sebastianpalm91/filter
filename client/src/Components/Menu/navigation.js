@@ -64,7 +64,7 @@ class Navigation extends Component {
                         </StyledLink>
                     </Li>
                 </Ul>
-                <SubMenu active={this.state.hover} onMouseLeave={this.onMouseLeaveHandler}>
+                <SubMenu onMouseEnter={this.onMouseEnterHandler.bind(this, 0)} active={this.state.hover} onMouseLeave={this.onMouseLeaveHandler}>
                     <Animation active={this.state.hover} onMouseEnter={this.onMouseEnterHandler.bind(this, 0)}>
                     {
                         this.state.activeIndex === 0
