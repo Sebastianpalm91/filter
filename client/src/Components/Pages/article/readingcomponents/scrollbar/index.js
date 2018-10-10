@@ -10,6 +10,7 @@ class ScrollBar extends Component {
         scrollPercentage: 0,
         toggleOpen: false,
         hideBar: true,
+        hasBookMarked: false,
         }
 
     componentDidMount() {
@@ -40,6 +41,10 @@ class ScrollBar extends Component {
 
         this.storage.setItem('position', position);
 
+        this.setState({
+            hasBookMarked: true,
+        })
+
     }
 
     setScrollPos = e => {
@@ -52,6 +57,7 @@ class ScrollBar extends Component {
 
         this.setState({
             scrollPercentage: position,
+            hasBookMarked: false,
         });
     }
 
@@ -95,7 +101,7 @@ class ScrollBar extends Component {
                                     height: `${pos}%`
                                 }}>
                             </Inner>
-                            <Dot />
+                            <Dot pos={pos} show={this.state.hasBookMarked} />
                         </ScrollBarStyles>
                             <BookMark onClick={(e) => {this.onClick(e); this.savePosition()}}/>
                     </ScrollContainer>
