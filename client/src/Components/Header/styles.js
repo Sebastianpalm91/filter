@@ -12,6 +12,7 @@ export const Container = styled.div`
     width: 100%;
     height: 72px;
     background-color: #1A1A1A;
+    border-bottom: 4px solid #E1AB99;
 `
 
 export const Wrapper = styled.div `

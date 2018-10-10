@@ -4,6 +4,7 @@ class MobileButton extends Component {
 
     state = {
         toggleOpen: false,
+        NightMode: true,
     }
 
     onClick = ({ target }) => {
@@ -18,23 +19,28 @@ class MobileButton extends Component {
         this.setState({ toggleOpen: !this.state.toggleOpen })
     }
 
+    toggleNightMode = () => {
+        this.setState({ NightMode: !this.state.NightMode })
+    }
+
+
     render() {
         return (
             <Margins>
-            <Container>
-                <Wrapper>
-                    <IconContainer onClick={(e) => {this.showSocials(); this.onClick(e)}}>
-                        <Share />
-                            <SocialsWrapper toggleOpen={this.state.toggleOpen}>
-                                <Fb toggleOpen={this.state.toggleOpen}/>
-                                <Twitter toggleOpen={this.state.toggleOpen}/>
-                                <Insta toggleOpen={this.state.toggleOpen}/>
-                            </SocialsWrapper>
-                    </IconContainer>
-                    <BookMark onClick={(e) => {this.onClick(e)}}/>
-                    <Like onClick={(e) => {this.onClick(e)}}/>
-                </Wrapper>
-            </Container>
+                <Container nightmode={this.state.NightMode}>
+                    <Wrapper>
+                        <IconContainer onClick={(e) => {this.showSocials(); this.onClick(e)}}>
+                            <Share />
+                                <SocialsWrapper toggleOpen={this.state.toggleOpen}>
+                                    <Fb toggleOpen={this.state.toggleOpen}/>
+                                    <Twitter toggleOpen={this.state.toggleOpen}/>
+                                    <Insta toggleOpen={this.state.toggleOpen}/>
+                                </SocialsWrapper>
+                        </IconContainer>
+                        <BookMark onClick={(e) => {this.onClick(e)}}/>
+                        <Like onClick={(e) => {this.onClick(e)}}/>
+                    </Wrapper>
+                </Container>
             </Margins>
         );
     }

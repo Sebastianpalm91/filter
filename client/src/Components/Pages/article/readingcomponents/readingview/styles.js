@@ -78,7 +78,9 @@ export const InfoWork = styled.span`
     ${props => props.nightmode ? 'color: #222222' : 'color: #FCFCF9'};
     text-transform: capitalize;
     font-family: hd;
-    padding-left: ${({ paddingLeft }) => paddingLeft ? '10px' : '0px'}
+    ${breakpoint.up('m')`
+        padding-left: ${({ paddingLeft }) => paddingLeft ? '10px' : '0px'}
+    `}
 `
 
 export const InfoName = styled.span`
