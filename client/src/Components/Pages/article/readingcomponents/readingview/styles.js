@@ -98,7 +98,7 @@ export const Paragraph = styled.p`
 
 export const MagazineNumber = styled.p`
     margin: 10px 0px 0 0!important;
-    font-size: ${props => props.isLarge ? '10px' : '20px'};
+    font-size: ${props => props.isLarge ? '10px' : '16px'};
     font-family dp;
     text-transform: uppercase;
     font-style: normal;

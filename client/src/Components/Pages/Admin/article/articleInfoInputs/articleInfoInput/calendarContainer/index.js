@@ -16,13 +16,13 @@ class CalendarContainer extends Component {
     toggleCalendar = () => this.setState({ showCalendar: !this.state.showCalendar });
 
     handleInputChange = (e) => {
-        const { name, value } = e.target;
-        console.log(value);
+        let { name, value } = e.target;
+        value = value.replace('#', '');
         if (isNaN(value) && isNaN(parseInt(value, 10)))
             return;
 
         this.setState({
-            [name]: `#${value}`
+            [name]: value === '' ? '' : `#${value}`
         });
 
         this.props.handleInputChange(e);

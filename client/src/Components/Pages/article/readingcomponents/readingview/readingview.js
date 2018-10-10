@@ -6,11 +6,20 @@ import './removeScroll.css';
 import Modes from '../modes/';
 import MobileIcons from '../mobile';
 
+import './styles.css';
+
 class ReadingView extends Component {
     state = {
         isHide: false,
         largeFont: true,
         NightMode: true,
+        ImgPreviewSrc: ''
+    }
+
+    componentWillMount() {
+        console.log(this.props.thumbnail);
+        this.previewImage();
+
     }
 
     getEstimatedReadingTime(article) {
@@ -19,6 +28,16 @@ class ReadingView extends Component {
 
         return `${minutes} min`;
     }
+
+    previewImage = () => {
+         const reader = new FileReader();
+         reader.onload = e => {
+             this.setState({
+                 ImgPreviewSrc: e.target.result,
+             })
+         };
+         reader.readAsDataURL(this.props.thumbnail);
+     }
 
     toggleFont = () => {
         this.setState({ largeFont: !this.state.largeFont})
@@ -29,13 +48,13 @@ class ReadingView extends Component {
     }
 
     render() {
-
         if (this.props.dataHasloaded) {
-            const { article, author: { name }, illustrations, thumbnail, magazine: { number }, preamble, published_at, tag, title } = this.props;
+            console.log(this.props);
+            const { article, author: { name }, illustrations, thumbnail, magazine: { number }, preamble, published_at, tag, title, isPreview } = this.props;
             return (
                 <Container nightmode={this.state.NightMode} data-name='article'>
                     <Modes nightmode={this.toggleNightMode.bind(this)} font={this.toggleFont.bind(this)}/>
-                    <Thumbnail src={`http://localhost:1337/public/imgs/${thumbnail}`}></Thumbnail>
+                    <Thumbnail src={ !isPreview ? `http://localhost:1337/public/imgs/${thumbnail}` : this.props.ImgPreviewSrc }></Thumbnail>
                     <ScrollBar />
                     <Wrapper>
                         <Title nightmode={this.state.NightMode} isLarge={this.state.largeFont}>{title}</Title>

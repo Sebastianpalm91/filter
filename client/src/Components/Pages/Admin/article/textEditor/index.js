@@ -98,7 +98,7 @@ class TextEditor extends Component {
                  const newEditorState = this.insertImage(this.state.editorState, e.target.result, file.name);
 
                  this.setState({editorState: newEditorState})
-                 this.setImgSrcToFilename();
+                 // this.setImgSrcToFilename();
              };
              reader.readAsDataURL(file);
          }

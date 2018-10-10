@@ -32,7 +32,7 @@ class ThumbnailInput extends Component {
                 <InputLabel>{label}</InputLabel>
                 <InputWrapper>
                     <InputTitle>{capitalize(title)}</InputTitle>
-                    <FileInput name={name} id={`${title}-file`} type='file' onChange={this.previewImage} />
+                    <FileInput name={name} id={`${title}-file`} type='file' onChange={(e) => { this.previewImage(e); this.props.handleFileUpload(e) }} />
                     <FileInputLabel htmlFor={`${title}-file`}>lägg till</FileInputLabel>
                     {
                         this.state.ImgPreviewSrc && <ImgPreview src={this.state.ImgPreviewSrc} alt="preview" />
