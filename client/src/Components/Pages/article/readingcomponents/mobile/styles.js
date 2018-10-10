@@ -11,7 +11,7 @@ import ShareFilledSvg from '../../../../../assets/img/Share_filled.svg'
 import LikeSvg from '../../../../../assets/img/Likewhite.svg'
 import LikeFilledSvg from '../../../../../assets/img/Like_filledblack.svg'
 
-export const Container = styled.div `
+export const MobileContainer = styled.div `
     opacity: 0;
     transform: translateY(20px);
     ${breakpoint.down('m')`
@@ -30,7 +30,7 @@ export const Container = styled.div `
     `}
 `
 
-export const Wrapper = styled.div `
+export const MobileWrapper = styled.div `
     display: none;
     ${breakpoint.down('m')`
         display: flex;

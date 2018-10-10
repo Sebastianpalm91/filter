@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Container, Wrapper, Title, Paragraph, LoadingArticle, ArticleInfoWrapper, InfoName, InfoWork, MagazineNumber, Highlighted, Preamble, Thumbnail,ReadingTime } from './styles';
+import { Container, Wrapper, Title, Paragraph, LoadingArticle, ArticleInfoWrapper, InfoName, InfoWork, MagazineNumber, Highlighted, Preamble, Thumbnail, ReadingTime, MobileContainer, MobileWrapper, IconContainer, SocialsWrapper, Margins, Share, Like, BookMark, Fb, Twitter, Insta } from './styles';
 import ScrollBar from '../scrollbar/';
 import { FaHeadphones, } from 'react-icons/fa';
 import './removeScroll.css';
 import Modes from '../modes/';
-import MobileIcons from '../mobile';
 
 import './styles.css';
 
@@ -13,13 +12,13 @@ class ReadingView extends Component {
         isHide: false,
         largeFont: true,
         NightMode: true,
-        ImgPreviewSrc: ''
+        ImgPreviewSrc: '',
+        toggleOpen: false,
     }
 
     componentWillMount() {
         console.log(this.props.thumbnail);
         this.previewImage();
-
     }
 
     getEstimatedReadingTime(article) {
@@ -36,8 +35,15 @@ class ReadingView extends Component {
                  ImgPreviewSrc: e.target.result,
              })
          };
-         reader.readAsDataURL(this.props.thumbnail);
      }
+
+    onClick = ({ target }) => {
+        if (target.classList.toggle('active')) {
+            [...target.parentNode.children].forEach(x => x.classList.remove('active'));
+            target.classList.add('active');
+            console.log('2');
+        }
+    }
 
     toggleFont = () => {
         this.setState({ largeFont: !this.state.largeFont})
@@ -47,6 +53,10 @@ class ReadingView extends Component {
         this.setState({ NightMode: !this.state.NightMode })
     }
 
+    showSocials = (e) => {
+        this.setState({ toggleOpen: !this.state.toggleOpen })
+    }
+
     render() {
         if (this.props.dataHasloaded) {
             console.log(this.props);
@@ -54,7 +64,7 @@ class ReadingView extends Component {
             return (
                 <Container nightmode={this.state.NightMode} data-name='article'>
                     <Modes nightmode={this.toggleNightMode.bind(this)} font={this.toggleFont.bind(this)}/>
-                    <Thumbnail src={ !isPreview ? `http://localhost:1337/public/imgs/${thumbnail}` : this.props.ImgPreviewSrc }></Thumbnail>
+                    <Thumbnail src={`http://localhost:1337/public/imgs/${thumbnail}`}></Thumbnail>
                     <ScrollBar />
                     <Wrapper>
                         <Title nightmode={this.state.NightMode} isLarge={this.state.largeFont}>{title}</Title>
@@ -74,7 +84,22 @@ class ReadingView extends Component {
                         </Preamble>
                         <Paragraph nightmode={this.state.NightMode} isLarge={this.state.largeFont} dangerouslySetInnerHTML={{ __html: article }}></Paragraph>
                     </Wrapper>
-                    <MobileIcons nightmode={this.toggleNightMode.bind(this)}/>
+                    <Margins>
+                        <MobileContainer nightmode={this.state.NightMode}>
+                            <MobileWrapper>
+                                <IconContainer onClick={(e) => {this.showSocials(); this.onClick(e)}}>
+                                    <Share />
+                                        <SocialsWrapper toggleOpen={this.state.toggleOpen}>
+                                            <Fb nightmode={this.state.NightMode} toggleOpen={this.state.toggleOpen}/>
+                                            <Twitter nightmode={this.state.NightMode} toggleOpen={this.state.toggleOpen}/>
+                                            <Insta nightmode={this.state.NightMode} toggleOpen={this.state.toggleOpen}/>
+                                        </SocialsWrapper>
+                                </IconContainer>
+                                <BookMark onClick={(e) => {this.onClick(e)}}/>
+                                <Like onClick={(e) => {this.onClick(e)}}/>
+                            </MobileWrapper>
+                        </MobileContainer>
+                    </Margins>
                 </Container>
             );
         } else {
