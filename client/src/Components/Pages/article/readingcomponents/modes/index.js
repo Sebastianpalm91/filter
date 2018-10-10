@@ -30,13 +30,13 @@ class MobileButton extends Component {
             <Container>
                 <Wrapper>
                     <Mode onClick={(e) => {this.onClick(e); this.showSocials(e); this.toggleNightMode()}}/>
-                    <ModeBox toggleOpen={this.state.toggleOpen}>
+                    <ModeBox nightMode={this.state.NightMode} toggleOpen={this.state.toggleOpen}>
                         <Row>
                             <SmallFont onClick={this.props.font}/>
                             <BigFont onClick={this.props.font}/>
                         </Row>
                         <Paragraph>night mode</Paragraph>
-                        <NightMode nightMode={this.state.NightMode} onClick={this.props.nightmode}/>
+                        <NightMode nightMode={this.state.NightMode} onClick={() => {this.props.nightmode(); this.toggleNightMode()}}/>
                     </ModeBox>
                 </Wrapper>
             </Container>
