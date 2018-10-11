@@ -53,6 +53,8 @@ export const Inner = styled.div`
 
 export const Dot = styled.div`
     width: 10px;
+    transition: all .25s ease-in;
+    transform: scale(${({ show }) => show ? '1' : '0' });
     height: 10px;
     border-radius: 50%;
     background-color: black;

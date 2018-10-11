@@ -4,6 +4,7 @@ import ScrollBar from '../scrollbar/';
 import { FaHeadphones, } from 'react-icons/fa';
 import './removeScroll.css';
 import Modes from '../modes/';
+import endpoint from '../../../../../settings';
 
 import './styles.css';
 
@@ -64,7 +65,7 @@ class ReadingView extends Component {
             return (
                 <Container nightmode={this.state.NightMode} data-name='article'>
                     <Modes nightmode={this.toggleNightMode.bind(this)} font={this.toggleFont.bind(this)}/>
-                    <Thumbnail src={`http://localhost:1337/public/imgs/${thumbnail}`}></Thumbnail>
+                    <Thumbnail src={`${endpoint.imgPath}/imgs/${thumbnail}`}></Thumbnail>
                     <ScrollBar />
                     <Wrapper>
                         <Title nightmode={this.state.NightMode} isLarge={this.state.largeFont}>{title}</Title>
