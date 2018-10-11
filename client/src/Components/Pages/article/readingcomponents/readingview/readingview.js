@@ -60,7 +60,7 @@ class ReadingView extends Component {
     render() {
         if (this.props.dataHasloaded) {
             console.log(this.props);
-            const { article, author: { name }, illustrations, thumbnail, magazine: { number }, preamble, published_at, tag, title, isPreview } = this.props;
+            const { article, author: { name }, illustrations, thumbnail, magazine: { number }, preamble, published_at, tag, title } = this.props;
             return (
                 <Container nightmode={this.state.NightMode} data-name='article'>
                     <Modes nightmode={this.toggleNightMode.bind(this)} font={this.toggleFont.bind(this)}/>
