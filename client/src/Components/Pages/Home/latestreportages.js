@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { ReportageImgLeft, ReportageImgMiddle, ReportageImgRight, ArciveContainer, ArciveWrapper, ReportageTitle, ReportageInfo, TextWrapper, FlexWrapper, CredentialColor, CredentialsWrapper } from './styles'
+import { ReportageImgLeft, ReportageImgMiddle, ReportageImgRight, ArciveContainer, ArciveWrapper, ReportageTitle, ReportageInfo, FlexWrapper, CredentialColor, CredentialsWrapper, TextWrapper1 } from './styles'
 class LatestReportages extends PureComponent {
 
     render() {
@@ -8,7 +8,7 @@ class LatestReportages extends PureComponent {
                 <FlexWrapper>
                     <ArciveWrapper>
                         <ReportageImgLeft />
-                        <TextWrapper>
+                        <TextWrapper1>
                             <ReportageTitle>
                                 »Jag är en extremsportare inom konsten«
                             </ReportageTitle>
@@ -22,11 +22,11 @@ class LatestReportages extends PureComponent {
                             <CredentialsWrapper>
                                 FOTO: <CredentialColor>MAGNUS BERGSTRÖM</CredentialColor>
                             </CredentialsWrapper>
-                        </TextWrapper>
+                        </TextWrapper1>
                     </ArciveWrapper>
                     <ArciveWrapper>
                         <ReportageImgMiddle />
-                        <TextWrapper>
+                        <TextWrapper1>
                             <ReportageTitle>
                                 »Jag fann extraktet av mänsklig kamp«
                             </ReportageTitle>
@@ -40,11 +40,11 @@ class LatestReportages extends PureComponent {
                             <CredentialsWrapper>
                                 FOTO: <CredentialColor>MAGNUS BERGSTRÖM</CredentialColor>
                             </CredentialsWrapper>
-                        </TextWrapper>
+                        </TextWrapper1>
                     </ArciveWrapper>
                     <ArciveWrapper>
                         <ReportageImgRight />
-                        <TextWrapper>
+                        <TextWrapper1>
                             <ReportageTitle>
                                 »Mitt personbästa är 62 meter under vattnet«
                             </ReportageTitle>
@@ -58,7 +58,7 @@ class LatestReportages extends PureComponent {
                             <CredentialsWrapper>
                                 FOTO: <CredentialColor>MAGNUS BERGSTRÖM</CredentialColor>
                             </CredentialsWrapper>
-                        </TextWrapper>
+                        </TextWrapper1>
                     </ArciveWrapper>
                 </FlexWrapper>
             </ArciveContainer>

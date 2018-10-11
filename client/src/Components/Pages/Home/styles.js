@@ -226,10 +226,13 @@ export const ReportageInfo = styled.h2`
 export const TextWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    max-width: 353px;
     ${breakpoint.down('s')`
-
+        max-width: 353px;
     `}
+`
+
+export const TextWrapper1 = styled.div`
+    max-width: 353px;
 `
 
 export const ReportageImgLeft = styled.div `
@@ -292,8 +295,7 @@ export const IntervjueImgLeft = styled.div `
     background-image: url(${IntervjueImgFirst});
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
-    width: 352px;
+    background-size: cover;
     height: 197.16px;
     ${breakpoint.down('s')`
         height: 88.3px;
@@ -346,8 +348,7 @@ export const ConversationImgLeft = styled.div `
     background-image: url(${ConversationImgFirst});
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
-    width: 352px;
+    background-size: cover;
     height: 197.16px;
     ${breakpoint.down('s')`
         width: unset;

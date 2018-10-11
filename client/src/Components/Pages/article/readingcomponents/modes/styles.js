@@ -49,7 +49,7 @@ export const ModeBox = styled.div`
     border-radius: 10px;
     width: 158.17px;
     height: 144px;
-    transition: all 0.4s cubic-bezier(.51,-0.45,1,1.17);
+    transition: all 0.2s cubic-bezier(.51,-0.45,1,1.17);
     opacity: ${ ({toggleOpen}) => toggleOpen ? '1' : '0'};
 `
 

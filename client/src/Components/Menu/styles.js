@@ -52,7 +52,7 @@ export const SubMenu = styled.div `
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.5s ease-in-out;
     ${props => props.active ? `
         overflow: visible;
         height: 300px;

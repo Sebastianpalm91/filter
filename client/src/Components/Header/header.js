@@ -12,7 +12,7 @@ class Header extends Component {
     render() {
         return (
             <Container>
-                <StyledLink to='/'><Back alt="Back"></Back></StyledLink>
+                <StyledLink to=''><Back alt="Back"></Back></StyledLink>
                 <Wrapper>
                     <StyledLink to='/'><Logo  alt="Logo-Hem"></Logo></StyledLink>
                 </Wrapper>

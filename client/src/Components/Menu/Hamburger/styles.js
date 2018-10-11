@@ -4,15 +4,11 @@ import { breakpoint } from '../../../assets/mixins/mixins';
 
 export const Container = styled.div`
     height: 100%;
-    width: 100%;
-    z-index: 99;
 `;
 
 export const Wrapper = styled.div`
     display: none;
-    width: 100%;
     position: absolute;
-    z-index: 99;
     ${breakpoint.down('m')`
         display: block;
     `}
@@ -75,7 +71,7 @@ export const Nav = styled.nav `
     display: flex;
     justify-content: center;
     height: 0px;
-    width: 100%;
+    width: 100vw;
     background-color: #E1AB99;
     margin-top: 72px;
     opacity: 0;

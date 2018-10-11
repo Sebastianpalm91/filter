@@ -9,7 +9,6 @@ import { breakpoint } from '../../assets/mixins/mixins.js';
 export const Container = styled.div`
     display: flex;
     justify-content: center;
-    width: 100%;
     height: 72px;
     background-color: #1A1A1A;
     ${breakpoint.down('m')`
